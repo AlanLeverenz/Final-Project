@@ -18,10 +18,8 @@ module.exports = {
       db.User
         .create(userData)
         .then(dbModel => {
-          // setting the client cookie
-          res.cookie("userId", dbModel._id, { expires: new Date(Date.now() + 900000), httpOnly: false })
-          // set the session
-          req.session.userId = dbModel._id;
+          // save to the session
+          req.session.user = dbModel;
           return res.json(dbModel)
         })
         .catch(err => res.status(422).json(err));
@@ -40,11 +38,11 @@ module.exports = {
           return next(err);
         } else {
           console.log(`login: `, user._id);
-          res.cookie("userId", user._id, { expires: new Date(Date.now() + 900000), httpOnly: false })
-          req.session.userId = user._id;
-          console.log('redirect');
-          return res.redirect('/articles');
-          return res.redirect('/api/profile');
+          req.session.user = user;
+          return res.json(user);
+          // console.log('redirect');
+          // return res.redirect('/articles');
+          // return res.redirect('/api/profile');
         }
       });
     } else {
@@ -57,20 +55,11 @@ module.exports = {
   authenticate: function( req, res, next){
     console.log("inside auth");
     console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
-    db.User.findById(req.session.userId)
-    .exec(function (error, user) {
-      if (error) {
-        return next(error);
-      } else {
-        if (user === null) {
-          res.cookie('userId','').status(401);
-          return res.json('Not authorized! Go back!');
-        } else {
-          res.cookie("userId", user._id, { expires: new Date(Date.now() + 900000), httpOnly: false })
-          return res.json(true);
-          return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
-        }
-      }
-    });
+
+    if(req.session.user) {
+      return res.json(req.session.user);
+    } else {
+      return res.status(401).json('Not authorized! Go back!');
+    }
   }
 };

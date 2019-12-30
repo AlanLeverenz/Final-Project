@@ -88,7 +88,7 @@ class Signup extends Component {
           
         </Row>
         {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/articles'/>: <div></div>}
+        {this.props.authenticated ? <Redirect to='/'/>: <div></div>}
 
 
       </Container>

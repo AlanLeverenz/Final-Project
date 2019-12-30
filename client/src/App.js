@@ -42,6 +42,7 @@ class App extends React.Component {
     <Router>
       <div>
         <Nav />
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
