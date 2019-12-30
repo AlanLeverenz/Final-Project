@@ -13,8 +13,8 @@ function scrape(input) {
             language: 'en',
         }).then(response => {
             // console.log("Article Array:", response);
-            articles = response.articles.slice(0, 1);
-            // console.log("Article Array:", articles);
+            articles = response.articles.slice(0, 5);
+            console.log("Article Response:", articles);
             let promises = [];
             articles.forEach(article => {
                 promises.push(axios({
@@ -54,45 +54,4 @@ function scrape(input) {
 
 module.exports = scrape;
 
-
-// for (var i=0; i<5; i++) {
-//     result.push()
-//     console.log("[i] ===== TWINWORD ======= ");
-//     axios({
-//         "method":"GET",
-//         "url":"https://twinword-sentiment-analysis.p.rapidapi.com/analyze/",
-//         "headers":{
-//         "content-type":"application/x-www-form-urlencoded",
-//         "x-rapidapi-host":"twinword-sentiment-analysis.p.rapidapi.com",
-//         "x-rapidapi-key":"bcbc7d6dd8msh5e1eb73a59e842fp1df3fcjsnd9394db0f416"
-//         },"params":
-//             {
-//             "text": content
-//             }
-//         })
-//         .then((response)=>{
-//             console.log(response.data)
-//         })
-//         .catch((error)=>{
-//             console.log(error)
-//         });
-//     };
-
-// const newsapi = require('newsapi-wrapper');
-
-// newsapi
-//     .setApiKey('xxxxyyyzzz')
-//     .setCountry('ca')
-//     .setCategory('sports')
-//     .setPageSize(25)
-//     .send()
-//     .then(response => {
-//         console.log(`Results: ${response.totalResults}`);
-//         response.articles.forEach(article => {
-//             console.log(article.title);
-//         });
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
 

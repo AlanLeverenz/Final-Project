@@ -35,10 +35,10 @@ export default {
     return axios.post("/api/user/authenticate/", xhrHeader)
   },
 
-  news: {
-    get: function(query) {
+  // search news using query (hand to server to get newsapi/twinwords results)
+  searchNews: function(query) {
+      console.log("CLIENT: API searchNews: " + query);
       return axios.get("/api/news/" + query)
-    }
   }
 
 };

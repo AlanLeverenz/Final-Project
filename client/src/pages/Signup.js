@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import API from "../utils/API";
-import {  Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
@@ -32,7 +32,6 @@ class Signup extends Component {
         email: this.state.email,
         password: this.state.password,
         passwordConf: this.state.passwordConf,
-
       })
         .then(res => {
           if(res.status === 200 ){
@@ -67,14 +66,14 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="(required)"
+                placeholder="password (required)"
                 type="password"
               />
               <Input
                 value={this.state.passwordConf}
                 onChange={this.handleInputChange}
                 name="passwordConf"
-                placeholder="(required)"
+                placeholder="confirm password (required)"
                 type="password"
               />
               

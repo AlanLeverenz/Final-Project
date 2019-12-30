@@ -1,25 +1,33 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const articleschema = new Schema({
-  // query
-  query: {
-    type: String,
-    required: false,
-    unique: { index: { unique: true }}
-  },
-  // headline, a string, must be entered
-  author: {
+const articleSchema = new Schema({
+  // manually entered key:
+  key: {
     type: String,
     required: true,
     unique: { index: { unique: true } }
   },
-  // title, a string, must be entered
+  // query
+  query: {
+    type: String,
+    required: false,
+  },
+  // article source
+  source: { 
+    id: String, 
+    name: String },
+  // headline, a string
+  author: {
+    type: String,
+    required: false
+  },
+  // title, a string
   title: {
     type: String,
     required: false
   },
-  // url to article, a string, must be entered
+  // url to article
   url: {
     type: String,
     required: true
@@ -77,7 +85,7 @@ score: {
   }
 });
 
-const Article = mongoose.model("Article", articleschema);
+const Article = mongoose.model("Article", articleSchema);
 
 module.exports = Article;
 

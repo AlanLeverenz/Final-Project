@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import API from "../utils/API";
-import {  Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
@@ -11,8 +11,9 @@ class Login extends Component {
       password: ""
     };
     
-  componentDidMount() {
-  }
+  // componentWillMount() {
+  // this.props.authenticate
+  // }
   
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -32,7 +33,7 @@ class Login extends Component {
           if(res.status === 200 ){
             this.props.authenticate();
             return <Redirect to="/articles" />
-          }
+          } 
         })
         .catch(err => console.log(err));
     }
@@ -63,7 +64,7 @@ class Login extends Component {
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Article
+                Login
               </FormBtn>
             </form>
           </Col>
