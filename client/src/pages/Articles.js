@@ -11,7 +11,8 @@ import { Input, FormBtn } from "../components/Form";
 
 class articles extends Component {
   state = {
-    query: "",
+    query : "",
+    articles: []
   };
 
   componentDidMount() {
@@ -20,15 +21,17 @@ class articles extends Component {
 
   loadArticles = () => {
     API.getArticles()
-      .then(res =>
-        this.setState({ articles: res.data, title: "", score: "", type: "" })
+      .then(res => {
+        this.setState({ 
+          data: res
+        })}
       )
       .catch(err => console.log(err));
   };
 
   deleteArticle = id => {
     API.deleteArticle(id)
-      .then(res => this.loadarticles())
+      .then(res => this.loadArticles())
       .catch(err => console.log(err));
   };
 
@@ -65,13 +68,12 @@ class articles extends Component {
                 value={this.state.title}
                 onChange={this.handleInputChange}
                 name="title"
-                placeholder="Title (required)"
+                placeholder="Query (required)"
               />
               <FormBtn
                 disabled={!(this.state.score && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Article
+                onClick={this.handleFormSubmit}>
+                Submit Query
               </FormBtn>
             </form>
           </Col>

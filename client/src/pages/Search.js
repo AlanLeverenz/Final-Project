@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import SearchForm from "./SearchForm";
-import ResultList from "./ResultList";
+import SearchForm from "../components/SearchForm";
+import ResultList from "../components/ResultList";
 import API from "../utils/API";
 
-class SearchResultContainer extends Component {
+class Search extends Component {
   state = {
     search: "",
     results: []
   };
 
   // When this component mounts, search 
-  componentDidMount() {
-    this.searchNews("impeachment");
-  }
+  // componentWillMount() {
+  //   this.searchNews("impeachment");
+  // }
 
   searchNews = query => {
-    API.search(query)
-      .then(res => this.setState({ results: res.data.data }))
+    console.log(query);
+    API.searchNews(query)
+      .then(res => this.setState({ results: res.data }))
       .catch(err => console.log(err));
   };
 
@@ -28,10 +29,10 @@ class SearchResultContainer extends Component {
     });
   };
 
-  // When the form is submitted, search the Giphy API for `this.state.search`
+  // When the form is submitted, search the NewsAPI for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchGiphy(this.state.search);
+    this.searchNews(this.state.search);
   };
 
   render() {
@@ -48,4 +49,4 @@ class SearchResultContainer extends Component {
   }
 }
 
-export default SearchResultContainer;
+export default Search;
