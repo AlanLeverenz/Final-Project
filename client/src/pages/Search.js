@@ -14,10 +14,12 @@ class Search extends Component {
   //   this.searchNews("impeachment");
   // }
 
-  searchNews = query => {
-    console.log(query);
-    API.searchNews(query)
-      .then(res => this.setState({ results: res.data }))
+  searchNews = () => {
+    console.log(this.state.search);
+    API.searchNews(this.state.search)
+      .then(res => 
+        this.setState({ 
+          results: res.data }))
       .catch(err => console.log(err));
   };
 
