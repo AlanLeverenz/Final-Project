@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList";
+import Articles from "../pages/Articles";
 import API from "../utils/API";
 
 class Search extends Component {
@@ -46,6 +47,11 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.results} />
+
+        {/* {this.props.state.authenticated 
+          ? <Articles auth/>
+          : <Articles />} */}
+        
       </div>
     );
   }

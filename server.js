@@ -11,7 +11,13 @@ var session = require('express-session')
 app.use(morgan("dev"));
 
 //use sessions for tracking logins
-app.use(session({secret: 'keyboard cat', cookie:{}}));
+app.use(session({
+  name: "__id",
+  secret: 'keyboard cat', 
+  cookie:{},
+  resave: true,
+  saveUninitialized: false
+}));
 
 
 // Define middleware here
@@ -27,7 +33,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mongoSentiment");
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/mongoSentiment", 
+  { useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
 
 // Start the API server
 app.listen(PORT, function() {
