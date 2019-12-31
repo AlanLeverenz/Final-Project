@@ -7,7 +7,7 @@ import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Search from "./pages/Search";
 import Nav from "./components/Nav";
-import {/* getCookie, */ authenticateUser} from "./utils/handleSessions";
+import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
 
 
 class App extends React.Component {
@@ -21,6 +21,13 @@ class App extends React.Component {
 
   authenticate = () => authenticateUser()
     .then(auth => this.setState({authenticated: auth.data, loading:false}))
+    .catch(err => console.log(err))
+  
+  logout = () => logOut()
+    .then(res => {
+      console.log('redirecting');
+      this.authenticate()
+    })
     .catch(err => console.log(err))
 
   componentWillMount(){
@@ -41,15 +48,13 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav />
-
+        <Nav logout={this.logout}/>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <Route exact path="/articles" component={Articles} />
+          <Route path="/articles" component={Articles} />
          {/*   <this.PrivateRoute exact path="/articles" component={Articles} /> */}
-          <Route exact path="/search" component={Search} />
           <Route component={NoMatch} />
         </Switch>
       </div>

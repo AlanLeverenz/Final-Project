@@ -10,13 +10,13 @@ import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
 class articles extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
     this.state = {
-      query: "",
+      query : "",
       articles: []
     };
-
+  
   }
 
   componentDidMount() {
@@ -27,10 +27,9 @@ class articles extends Component {
   loadArticles = () => {
     API.getArticles()
       .then(res => {
-        this.setState({
+        this.setState({ 
           data: res
-        })
-      }
+        })}
       )
       .catch(err => console.log(err));
   };
@@ -65,13 +64,13 @@ class articles extends Component {
     console.log(this.props);
 
     return (
-      <div>
-        <Container fluid >
-
-          <Row>
-            {/* <Col size="md-6">
-            <Jumbotron>
-              <h1>Query for a news topic</h1>
+      
+      <Container fluid >
+       
+        <Row>
+          <Col size="md-6">
+            <Jumbotron className="gray">
+              <h1>disabled</h1>
             </Jumbotron>
             <form>
               <Input
@@ -86,35 +85,30 @@ class articles extends Component {
                 Submit Query
               </FormBtn>
             </form>
-          </Col> */}
-            {/* <Col size="md-6 sm-12"> */}
-            <Col size="sm-12">
-              <Jumbotron>
-                <h1>Articles On My List</h1>
-              </Jumbotron>
-              {this.state.articles.length ? (
-                <List>
-                  {this.state.articles.map(article => (
-                    <ListItem key={article._id}>
-                      <Link to={"/articles/" + article._id}>
-                        <strong>
-                          {article.title}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                  <h3>No Results to Display</h3>
-                )}
-            </Col>
-          </Row>
-        </Container>
-        
-
-       </div>
-
+          </Col>
+          <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Articles On My List</h1>
+            </Jumbotron>
+            {this.state.articles.length ? (
+              <List>
+                {this.state.articles.map(article => (
+                  <ListItem key={article._id}>
+                    <Link to={"/articles/" + article._id}>
+                      <strong>
+                        {article.title}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

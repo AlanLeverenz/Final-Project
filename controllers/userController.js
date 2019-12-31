@@ -61,5 +61,18 @@ module.exports = {
     } else {
       return res.status(401).json('Not authorized! Go back!');
     }
+  },
+  logOut: function( req, res, next){
+    console.log("Logging out");
+    console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
+
+    req.session.destroy(err =>{
+      if(err) res.json(err);
+      console.log('destroied');
+      console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
+
+      return res.json('logged out')
+    });
+
   }
 };
