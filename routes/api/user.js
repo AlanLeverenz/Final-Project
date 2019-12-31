@@ -9,6 +9,10 @@ router.route("/signup")
 router.route("/authenticate")
   .post(userController.authenticate);
   
+// Matches with "/api/user/logout"
+router.route("/logout")
+  .get(userController.logOut);
+  
 // Matches with "/api/user"
 router.route("/")
   .post(userController.login);
