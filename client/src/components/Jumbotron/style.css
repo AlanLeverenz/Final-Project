@@ -1,4 +1,5 @@
 .jumbotron {
     background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 0 1rem 0;
+    padding: 3rem 2rem 1rem !important
 }

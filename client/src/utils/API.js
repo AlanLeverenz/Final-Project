@@ -36,9 +36,8 @@ export default {
   },
 
   // search news using query (hand to server to get newsapi/twinwords results)
-  searchNews: function(query) {
-      console.log("CLIENT: API searchNews: " + query);
-      return axios.get("/api/news/" + query)
+  searchNews: function(search) {
+      console.log("CLIENT API search: " + search);
+      return axios.post("/api/news/" + search)
   }
-
 };

@@ -1,5 +1,7 @@
-.delete-btn {
-  float: right;
-  color: #e74944;
+.btn-primary {
+  /* float: right; */
+  background-color: #39b55e !important;
+  border-color: #39b55e !important;
+  color: white
 }
 div{cursor: pointer;}

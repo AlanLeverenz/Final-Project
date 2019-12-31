@@ -1,20 +1,30 @@
 // Controller for our scraper
 // ============================
 const db = require("../models");
-const scrape = require("../scripts/scrape");
+const getNews = require("../scripts/scrape");
 
 module.exports = {
 
-  getNews: function(req, res) {
+  findAll: function(req, res) {
+
+      console.log("REQUEST TO SEARCH CONTROLLER: " + req.query);
+
       console.log(req.params.query);
-      // var query = req.body.toLowerCase();
+
       const input = req.params.query
+      // join search words with hyphen
       const newsSearch = input.split(" ").join("-");
+
       console.log("NEWSEARCH = " + newsSearch);
-      return scrape(newsSearch)
+
+      return getNews(newsSearch)
+
       .then(function(articles) {
+
         console.log(articles)
-        // redirect back to client
+
+        res.json(articles)
+        // can compare to saved articles here, or save directly
         // return db.Article.create(articles);
       })
       .catch(function(err) {
