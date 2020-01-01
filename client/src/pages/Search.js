@@ -3,7 +3,6 @@ import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import Article from "../components/Article";
-// import Articles from "../pages/Articles";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
@@ -45,13 +44,14 @@ class Search extends Component {
     );
   };
 
+
   // When the form is submitted, search the NewsAPI for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchNews(this.state.search);
+    this.searchNews();
   };
 
-  // need to insert into a Users collection Article array
+  // eventually need to insert into a Users collection Article array
   handleArticleSave = id => {
     const article = this.state.articles.find(article => article.id === id);
 

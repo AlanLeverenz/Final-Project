@@ -1,122 +1,93 @@
 // home page
 
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
+import Card from "../components/Card";
+import Article from "../components/Article";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+import { List } from "../components/List";
 // import { Input, FormBtn } from "../components/Form";
 
-class articles extends Component {
+class Saved extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      query: "",
       articles: []
     };
-
   }
 
-  componentDidMount() {
-    this.loadArticles();
+  // componentDidMount() {
+  //   this.getSavedArticles();
+  // }
 
-  }
-
-  loadArticles = () => {
-    API.getArticles()
+  getSavedArticles = () => {
+    API.getSavedArticles()
       .then(res => {
         this.setState({
-          data: res
+          articles: res.data
         })
       }
-      )
-      .catch(err => console.log(err));
+    )
+    .catch(err => console.log(err));
   };
 
-  deleteArticle = id => {
+  handleArticleDelete = id => {
     API.deleteArticle(id)
-      .then(res => this.loadArticles())
+      .then(res => this.getSavedArticles())
       .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.score) {
-      API.saveArticle({
-        title: this.state.title,
-        score: this.state.score,
-        type: this.state.type
-      })
-        .then(res => this.loadarticles())
-        .catch(err => console.log(err));
-    }
   };
 
   render() {
-    console.log(this.props);
-
     return (
-      <div>
-        <Container fluid >
-
-          <Row>
-            {/* <Col size="md-6">
+      <Container>
+        <Row>
+          <Col size="md-12">
             <Jumbotron>
-              <h1>Query for a news topic</h1>
+              <h1 className="text-center">
+                <strong>NewsIt</strong>
+              </h1>
             </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Query (required)"
-              />
-              <FormBtn
-                disabled={!(this.state.score && this.state.title)}
-                onClick={this.handleFormSubmit}>
-                Submit Query
-              </FormBtn>
-            </form>
-          </Col> */}
-            {/* <Col size="md-6 sm-12"> */}
-            <Col size="sm-12">
-              <Jumbotron>
-                <h1>Articles On My List</h1>
-              </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card title="Saved Articles" icon="download">
               {this.state.articles.length ? (
                 <List>
                   {this.state.articles.map(article => (
-                    <ListItem key={article._id}>
-                      <Link to={"/articles/" + article._id}>
-                        <strong>
-                          {article.title}
-                        </strong>
-                      </Link>
-                      <DeleteBtn onClick={() => this.deleteArticle(article._id)} />
-                    </ListItem>
+                    <Article
+                      source={article.source.name}
+                      author={article.author}
+                      title={article.title}
+                      description={article.description}
+                      url={article.url}
+                      publishedAt={article.publishedAt}
+                      content={article.content}
+                      type={article.type}
+                      score={article.score}
+                      ratio={article.ratio}
+                      DeleteBtn={() => (
+                        <button
+                          onClick={() => this.handleArticleDelete(article._id)}
+                          className="btn btn-danger ml-2"
+                        >
+                          Delete
+                        </button>
+                        )}
+                      />
                   ))}
                 </List>
               ) : (
-                  <h3>No Results to Display</h3>
-                )}
-            </Col>
-          </Row>
-        </Container>
-        
-
-       </div>
-
+                <h2 className="text-center">No Saved Articles</h2>
+              )}
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
-export default articles;
+export default Saved;
