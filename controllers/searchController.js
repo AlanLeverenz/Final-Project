@@ -7,13 +7,12 @@ module.exports = {
 
   getNews: function(req, res) {
 
-    const { query: params } = req;
-    console.log(params);
-    const newsQuery = params.split(" ").join("-");
+    const newsQuery = req.params.query.split(" ").join("-");
     return getNews(newsQuery)
     .then(function(articles) {
-      console.log(articles)
+
       res.json(articles)
+      console.log(articles)
 
       // could compare to saved articles here, or save directly
       // return db.Article.create(articles);
