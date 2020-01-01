@@ -5,33 +5,24 @@ const getNews = require("../scripts/scrape");
 
 module.exports = {
 
-  findAll: function(req, res) {
+  getNews: function(req, res) {
 
-      console.log("REQUEST TO SEARCH CONTROLLER: " + req.query);
+    const { query: params } = req;
+    console.log(params);
+    const newsQuery = params.split(" ").join("-");
+    return getNews(newsQuery)
+    .then(function(articles) {
+      console.log(articles)
+      res.json(articles)
 
-      console.log(req.params.query);
-
-      const input = req.params.query
-      // join search words with hyphen
-      const newsSearch = input.split(" ").join("-");
-
-      console.log("NEWSEARCH = " + newsSearch);
-
-      return getNews(newsSearch)
-
-      .then(function(articles) {
-
-        console.log(articles)
-
-        res.json(articles)
-        // can compare to saved articles here, or save directly
-        // return db.Article.create(articles);
-      })
-      .catch(function(err) {
-        res.json({
-          message: "Search error!!",
-          error: err
-        });
+      // could compare to saved articles here, or save directly
+      // return db.Article.create(articles);
+    })
+    .catch(function(err) {
+      res.json({
+        message: "Search error!!",
+        error: err
       });
+    });
   }
 };
