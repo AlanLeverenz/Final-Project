@@ -56,7 +56,7 @@ class Search extends Component {
     const article = this.state.articles.find(article => article.id === id);
 
     API.saveArticle({
-      id: article.id,
+      // id: article.id,
       key: article.key,
       query: article.query,
       source: article.source.name,
@@ -72,8 +72,8 @@ class Search extends Component {
       keywords: [ { word: article.keywords.word}, 
         { score: article.keywords.score }
       ],
-    // }).then(() => this.getArticles());
-    }).then(() => console.log(article.json));
+    }).then(() => this.getSavedArticles());
+    // }).then(() => console.log(article.json));
   };
 
   render() {

@@ -35,6 +35,8 @@ export default {
     return axios.post("/api/articles", articleData);
   },
 
+// user functions
+
   loginUser: function (user) {
     return axios.post("/api/user/", user, xhrHeader)
   },

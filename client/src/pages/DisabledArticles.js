@@ -94,7 +94,7 @@ class articles extends Component {
               <List>
                 {this.state.articles.map(article => (
                   <ListItem key={article._id}>
-                    <Link to={"/articles/" + article._id}>
+                    <Link to={"/saved/" + article._id}>
                       <strong>
                         {article.title}
                       </strong>

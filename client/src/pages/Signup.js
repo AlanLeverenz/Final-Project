@@ -36,7 +36,7 @@ class Signup extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/articles" />
+            return <Redirect to="/saved" />
           }
         })
         .catch(err => console.log(err));

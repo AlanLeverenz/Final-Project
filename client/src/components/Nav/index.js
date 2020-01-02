@@ -24,8 +24,8 @@ function Navbar(props) {
           </li>
           <li className="nav-item">
             <Link
-              to="/articles"
-              className={window.location.pathname === "/articles" ? "nav-link active" : "nav-link"}
+              to="/saved"
+              className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
             >
               Saved
             </Link>
