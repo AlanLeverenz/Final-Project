@@ -12,7 +12,7 @@ export default {
   // search news using query (hand to server to get newsapi/twinwords results)
   searchNews: function(search) {
     console.log("CLIENT API search: " + search);
-    return axios.post("/api/news/" + search)
+    return axios.get("/api/news/" + search)
   },
 
   // Gets the article with the given id (for details page)

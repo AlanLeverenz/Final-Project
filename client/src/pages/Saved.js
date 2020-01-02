@@ -26,9 +26,9 @@ class Saved extends Component {
     API.getSavedArticles()
       .then(res => {
         console.log({articles: res.data});
-        // this.setState({
-        //   articles: res.data
-        // })
+        this.setState({
+          articles: res.data
+        })
       }
     )
     .catch(err => console.log(err));
@@ -57,8 +57,9 @@ class Saved extends Component {
             <Card title="Saved Articles" icon="download">
               {this.state.articles.length ? (
                 <List>
-                  {this.state.articles.map(article => (
+                  {this.state.articles.map((article, i) => (
                     <Article
+                      key={article.source._id}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}

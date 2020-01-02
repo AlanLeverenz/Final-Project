@@ -32,6 +32,7 @@ class Search extends Component {
     console.log(this.state.search);
     API.searchNews(this.state.search)
     .then(res =>
+      // console.log(res.data)
       this.setState({
         articles: res.data
       })
@@ -98,8 +99,9 @@ class Search extends Component {
             <Card title="Results">
               {this.state.articles.length ? (
                 <List>
-                  {this.state.articles.map(article => (
+                  {this.state.articles.map((article, index) => (
                     <Article
+                      key={index}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
