@@ -1,13 +1,13 @@
 // home page
 
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Article from "../components/Article";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
+// import DeleteBtn from "../components/DeleteBtn";
 // import { Input, FormBtn } from "../components/Form";
 
 class Saved extends Component {
@@ -18,16 +18,17 @@ class Saved extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.getSavedArticles();
-  // }
+  componentDidMount() {
+    this.getSavedArticles();
+  }
 
   getSavedArticles = () => {
     API.getSavedArticles()
       .then(res => {
-        this.setState({
-          articles: res.data
-        })
+        console.log({articles: res.data});
+        // this.setState({
+        //   articles: res.data
+        // })
       }
     )
     .catch(err => console.log(err));

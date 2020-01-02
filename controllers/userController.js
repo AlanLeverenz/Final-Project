@@ -41,7 +41,7 @@ module.exports = {
           req.session.user = user;
           return res.json(user);
           // console.log('redirect');
-          // return res.redirect('/articles');
+          // return res.redirect('/saved');
           // return res.redirect('/api/profile');
         }
       });
