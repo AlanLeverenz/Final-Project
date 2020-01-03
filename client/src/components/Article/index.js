@@ -22,7 +22,8 @@ function Article({ title, source, description, url, urlToImage, publishedAt, con
       </Row>
       <Row>
         <Col size="md-4">
-          <p className="font-italic small">Type: {type}</p>
+        {/*} eslint-disable-next-line */}
+          <p className="font-italic small" className={type}>Type: {type}</p>
         </Col>
         <Col size="md-4">
           <p className="font-italic small">Score: {score}</p>
