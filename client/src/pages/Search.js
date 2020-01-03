@@ -65,6 +65,7 @@ class Search extends Component {
       title: article.title,
       description: article.description,
       url: article.url,
+      urlToimage: article.urlToimage,
       publishedAt: article.publishedAt,
       content: article.content,
       type: article.type,
@@ -76,6 +77,7 @@ class Search extends Component {
     }).then(() => this.getSavedArticles());
     // }).then(() => console.log(article.json));
   };
+
 
   render() {
     return (
@@ -107,6 +109,7 @@ class Search extends Component {
                       title={article.title}
                       description={article.description}
                       url={article.url}
+                      urlToImage={article.urlToImage}
                       publishedAt={article.publishedAt}
                       content={article.content}
                       type={article.type}
