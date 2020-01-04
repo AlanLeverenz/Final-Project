@@ -5,7 +5,7 @@ const searchController = require("../../controllers/searchController");
 // Matches with "/api/news"
 router
   .route("/:query")
-  .get(searchController.getNews)
+  .get(searchController.fetchNews)
   
   // .use(searchController.getNews);
  
