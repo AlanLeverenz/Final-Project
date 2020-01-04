@@ -3,6 +3,8 @@ const db = require("../models");
 // Defining methods for the articlesController
 module.exports = {
   findAll: function(req, res) {
+    console.log("ARTICLESCONTROLLER: FINDALL ====")
+    console.log(req.query);
     db.Article
       .find(req.query)
       .sort({ score: 1 })
@@ -16,6 +18,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log("ARTICLESCONTROLLER: CREATE ====")
+    console.log(req.body)
     db.Article
       .create(req.body)
       .then(dbModel => res.json(dbModel))

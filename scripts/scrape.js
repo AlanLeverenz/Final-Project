@@ -21,7 +21,7 @@ function scrape(input) {
             language: 'en',
         }).then(response => {
             articles = response.articles.slice(0, 5);
-            console.log("Article Response:", articles);
+            // console.log("Article Response:", articles);
             let promises = [];
             articles.forEach(article => {
                 promises.push(axios({
@@ -43,12 +43,11 @@ function scrape(input) {
                     keys.forEach(key => {
                         article[key] = responses[i].data[key]
                     })
-                    // let obj = {};
-                    // obj["id"] = uuidv4();
-                    // article.push(obj);
+                    article.id = uuidv4();
+                    console.log(article)
                     return article
                 })
-                console.log(articles);
+                // console.log(articles);
                 resolve(articles)
             })
             .catch((error) => {

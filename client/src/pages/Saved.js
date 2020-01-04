@@ -25,10 +25,10 @@ class Saved extends Component {
   getSavedArticles = () => {
     API.getSavedArticles()
       .then(res => {
-        console.log({articles: res.data});
+        console.log(res.data);
         this.setState({
           articles: res.data
-        })
+        }, () => {console.log(this.state.articles)})
       }
     )
     .catch(err => console.log(err));
@@ -57,28 +57,32 @@ class Saved extends Component {
             <Card title="Saved Articles" icon="download">
               {this.state.articles.length ? (
                 <List>
-                  {this.state.articles.map((article, i) => (
+                  {this.state.articles.map((article) => (
                     <Article
-                      key={article.source._id}
+                      key={article.id}
+                      // query={this.state.search}
+                      id={article.id}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
                       description={article.description}
                       url={article.url}
+                      urlToImage={article.urlToImage}
                       publishedAt={article.publishedAt}
                       content={article.content}
+                      keywords={article.keywords}
                       type={article.type}
                       score={article.score}
                       ratio={article.ratio}
-                      DeleteBtn={() => (
+                      Button={() => (
                         <button
-                          onClick={() => this.handleArticleDelete(article._id)}
-                          className="btn btn-danger ml-2"
+                          onClick={() => this.handleArticleDelete(article.id)}
+                          className="btn btn-primary ml-2"
                         >
                           Delete
                         </button>
-                        )}
-                      />
+                      )}
+                    />
                   ))}
                 </List>
               ) : (
