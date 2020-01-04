@@ -7,6 +7,8 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
+const uuidv4 = require('uuid/v4');
+
 // Home page
 class Search extends Component {
 
@@ -45,7 +47,6 @@ class Search extends Component {
     );
   };
 
-
   // When the form is submitted, search the NewsAPI for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
@@ -53,11 +54,13 @@ class Search extends Component {
   };
 
   // eventually need to insert into a Users collection Article array
-  handleArticleSave = id => {
-    const article = this.state.articles.find(article => article.id === id);
-
+  // using uuid to set the id since there is no id returned from the search
+  handleArticleSave = key => {
+    const article = this.state.articles.find(article => article.key === key);
+    console.log(key)
+    console.log(article)
     API.saveArticle({
-      // id: article.id,
+      id: article.id,
       key: article.key,
       query: article.query,
       source: article.source.name,
@@ -65,7 +68,7 @@ class Search extends Component {
       title: article.title,
       description: article.description,
       url: article.url,
-      urlToimage: article.urlToimage,
+      urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
       content: article.content,
       type: article.type,
@@ -74,10 +77,8 @@ class Search extends Component {
       keywords: [ { word: article.keywords.word}, 
         { score: article.keywords.score }
       ],
-    }).then(() => this.getSavedArticles());
-    // }).then(() => console.log(article.json));
+    }).then(() => console.log("handleSaveArticle complete"));
   };
-
 
   render() {
     return (
@@ -104,6 +105,7 @@ class Search extends Component {
                   {this.state.articles.map((article, index) => (
                     <Article
                       key={index}
+                      id={uuidv4()}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
@@ -117,7 +119,7 @@ class Search extends Component {
                       ratio={article.ratio}
                       Button={() => (
                         <button
-                          onClick={() => this.handleArticleSave(article.id)}
+                          onClick={() => this.handleArticleSave(article.key)}
                           className="btn btn-primary ml-2"
                         >
                           Save

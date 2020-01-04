@@ -1,8 +1,16 @@
 // require axios 
 var axios = require("axios");
+
+require('dotenv').config();
+const RAPID_API_KEY = process.env.RAPID_API_KEY;
+const NEWS_API_KEY = process.env.NEWS_API_KEY;
+
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
 var articles = [];
+
+// random id generator
+const uuidv4 = require('uuid/v4');
 
 function scrape(input) {
 
@@ -12,7 +20,6 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            // console.log("Article Array:", response);
             articles = response.articles.slice(0, 5);
             console.log("Article Response:", articles);
             let promises = [];
@@ -29,24 +36,24 @@ function scrape(input) {
                         "text": article.content
                     }
                 }))
-            }
-            )
+            })
             Promise.all(promises).then(responses => {
                 articles.map((article, i) => {
                     let keys = Object.keys(responses[i].data)
                     keys.forEach(key => {
-                        // if (key !== "keywords") {
-                            article[key] = responses[i].data[key]
-                        // }
+                        article[key] = responses[i].data[key]
                     })
+                    // let obj = {};
+                    // obj["id"] = uuidv4();
+                    // article.push(obj);
                     return article
                 })
                 console.log(articles);
                 resolve(articles)
             })
-                .catch((error) => {
-                    reject(error);
-                });
+            .catch((error) => {
+                reject(error);
+            });
         });
     });
     return scrapePromise
