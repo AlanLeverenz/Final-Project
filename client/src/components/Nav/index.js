@@ -30,7 +30,7 @@ function Navbar(props) {
               Saved
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" class="no-auth">
             <Link
               to="/login"
               className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
@@ -38,7 +38,7 @@ function Navbar(props) {
               Login
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" class="no-auth">
             <Link
               to="/signup"
               className={window.location.pathname === "/signup" ? "nav-link active" : "nav-link"}
@@ -46,11 +46,25 @@ function Navbar(props) {
               Sign Up
             </Link>
           </li>
-          <li className="nav-item">
+
+          {/* A cleaner version */}
+          {/* {
+            props.authenticated &&            
+            <li className="nav-item" id="logout">
             <Button className="nav-link" onClick={props.logout}>
               Logout
             </Button>
           </li>
+          } */}
+
+{           
+            props.authenticated ? (            
+            <li className="nav-item">
+            <Button className="nav-link" onClick={props.logout}>
+              Logout
+            </Button>
+          </li>) : null
+          }
         </ul>
       </div>
     </nav>
