@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Article({ title, source, description, url, urlToImage, publishedAt, content, type, score, ratio, Button }) {
+function Article({ title, source, description, url, urlToImage, publishedAt, content, type, score, ratio, Button, uuid}) {
   return (
     <ListItem>
       <Row className="flex-wrap-reverse">

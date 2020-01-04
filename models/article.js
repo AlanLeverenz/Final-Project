@@ -2,21 +2,26 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-  // manually entered key:
-  key: {
+  // id
+  id: {
     type: String,
     required: true,
-    unique: { index: { unique: true } }
+    unique: { index: { unique: true }}
   },
-  // query
+  // key
+  key: {
+    type: String,
+    required: false,
+  },
+  // query, a string
   query: {
     type: String,
     required: false,
   },
   // article source
   source: { 
-    id: String, 
-    name: String },
+    type: String
+  },
   // headline, a string
   author: {
     type: String,
@@ -81,7 +86,7 @@ score: {
   },
   saved: {
     type: Boolean,
-    default: false
+    default: true
   }
 });
 
