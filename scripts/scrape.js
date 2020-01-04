@@ -4,6 +4,36 @@ const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
 var articles = [];
 
+const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
+const IamAuthenticator = require('ibm-watson/auth');
+
+const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
+  version: '2019-07-12',
+  authenticator: new IamAuthenticator({
+    apikey: 'BzNYRbEJ0L-5kgoNezgYfi6hJ0Eo5V0i2esVR9tL7DxB',
+  }),
+  url: 'https://us-south.natural-language-understanding.watson.cloud.ibm.com',
+});
+
+var runWatson = (article) =>  {
+  console.log("Watson Query:", article.content);
+const analyzeParams = {
+  'text': article.content,
+  'features': {
+    'sentiment': {
+    }
+  }
+};
+
+naturalLanguageUnderstanding.analyze(analyzeParams)
+  .then(analysisResults => {
+    console.log(JSON.stringify(analysisResults, null, 2));
+  })
+  .catch(err => {
+    console.log('error:', err);
+  });
+}
+
 function scrape(input) {
 
     const scrapePromise = new Promise((resolve, reject) => {
@@ -17,20 +47,9 @@ function scrape(input) {
             console.log("Article Response:", articles);
             let promises = [];
             articles.forEach(article => {
-                promises.push(axios({
-                    "method": "GET",
-                    "url": "https://twinword-sentiment-analysis.p.rapidapi.com/analyze/",
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                        "x-rapidapi-host": "twinword-sentiment-analysis.p.rapidapi.com",
-                        "x-rapidapi-key": "bcbc7d6dd8msh5e1eb73a59e842fp1df3fcjsnd9394db0f416"
-                    }, "params":
-                    {
-                        "text": article.content
-                    }
-                }))
-            }
+                promises.push(runWatson(article)
             )
+        });
             Promise.all(promises).then(responses => {
                 articles.map((article, i) => {
                     let keys = Object.keys(responses[i].data)
