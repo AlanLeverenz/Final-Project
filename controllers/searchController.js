@@ -5,7 +5,7 @@ const getNews = require("../scripts/scrape");
 
 module.exports = {
 
-  getNews: function(req, res) {
+  fetchNews: function(req, res) {
 
     const newsQuery = req.params.query.split(" ").join("-");
     return getNews(newsQuery)

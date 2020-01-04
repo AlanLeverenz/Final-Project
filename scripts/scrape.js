@@ -9,6 +9,38 @@ const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
 var articles = [];
 
+const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
+const { IamAuthenticator } = require('ibm-watson/auth');
+
+const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
+  version: '2019-07-12',
+  authenticator: new IamAuthenticator({
+    apikey: 'L9i2JSiO0PkNJm-1uVN-HL1vtUEX57ETOKnIW7Lbpcwu'
+  }),
+  url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558',
+});
+
+var runWatson = (article) =>  {
+  return new Promise((resolve, reject) => {
+  // console.log("Watson Query:", article.content);
+const analyzeParams = {
+  'url': article.url,
+  'features': {'sentiment': 
+  {}},
+};
+
+// console.log("AnalyzeParams:", analyzeParams);
+naturalLanguageUnderstanding.analyze(analyzeParams)
+  .then(analysisResults => {
+    resolve (analysisResults);
+
+  })
+  .catch(err => {
+    console.log('error:', err);
+    reject(err);
+  });
+});
+}
 // random id generator
 const uuidv4 = require('uuid/v4');
 
@@ -20,34 +52,26 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 5);
-            // console.log("Article Response:", articles);
+            articles = response.articles.slice(0, 3);
             let promises = [];
             articles.forEach(article => {
-                promises.push(axios({
-                    "method": "GET",
-                    "url": "https://twinword-sentiment-analysis.p.rapidapi.com/analyze/",
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                        "x-rapidapi-host": "twinword-sentiment-analysis.p.rapidapi.com",
-                        "x-rapidapi-key": "bcbc7d6dd8msh5e1eb73a59e842fp1df3fcjsnd9394db0f416"
-                    }, "params":
-                    {
-                        "text": article.content
-                    }
-                }))
-            })
-            Promise.all(promises).then(responses => {
+                promises.push(runWatson(article))
+            });
+
+            Promise.all(promises)
+              .then(responses => {
                 articles.map((article, i) => {
-                    let keys = Object.keys(responses[i].data)
+                    let keys = Object.keys(responses[i].result.sentiment.document)
                     keys.forEach(key => {
-                        article[key] = responses[i].data[key]
+                        // if (key !== "keywords") {
+                            article[key] = responses[i].result.sentiment.document[key]
+                        // }
                     })
                     article.id = uuidv4();
                     console.log(article)
                     return article
                 })
-                // console.log(articles);
+
                 resolve(articles)
             })
             .catch((error) => {
