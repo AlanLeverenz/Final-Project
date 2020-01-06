@@ -17,7 +17,7 @@ const medIndex = Math.floor(articles.length / 2);
 // create a new array consisting only of high, middle, and low values
 const hmlArr = [];
 hmlArr.push(articles[hiIndex]);
-hmlArr.push(articles[medIndex]);
+// hmlArr.push(articles[medIndex]);
 hmlArr.push(articles[loIndex]);
 
 // console.log the hml array
