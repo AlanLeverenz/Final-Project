@@ -1,7 +1,7 @@
 // Controller for our scraper
 // ============================
 const db = require("../models");
-const getNews = require("../scripts/scrape_twin");
+const getNews = require("../scripts/scrape");
 const searchFilter = require("../scripts/searchFilter");
 
 module.exports = {
