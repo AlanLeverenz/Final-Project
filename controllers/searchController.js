@@ -1,7 +1,7 @@
 // Controller for our scraper
 // ============================
 const db = require("../models");
-const getNews = require("../scripts/scrape");
+const getNews = require("../scripts/scrape_twin");
 const searchFilter = require("../scripts/searchFilter");
 
 module.exports = {
@@ -11,15 +11,11 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     return getNews(newsQuery)
       .then(function(articles) {
-        // start insert
         return searchFilter(articles)
       })
         .then(function(filtered) {
           console.log(filtered)
           res.json(filtered)
-        // end insert
-
-        // console.log(articles)
         // res.json(articles)
     })
     .catch(function(err) {
