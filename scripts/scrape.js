@@ -52,7 +52,7 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 3);
+            articles = response.articles.slice(0, 10);
             let promises = [];
             articles.forEach(article => {
                 promises.push(runWatson(article))

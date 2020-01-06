@@ -3,6 +3,8 @@ import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import Article from "../components/Article";
+import TopArticle from "../components/TopCard";
+import BottomArticle from "../components/BottomCard"
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
@@ -94,6 +96,73 @@ class Search extends Component {
               />
             </Jumbotron>
           </Col>         
+        </Row>
+        <Row>
+          <Col size="md-6">
+            <Card title="topCard">
+              {this.state.topCard.map((article) => (
+                <TopArticle
+                key={article.id}
+                // query={this.state.search}
+                id={article.id}
+                source={article.source.name}
+                author={article.author}
+                title={article.title}
+                description={article.description}
+                url={article.url}
+                urlToImage={article.urlToImage}
+                publishedAt={article.publishedAt}
+                content={article.content}
+
+                type={article.label}
+
+                score={article.score}
+                
+                Button={() => (
+                  <button
+                    onClick={() => this.handleArticleSave(article.id)}
+                    className="btn btn-primary ml-2"
+                  >
+                    Save
+                  </button>
+                )}
+              />
+              ))}
+
+            </Card>
+          </Col>
+          <Col size="md-6">
+            <Card title="bottomCard">
+              {this.state.topCard.map((article) => (
+                <BottomArticle
+                key={article.id}
+                // query={this.state.search}
+                id={article.id}
+                source={article.source.name}
+                author={article.author}
+                title={article.title}
+                description={article.description}
+                url={article.url}
+                urlToImage={article.urlToImage}
+                publishedAt={article.publishedAt}
+                content={article.content}
+
+                type={article.label}
+
+                score={article.score}
+                
+                Button={() => (
+                  <button
+                    onClick={() => this.handleArticleSave(article.id)}
+                    className="btn btn-primary ml-2"
+                  >
+                    Save
+                  </button>
+                )}
+              />
+              ))}
+           </Card>
+          </Col>
         </Row>
         <Row>
           <Col size="md-12">
