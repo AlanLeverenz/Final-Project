@@ -4,6 +4,7 @@ var axios = require("axios");
 require('dotenv').config();
 const RAPID_API_KEY = process.env.RAPID_API_KEY;
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
+    
 
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
@@ -20,7 +21,7 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 5);
+            articles = response.articles.slice(0, 3);
             // console.log("Article Response:", articles);
             let promises = [];
             articles.forEach(article => {
@@ -55,7 +56,10 @@ function scrape(input) {
             });
         });
     });
-    return scrapePromise
+    console.log("SCRAPE PROMISE =====");
+    console.log(scrapePromise);
+    return scrapePromise;
+
 }
 
 module.exports = scrape;

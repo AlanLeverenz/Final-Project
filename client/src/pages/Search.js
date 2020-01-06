@@ -7,7 +7,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
-const uuidv4 = require('uuid/v4');
+// const uuidv4 = require('uuid/v4');
 
 // Home page
 class Search extends Component {
