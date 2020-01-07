@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Article({ title, source, description, url, urlToImage, publishedAt, content, label, score, ratio, Button, uuid}) {
+function Article({ title, source, description, url, urlToImage, publishedAt, content, type, score, ratio, Button, uuid}) {
   return (
     <ListItem>
       <Row className="flex-wrap-reverse">
@@ -23,7 +23,7 @@ function Article({ title, source, description, url, urlToImage, publishedAt, con
       <Row>
         <Col size="md-6">
         {/*} eslint-disable-next-line */}
-          <p className="font-italic small" className={label}>Label: {label}</p>
+          <p className="font-italic small" className={type}>Label: {type}</p>
         </Col>
         <Col size="md-6">
           <p className="font-italic small">Score: {score}</p>
