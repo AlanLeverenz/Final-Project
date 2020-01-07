@@ -1,14 +1,5 @@
 .navbar {
     /* background-color: rgb(72, 75, 249) !important */
-    background-color: #334e99 !important;
+    background-color: #4877f9 !important;
+    color: blue !important;
 }
-
-.img {
-    width: 72px;
-    height: 37px;
-    /* background: url(/static/media/newsit.74597828.png) no-repeat; */
-    /* box-shadow: 10px 10px 5px #ccc;
-    -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    -khtml-box-shadow: 10px 10px 5px #ccc; */
-  }

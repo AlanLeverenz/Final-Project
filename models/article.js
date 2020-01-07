@@ -72,13 +72,6 @@ score: {
     type: String,
     required: false
   },
-  // keywords
-  keywords: [
-    { 
-    word: String, 
-    score: Number
-  }
-],
   // date is just a string
   date: {
     type: Date,
