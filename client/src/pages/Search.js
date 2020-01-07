@@ -100,7 +100,6 @@ class Search extends Component {
                   {this.state.articles.map((article) => (
                     <Article
                       key={article.id}
-                      // query={this.state.search}
                       id={article.id}
                       source={article.source.name}
                       author={article.author}

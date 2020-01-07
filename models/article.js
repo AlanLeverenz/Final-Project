@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-  // id
+  // set by uuid
   id: {
     type: String,
     required: true,
@@ -63,12 +63,7 @@ const articleSchema = new Schema({
     required: false
   },
     // score
-score: {
-  type: String,
-  required: false
-},
-  // ratio
-  ratio: {
+  score: {
     type: String,
     required: false
   },

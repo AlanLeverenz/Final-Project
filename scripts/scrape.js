@@ -53,7 +53,15 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 3);
+
+          // check if any articles were returned, i.e., response.articles.length == null
+
+          // reset slice if less than 10 articles
+            let limit = 10;
+            if (response.articles.length < limit) {
+              limit = response.articles.length;
+            }
+            articles = response.articles.slice(0, limit);
             let promises = [];
             articles.forEach(article => {
                 promises.push(runWatson(article))
@@ -80,7 +88,7 @@ function scrape(input) {
         });
     });
     return scrapePromise
-}
+} // end function scrape
 
 module.exports = scrape;
 

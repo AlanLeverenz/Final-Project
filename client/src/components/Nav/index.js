@@ -46,6 +46,7 @@ function Navbar(props) {
               Sign Up
             </Link>
           </li>
+          <li>{props.user}</li>
           <li className="nav-item">
             <Button className="nav-link" onClick={props.logout}>
               Logout

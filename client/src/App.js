@@ -16,8 +16,7 @@ class App extends React.Component {
   state = {
     authenticated: false,
     loading: false,
-    isLoggedin: false,
-    userId: ""
+    isLoggedin: false
   }
 
   authenticate = () => authenticateUser()
@@ -49,7 +48,7 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav logout={this.logout}/>
+        <Nav user={this.userName} logout={this.logout}/>
         <Switch>
           <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
