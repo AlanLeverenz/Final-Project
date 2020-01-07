@@ -68,7 +68,7 @@ module.exports = {
 
     req.session.destroy(err =>{
       if(err) res.json(err);
-      console.log('destroied');
+      console.log('destroyed');
       console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
 
       return res.json('logged out')

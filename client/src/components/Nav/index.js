@@ -9,7 +9,7 @@ function Navbar(props) {
   return ( 
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
       <Link className="navbar-brand" to="/">
-        NewsIt
+        <span>NewsIt</span>
       </Link>
       <div>
         <ul className="navbar-nav">
@@ -46,11 +46,16 @@ function Navbar(props) {
               Sign Up
             </Link>
           </li>
+<<<<<<< HEAD
 
           {/* A cleaner version */}
           {/* {
             props.authenticated &&            
             <li className="nav-item" id="logout">
+=======
+          <li>{props.user}</li>
+          <li className="nav-item">
+>>>>>>> 5b79b134166c2f7814e3bff95cdcc79cdc2157db
             <Button className="nav-link" onClick={props.logout}>
               Logout
             </Button>

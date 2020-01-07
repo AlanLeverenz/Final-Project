@@ -11,18 +11,82 @@ mongoose.connect(
 
 const articleseed = [
   {
-  "key": "1",
+  "key" : "1",  
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "twinword inc.",
+  "title": "Iran warns of 'consequences' after US strikes in Iraq and Syria",
+  "description": "Iran has warned the US of \"consequences\" after Washington carried out airstrikes against an Iran-backed militia group in Iraq.",
+  "url": "https://www.cnn.com/2019/12/30/middleeast/iraq-us-airstrikes-reaction-intl/index.html",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/191229150359-iran-militia-us-strikes-super-tease.jpg",
+  "publishedAt": "2019-12-30T11:21:42Z",
+  "content": "(CNN)Iran has warned the US of \"consequences\" after Washington carried out airstrikes against an Iran-backed militia group in Iraq.\r\nThe US has \"openly shown its support to terrorism and shown its negligence to the independence and national sovereignty of cou… [+552 chars]",
+  "type": "neutral",
+  "score": -0.0237951488125,
+  "ratio": -0.01650735276106,
+  "keywords": [
+  {
+  "word": "support",
+  "score": 0.770246867
+  },
+  {
+  "word": "openly",
+  "score": 0.467771937
+  },
+  {
+  "word": "independence",
+  "score": 0.467771937
+  },
+  {
+  "word": "show",
+  "score": 0.342751764
+  },
+  {
+  "word": "group",
+  "score": 0.192192596
+  },
+  {
+  "word": "terrorism",
+  "score": -0.82767436
+  },
+  {
+  "word": "negligence",
+  "score": -0.82767436
+  },
+  {
+  "word": "have",
+  "score": -0.325818304
+  },
+  {
+  "word": "out",
+  "score": -0.183460568
+  },
+  {
+  "word": "warn",
+  "score": -0.151326383
+  }
+  ],
+  "version": "4.0.0",
+  "email": "help@twinword.com",
+  "result_code": "200",
+  "result_msg": "Success"
+  },
+
+  {
+  "key" : "2",  
   "source": {
   "id": "the-new-york-times",
   "name": "The New York Times"
   },
   "author": "twinword inc.",
-  "title": "The Articles of Impeachment",
-  "description": "House Democrats appear united in their charge that the president abused his power and obstructed Congress. Behind the scenes, this wasn’t always the case.",
-  "url": "https://www.nytimes.com/2019/12/11/podcasts/the-daily/impeachment.html",
-  "urlToImage": "https://static01.nyt.com/images/2019/12/10/us/politics/11thedaily_impeach/10dc-impeach1-sub-facebookJumbo.jpg",
-  "publishedAt": "2019-12-11T11:02:38Z",
-  "content": "Nicholas Fandos contributed reporting.\r\nThe Daily is made by Theo Balcomb, Andy Mills, Lisa Tobin, Rachel Quester, Lynsea Garrison, Annie Brown, Clare Toeniskoetter, Paige Cowett, Michael Simon Johnson, Brad Fisher, Larissa Anderson, Wendy Dorr, Chris Wood, J… [+458 chars]",
+  "title": "A Deadly Crackdown in Iran",
+  "description": "Behind the curtain of an internet blackout, the Islamic Republic’s security forces have killed at least 180 unarmed protesters.",
+  "url": "https://www.nytimes.com/2019/12/03/podcasts/the-daily/iran-protests.html",
+  "urlToImage": "https://static01.nyt.com/images/2019/12/03/podcasts/03daily/merlin_165109089_6edbb6a4-6a1d-48db-a1a3-8aeddae09226-facebookJumbo.jpg",
+  "publishedAt": "2019-12-03T11:47:11Z",
+  "content": "Farnaz Fassihi contributed reporting.\r\nThe Daily is made by Theo Balcomb, Andy Mills, Lisa Tobin, Rachel Quester, Lynsea Garrison, Annie Brown, Clare Toeniskoetter, Paige Cowett, Michael Simon Johnson, Brad Fisher, Larissa Anderson, Wendy Dorr, Chris Wood, Je… [+446 chars]",
   "type": "neutral",
   "score": -0.0019391356666667,
   "ratio": -0.01490868337348,
@@ -47,138 +111,69 @@ const articleseed = [
   },
 
   {
-    "key": "2",
+  "key" : "3",  
   "source": {
   "id": "the-new-york-times",
   "name": "The New York Times"
   },
   "author": "twinword inc.",
-  "title": "Trump Blocked Key Impeachment Witnesses. Should Congress Wait?",
-  "description": "At the first House Judiciary Committee impeachment hearing, Republicans’ witness said lawmakers were rushing impeachment and should instead let court fights over access to witnesses play out.",
-  "url": "https://www.nytimes.com/2019/12/04/us/politics/turley-impeachment.html",
-  "urlToImage": "https://static01.nyt.com/images/2019/12/04/us/politics/04dc-assess-sub/04dc-assess-sub-facebookJumbo.jpg",
-  "publishedAt": "2019-12-04T19:30:36Z",
-  "content": "Much of the evidence the House uncovered in its inquiry was from witnesses who largely were a degree of separation removed from Mr. Trump himself. As a result, they were unable to say whether the president ever directly and explicitly said he was conditioning… [+1707 chars]",
-  "type": "neutral",
-  "score": 0.043309538,
-  "ratio": 0.26217377593578,
+  "title": "Once Upon a Revolution in Iran",
+  "description": "Forty years after the Iranian revolution of 1979, the people of Iran are still struggling for their rights.",
+  "url": "https://www.nytimes.com/2019/12/24/opinion/iran-revolution.html",
+  "urlToImage": "https://static01.nyt.com/images/2019/12/17/opinion/00burn-09/00burn-09-facebookJumbo.jpg",
+  "publishedAt": "2019-12-24T16:00:16Z",
+  "content": "I spent the better part of two months, from Christmas 1978 until late February 1979, covering the Islamic revolution in Iran. There was no internet, no mobile phones, no Twitter. No one wore masks to hide their faces. The anger was immediate and raw. It led t… [+4047 chars]",
+  "type": "negative",
+  "score": -0.091385346041667,
+  "ratio": -0.32253434672563,
   "keywords": [
   {
-  "word": "say",
-  "score": 0.235845868
+  "word": "better",
+  "score": 0.906288393
   },
   {
-  "word": "result",
-  "score": 0.152059727
-  },
-  {
-  "word": "condition",
-  "score": 0.152059727
-  },
-  {
-  "word": "witness",
-  "score": 0.13424713
-  },
-  {
-  "word": "much",
+  "word": "late",
   "score": 0.117922934
   },
   {
-  "word": "unable",
-  "score": -0.366912147
-  },
-  {
-  "word": "degree",
-  "score": -0.096144741
-  }
-  ],
-  "version": "4.0.0",
-  "email": "help@twinword.com",
-  "result_code": "200",
-  "result_msg": "Success"
-  },
-
-  {
-    "key": "3",
-    "source": {
-  "id": "cnn",
-  "name": "CNN"
-  },
-  "author": "Analysis by Zachary B. Wolf, CNN",
-  "title": "Analysis: Trump is so much closer to impeachment",
-  "description": "Articles of impeachment -- House Speaker Nancy Pelosi moved the House much closer to impeachment Thursday when she officially directed the Judiciary Committee to draw up articles of impeachment. (As if it wasn't already.)",
-  "url": "https://www.cnn.com/2019/12/06/politics/impeachment-watch-december-5/index.html",
-  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190925114408-trump-pelosi-super-tease.jpg",
-  "publishedAt": "2019-12-06T05:00:38Z",
-  "content": null,
-  "result_code": "415",
-  "result_msg": "Does not look like a valid request"
-  },
-
-  {
-    "key": "4",
-    "source": {
-  "id": "the-new-york-times",
-  "name": "The New York Times"
-  },
-  "author": "twinword inc.",
-  "title": "Will Impeachment Drive Trump Batty?",
-  "description": "Check the belfry. Maybe things could get worse.",
-  "url": "https://www.nytimes.com/2019/12/18/opinion/trump-house-impeachment.html",
-  "urlToImage": "https://static01.nyt.com/images/2019/12/19/opinion/19impeach_editorial_4/19impeach_editorial_4-facebookJumbo.jpg",
-  "publishedAt": "2019-12-19T02:33:25Z",
-  "content": "The Salem theme is never going away. On Wednesday Trump sent an email to supporters whining that No President ever could have endured or passed this many witch hunts. The missive ended, of course, with a request for cash. (Before the upcoming vote, I want to … [+1731 chars]",
-  "type": "neutral",
-  "score": 0.00518990525,
-  "ratio": -0.062918131086224,
-  "keywords": [
-  {
-  "word": "supporter",
-  "score": 0.568123809
-  },
-  {
-  "word": "have",
-  "score": -0.162909152
-  },
-  {
-  "word": "send",
-  "score": 0.152059727
-  },
-  {
-  "word": "request",
-  "score": 0.152059727
-  },
-  {
-  "word": "theme",
-  "score": 0.117922934
-  },
-  {
-  "word": "vote",
-  "score": 0.117922934
-  },
-  {
-  "word": "want",
-  "score": 0.105914505
-  },
-  {
-  "word": "whine",
-  "score": -0.783592198
+  "word": "anger",
+  "score": -0.666762836
   },
   {
   "word": "no",
-  "score": -0.217959174
+  "score": -0.435918348
   },
   {
-  "word": "going",
-  "score": -0.162909152
+  "word": "revolution",
+  "score": -0.366912147
   },
   {
-  "word": "witch",
-  "score": -0.162909152
+  "word": "face",
+  "score": -0.126476981
   },
   {
-  "word": "away",
-  "score": -0.071533022
+  "word": "mobile",
+  "score": -0.117922934
+  },
+  {
+  "word": "wear",
+  "score": -0.110566685
+  },
+  {
+  "word": "mask",
+  "score": -0.110566685
+  },
+  {
+  "word": "one",
+  "score": -0.103055557
+  },
+  {
+  "word": "hide",
+  "score": -0.085642117
+  },
+  {
+  "word": "raw",
+  "score": -0.083155932
   }
   ],
   "version": "4.0.0",
@@ -188,73 +183,105 @@ const articleseed = [
   },
 
   {
-    "key": "5",
+  "key" : "4",  
+  "source": {
+  "id": "cnn",
+  "name": "CNN"
+  },
+  "author": "twinword inc.",
+  "title": "Trump tweets 'threat' to Iran",
+  "description": "President Donald Trump has sent a series of tweets following protests at the US embassy in Baghdad.  CNN's Boris Sanchez reports.",
+  "url": "https://www.cnn.com/videos/politics/2019/12/31/trump-tweets-baghdad-protesters-sanchez-pkg-vpx.cnn",
+  "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/191231141609-01-trump-1219-super-tease.jpg",
+  "publishedAt": "2019-12-31T22:28:30Z",
+  "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds.",
+  "type": "neutral",
+  "score": -0.021721194,
+  "ratio": -0.13429750259822,
+  "keywords": [
+  {
+  "word": "find",
+  "score": 0.14001818
+  },
+  {
+  "word": "out",
+  "score": -0.183460568
+  }
+  ],
+  "version": "4.0.0",
+  "email": "help@twinword.com",
+  "result_code": "200",
+  "result_msg": "Success"
+  },
+
+  {
+  "key" : "5",  
   "source": {
   "id": "the-new-york-times",
   "name": "The New York Times"
   },
   "author": "twinword inc.",
-  "title": "What’s Different About This Impeachment",
-  "description": "It’s not the offense, but rather one party’s rejection of reality.",
-  "url": "https://www.nytimes.com/2019/12/14/opinion/sunday/republicans-impeachment.html",
-  "urlToImage": "https://static01.nyt.com/images/2019/12/15/opinion/15kristof/15kristof-facebookJumbo.jpg",
-  "publishedAt": "2019-12-14T19:30:09Z",
-  "content": "Republicans say that the impeachment of President Bill Clinton was different because he committed the crime of perjury, even if only about sex. But thats not clear: A 33-page article in 2004 in the Chicago-Kent Law Review concluded that Clinton misled a grand… [+2285 chars]",
-  "type": "negative",
-  "score": -0.10764650019048,
-  "ratio": -0.24773486475386,
+  "title": "Iran Is Crushing Freedom One Country at a Time",
+  "description": "Grass-roots movements in Iran, Iraq and other nations continue to push for rights nonetheless.",
+  "url": "https://www.nytimes.com/2019/12/03/opinion/iran-iraq-trump.html",
+  "urlToImage": "https://static01.nyt.com/images/2019/12/03/opinion/03friedman1/03friedman1-facebookJumbo.jpg",
+  "publishedAt": "2019-12-04T00:04:54Z",
+  "content": "These movements are authentic and inspiring, but their chances of taking power remain remote, largely because their biggest opponent the Islamic republic of Iran is ready to arrest and kill as many democracy demonstrators as needed to retain its grip on Iraq,… [+2659 chars]",
+  "type": "positive",
+  "score": 0.079926842846154,
+  "ratio": 0.2097037617507,
   "keywords": [
   {
-  "word": "grand",
-  "score": 0.973743186
+  "word": "inspiring",
+  "score": 0.904515965
   },
   {
-  "word": "law",
-  "score": 0.467771937
+  "word": "authentic",
+  "score": 0.881294943
   },
   {
-  "word": "different",
-  "score": 0.192192596
+  "word": "ready",
+  "score": 0.530657505
   },
   {
-  "word": "committed",
-  "score": 0.137689844
+  "word": "chance",
+  "score": 0.248096703
   },
   {
-  "word": "say",
+  "word": "big",
+  "score": 0.196534377
+  },
+  {
+  "word": "power",
   "score": 0.117922934
   },
   {
-  "word": "review",
+  "word": "remote",
   "score": 0.117922934
   },
   {
-  "word": "even",
-  "score": 0.110309706
+  "word": "opponent",
+  "score": -0.82767436
   },
   {
-  "word": "crime",
-  "score": -0.986023527
+  "word": "kill",
+  "score": -0.637084171
   },
   {
-  "word": "mislead",
-  "score": -0.959783216
+  "word": "grip",
+  "score": -0.192192596
   },
   {
-  "word": "clear",
-  "score": -0.648766473
+  "word": "arrest",
+  "score": -0.133267514
   },
   {
-  "word": "not",
-  "score": -0.625
-  },
-  {
-  "word": "perjury",
-  "score": -0.196534244
-  },
-  {
-  "word": "only",
+  "word": "need",
   "score": -0.096144741
+  },
+  {
+  "word": "movement",
+  "score": -0.071533022
   }
   ],
   "version": "4.0.0",
@@ -264,17 +291,15 @@ const articleseed = [
   }
   ]
 
-    db.Article
+  db.Article
     .remove({})
     .then(() => db.Article.collection.insertMany(articleseed))
     .then(data => {
       console.log(data.result.n + " records inserted!");
       process.exit(0);
-    })
-    .catch(err => {
-      console.error(err);
-      process.exit(1);
-    });
-
-
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 

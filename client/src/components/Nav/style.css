@@ -1,8 +1,14 @@
 .navbar {
     /* background-color: rgb(72, 75, 249) !important */
+<<<<<<< HEAD
     background-color: #334e99 !important;
 }
 
 /* .no-auth  {
     display: none ; 
 } */
+=======
+    background-color: #4877f9 !important;
+    color: blue !important;
+}
+>>>>>>> 5b79b134166c2f7814e3bff95cdcc79cdc2157db
