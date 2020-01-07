@@ -13,14 +13,14 @@ module.exports = {
       .then(function(articles) {
         return searchFilter(articles)
       })
-        .then(function(filtered) {
-          console.log(filtered)
-          res.json(filtered)
-    })
-    .catch(function(err) {
-      res.json({
-        message: "Search error!!",
-        error: err
+      .then(function(filtered) {
+        console.log(filtered)
+        res.json(filtered)
+      })
+      .catch(function(err) {
+        res.json({
+          message: "Search error!!",
+          error: err
       });
     });
   }

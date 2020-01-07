@@ -57,10 +57,11 @@ class Saved extends Component {
                 <List>
                   {this.state.articles.map((article) => (
                     <Article
+                      _id = {article._id}
                       id={article.id}
-                      key={article.id}
+                      key={article.key}
                       query={article.query}
-                      source={article.source.name}
+                      source={article.source}
                       author={article.author}
                       title={article.title}
                       description={article.description}
@@ -68,8 +69,7 @@ class Saved extends Component {
                       urlToImage={article.urlToImage}
                       publishedAt={article.publishedAt}
                       content={article.content}
-                      keywords={article.keywords}
-                      label={article.label}
+                      type={article.type}
                       score={article.score}
                       Button={() => (
                         <button
