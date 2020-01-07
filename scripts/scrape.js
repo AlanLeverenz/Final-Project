@@ -4,6 +4,7 @@ var axios = require("axios");
 require('dotenv').config();
 const RAPID_API_KEY = process.env.RAPID_API_KEY;
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
+const IBM_WATSON_KEY = process.env.IBM_WATSON_KEY
 
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
@@ -63,9 +64,8 @@ function scrape(input) {
                 articles.map((article, i) => {
                     let keys = Object.keys(responses[i].result.sentiment.document)
                     keys.forEach(key => {
-                        // if (key !== "keywords") {
-                            article[key] = responses[i].result.sentiment.document[key]
-                        // }
+                      article[key] = responses[i].result.sentiment.document[key]
+
                     })
                     article.id = uuidv4();
                     console.log(article)
