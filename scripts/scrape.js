@@ -65,6 +65,7 @@ function scrape(input) {
                     let keys = Object.keys(responses[i].result.sentiment.document)
                     keys.forEach(key => {
                       article[key] = responses[i].result.sentiment.document[key]
+
                     })
                     article.id = uuidv4();
                     console.log(article)

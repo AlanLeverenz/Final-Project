@@ -6,7 +6,7 @@ const searchFilter = require("../scripts/searchFilter");
 
 module.exports = {
 
-  getNews: function(req, res) {
+  fetchNews: function(req, res) {
 
     const newsQuery = req.params.query.split(" ").join("-");
     return getNews(newsQuery)
