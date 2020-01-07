@@ -74,21 +74,27 @@ class Search extends Component {
       score: article.score,
     }).then(() => console.log("handleSaveArticle complete"));
   };
-
+  
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-center">
-                <strong>NewsIt</strong>
-              </h1>
+              <row className="jumbo-text">
+              <h1 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif"}}>
+               News Polarizer
+                </h1>
+                <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>Search the full spectrum of spin on any news headline.
+                </h5>
+              </row>
+  
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 search={this.state.search}
               />
+              
             </Jumbotron>
           </Col>         
         </Row>

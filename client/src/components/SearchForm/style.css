@@ -1,12 +1,10 @@
 
-.form-group {
-    margin: 15px;
-    text-align: center
+.form-control-borderless {
+  border: none;
 }
 
-.form-control {
-    width: 95%;
-    text-align: center;
-    margin: 0 auto
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
-

@@ -4,8 +4,8 @@ import "./style.css";
 function Jumbotron({ children }) {
   return (
     <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="jumbotron"
+      style={{ height: 300, clear: "both", paddingTop: 120, paddingBottom: 120, textAlign: "center" }}
+      className="jumbotron jumbotron-fluid clearfix"
     >
       {children}
     </div>

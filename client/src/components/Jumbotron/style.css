@@ -1,5 +1,10 @@
 .jumbotron {
-    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    background-color: #ffffff;
+    font-family: 'Libre Baskerville', serif;
     margin: 1rem 0 1rem 0;
-    padding: 3rem 2rem 1rem !important
+    padding: 3rem 2rem 1rem !important;
+    border-bottom: double;
+    border-top: thin;
+    position: relative;
+    
 }
