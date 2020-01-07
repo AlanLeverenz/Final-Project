@@ -15,7 +15,9 @@ class App extends React.Component {
 
   state = {
     authenticated: false,
-    loading: false
+    loading: false,
+    isLoggedin: false,
+    userId: ""
   }
 
   authenticate = () => authenticateUser()

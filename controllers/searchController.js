@@ -16,7 +16,6 @@ module.exports = {
         .then(function(filtered) {
           console.log(filtered)
           res.json(filtered)
-        // res.json(articles)
     })
     .catch(function(err) {
       res.json({

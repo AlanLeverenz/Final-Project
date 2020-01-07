@@ -7,8 +7,6 @@ import Article from "../components/Article";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
-// import DeleteBtn from "../components/DeleteBtn";
-// import { Input, FormBtn } from "../components/Form";
 
 class Saved extends Component {
   constructor(props) {
@@ -59,9 +57,9 @@ class Saved extends Component {
                 <List>
                   {this.state.articles.map((article) => (
                     <Article
-                      key={article.id}
-                      // query={this.state.search}
                       id={article.id}
+                      key={article.id}
+                      query={article.query}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
@@ -71,13 +69,12 @@ class Saved extends Component {
                       publishedAt={article.publishedAt}
                       content={article.content}
                       keywords={article.keywords}
-                      type={article.type}
+                      label={article.label}
                       score={article.score}
-                      ratio={article.ratio}
                       Button={() => (
                         <button
                           onClick={() => this.handleArticleDelete(article.id)}
-                          className="btn btn-primary ml-2"
+                          className="btn btn-danger ml-2"
                         >
                           Delete
                         </button>

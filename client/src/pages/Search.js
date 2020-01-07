@@ -72,10 +72,7 @@ class Search extends Component {
       content: article.content,
       type: article.label,
       score: article.score,
-    
-    }).then(() => this.getSavedArticles());
-    // }).then(() => console.log(article.json));
-
+    }).then(() => console.log("handleSaveArticle complete"));
   };
 
   render() {
@@ -113,11 +110,10 @@ class Search extends Component {
                       urlToImage={article.urlToImage}
                       publishedAt={article.publishedAt}
                       content={article.content}
-
+                      keywords={article.keywords}
                       type={article.label}
-
                       score={article.score}
-                      
+                      ratio={article.ratio}
                       Button={() => (
                         <button
                           onClick={() => this.handleArticleSave(article.id)}
