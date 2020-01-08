@@ -12,7 +12,7 @@ function ArticleCard({ title, source, description, url, urlToImage, publishedAt,
         </Col>
         </Row>
       <Row className="flex-wrap-reverse">
-        <Col size="md-4">
+        <Col size="col-12">
          
           <h3 className="font-italic"><a target="_blank" rel="noopener noreferrer" href={url}>{title}</a></h3>
             
@@ -20,17 +20,17 @@ function ArticleCard({ title, source, description, url, urlToImage, publishedAt,
         </Col>
       </Row>
       <Row>
-        <Col size="md-2">
+        <Col size="col-12">
         {/*} eslint-disable-next-line */}
           <p className="font-italic small" className={type}>Type: {type}</p>
         </Col>
-        <Col size="md-2">
+        <Col size="col-12">
           <p className="font-italic small">Score: {score}</p>
         </Col>
       </Row>
       <Row>
         
-        <Col size="col-4 sm-4 md-4">
+        <Col size="col-12">
           <p>{description}</p>
         </Col>
       </Row>
