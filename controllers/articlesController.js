@@ -27,14 +27,14 @@ module.exports = {
   },
   update: function(req, res) {
     db.Article
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    console.log("ARTICLE DELETE: id = " + req.params.id)
+    console.log("ARTICLE DELETE: key = " + req.params.id)
     db.Article
-      .findById({ id: req.params.id })
+      .findOne({key: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

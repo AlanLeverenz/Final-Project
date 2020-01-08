@@ -57,8 +57,8 @@ class Saved extends Component {
                 <List>
                   {this.state.articles.map((article) => (
                     <Article
-                      _id = {article._id}
-                      id={article.id}
+                      // _id = {article._id}
+                      id={article._id}
                       key={article.key}
                       query={article.query}
                       source={article.source}
