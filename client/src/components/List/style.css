@@ -1,7 +1,6 @@
 .list-overflow-container {
   max-height: 545px;
-  border: 1px #DDDDDD solid;
-  border-radius: 4px;
+  border: none;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -21,7 +20,7 @@
 }
 
 .list-overflow-container li a {
-  color: #2A878C;
+  color: darkgrey;
 }
 
 .list-overflow-container li:first-child {
@@ -30,4 +29,8 @@
 
 .list-overflow-container li:last-child {
   border-bottom: none;
+}
+
+.list-row {
+  flex-direction: row;
 }
