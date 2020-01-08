@@ -5,6 +5,13 @@ import { Redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
+const formStyle = {
+  // padding: '10px 0 40px 0',
+  width: '30rem',
+  marginTop: '2rem',
+  // borderColor: '#eee'
+}
+
 class Login extends Component {
   state = {
       email: "",
@@ -45,7 +52,9 @@ class Login extends Component {
         <Row>
           <Col size="12">
  
-            <form>
+            <form style={formStyle}>
+             
+            {/* <form> */}
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
