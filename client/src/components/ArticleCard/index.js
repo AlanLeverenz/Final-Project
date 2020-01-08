@@ -7,8 +7,8 @@ function ArticleCard({ title, source, description, url, urlToImage, publishedAt,
   return (
     <CardItem>
         <Row>
-         <Col size="col-4">
-          <img className="img-thumbnail img-fluid" src={urlToImage} alt={title} />
+         <Col size="col-4" style={{padding:0}}>
+          <img className="img-fluid card-image" src={urlToImage} alt={title}/>
         </Col>
         </Row>
       <Row className="flex-wrap-reverse">

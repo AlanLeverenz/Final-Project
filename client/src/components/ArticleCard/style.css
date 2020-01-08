@@ -19,3 +19,7 @@
 .negative {
   background-image: linear-gradient(to right, rgb(254, 95, 95), white)
 }
+
+.card-image {
+  max-width: 100%;
+}
