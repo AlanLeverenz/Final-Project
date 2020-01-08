@@ -1,0 +1,26 @@
+.btn-container {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .btn-container {
+    margin-bottom: 15px;
+  }
+}
+
+.positive {
+  background-image: linear-gradient(to right, rgb(139, 235, 139), white)
+}
+
+.neutral {
+  background-image: linear-gradient(to right, rgb(153, 188, 230), white)
+}
+
+.negative {
+  background-image: linear-gradient(to right, rgb(254, 95, 95), white)
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}

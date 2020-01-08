@@ -17,3 +17,9 @@ function Card({ icon, title, children }) {
 }
 
 export default Card;
+
+export function CardItem({ children }) {
+  return <div className="col-4 md-4 sm-4">{children}</div>;
+}
+
+
