@@ -1,0 +1,3 @@
+{
+"mongoURI": "mongodb://sentiment:sentiment1@ds261648.mlab.com:61648/heroku_jzl420sl"
+}
