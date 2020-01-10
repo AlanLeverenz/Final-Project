@@ -1,5 +1,5 @@
 const express = require("express");
-const config = require('config');
+
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -32,24 +32,13 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-//DB Config
-// const db = require('./config/keys').mongoURI;
-const db = config.get('mongoURI');
-//Connect to Mongo
-mongoose.connect("mongodb://localhost/mongoSentiment", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
-
-
 // Connect to the Mongo DB
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/mongoSentiment", 
-//   { useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true
-// })
-// .then(() => console.log('MongoDB Connected...'))
-//   .catch(err => console.log(err));
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/mongoSentiment", 
+  { useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
 
 // Start the API server
 app.listen(PORT, function() {
