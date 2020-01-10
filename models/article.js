@@ -63,10 +63,15 @@ const articleSchema = new Schema({
     required: false
   },
     // score
-score: {
-  type: String,
-  required: false
-},
+  score: {
+    type: String,
+    required: false
+  },
+  // hml
+  hml: {
+    type: String,
+    required: false
+  },
   // ratio
   ratio: {
     type: String,

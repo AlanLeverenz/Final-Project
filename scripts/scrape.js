@@ -67,6 +67,11 @@ function scrape(input) {
                       article[key] = responses[i].result.sentiment.document[key]
                     })
                     article.id = uuidv4();
+                    
+                    // store id in an array
+                    // check if the article id exists in the array
+                    // if it exists, change to another uuid
+
                     console.log(article)
                     return article
                 })

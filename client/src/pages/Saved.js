@@ -44,9 +44,13 @@ class Saved extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-center">
-                <strong>NewsIt</strong>
+            <row className="jumbo-text">
+            <h1 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif"}}>
+             News Polarizer
               </h1>
+              <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>Your Saved News Polarizer Articles.
+              </h5>
+            </row>
             </Jumbotron>
           </Col>
         </Row>
@@ -71,6 +75,7 @@ class Saved extends Component {
                       content={article.content}
                       type={article.type}
                       score={article.score}
+                      hml={article.score}
                       Button={() => (
                         <button
                           onClick={() => this.handleArticleDelete(article.id)}

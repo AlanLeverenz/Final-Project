@@ -3,41 +3,45 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Article({ title, source, description, url, urlToImage, publishedAt, content, type, score, Button}) {
+function Article({ title, source, description, url, id, hml, urlToImage, publishedAt, content, type, score, Button}) {
   return (
     <ListItem>
+
+      <Row>
+        <Col size="col-4">
+          <img className="img-thumbnail img-fluid" src={urlToImage} alt={title}/>
+        </Col>
+      </Row>
+
       <Row className="flex-wrap-reverse">
-        <Col size="md-8">
-          <h3 className="font-italic">{title}</h3>
-          {source && <h5 className="font-italic">{source}</h5>}
-        </Col>
-        <Col size="md-4">
-          <div className="btn-container">
-            <a className="btn btn-light" target="_blank" rel="noopener noreferrer" href={url}>
-              View
-            </a>
-            <Button />
-          </div>
+        <Col size="col-12">
+      
+      <h3 className="font-italic"><a target="_blank" rel="noopener noreferrer" href={url}>{title}</a></h3>
+        
+      {source && <h5 className="font-italic">{source}</h5>}
+
         </Col>
       </Row>
+  
       <Row>
-        <Col size="md-6">
-        {/*} eslint-disable-next-line */}
-          <p className="font-italic small" className={type}>Type: {type}</p>
-        </Col>
-        <Col size="md-6">
-          <p className="font-italic small">Score: {score}</p>
+        <Col size="col-12">
+          <p className={hml}>{type}: {score}</p>
         </Col>
       </Row>
+
       <Row>
-        <Col size="12 sm-4 md-3">
-          <img className="img-thumbnail img-fluid w-100" src={urlToImage} alt={title} />
-        </Col>
-        <Col size="12 sm-8 md-9">
+        <Col size="col-12">
           <p>{description}</p>
         </Col>
       </Row>
-    </ListItem>
+
+      <Row>
+        <Col size="col-12">
+          <Button />
+        </Col>
+      </Row>
+      
+  </ListItem>
   );
 }
 

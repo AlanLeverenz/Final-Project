@@ -14,13 +14,35 @@ const lo = scores.shift();
 const hiIndex = articles.findIndex(x => x.score ===hi);
 const loIndex = articles.findIndex(x => x.score ===lo);
 const medIndex = Math.floor(articles.length / 2);
-// create a new array consisting only of high, middle, and low values
-const hmlArr = [];
-hmlArr.push(articles[hiIndex]);
-// hmlArr.push(articles[medIndex]);
-hmlArr.push(articles[loIndex]);
+
+console.log ("hiIndex = " + hiIndex);
+console.log ("medIndex = " + medIndex);
+console.log ("loIndex = " + loIndex);
+
+// create a new array that will be returned with only high, middle, and low values
+let hmlArr = [];
+console.log("ARTICLES.LENGTH = " + articles.length);
+// set hi, md, lo array
+let hiArr = articles[hiIndex];
+console.log("HIARR");
+console.log(hiArr);
+let mdArr = articles[medIndex];
+console.log("MDARR");
+console.log(mdArr);
+let loArr = articles[loIndex];
+console.log("LOARR");
+console.log(loArr);
+// add hml object
+hiArr.hml = "hi";
+mdArr.hml = "md";
+loArr.hml = "lo";
+// push each array into the returned array
+hmlArr.push(hiArr);
+mdArr.id !== hiArr.id ? hmlArr.push(mdArr) : '' ;
+loArr.id !== mdArr.id ? loArr.push(loArr) : '';
 
 // console.log the hml array
+console.log("RETURNED HML ARRAY");
 console.log(hmlArr);
 
 return hmlArr;

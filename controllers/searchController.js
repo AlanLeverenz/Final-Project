@@ -14,7 +14,7 @@ module.exports = {
         return searchFilter(articles)
       })
         .then(function(filtered) {
-          console.log(filtered)
+          // console.log(filtered)
           res.json(filtered)
         // res.json(articles)
     })

@@ -32,12 +32,12 @@ class Search extends Component {
   };
 
   searchNews = () => {
-    // console.log(this.state.search);
     API.searchNews(this.state.search)
     .then(res =>{
       console.log(res.data)
       this.setState({
-        articles: res.data
+        articles: res.data,
+        message: res.data.message
       })}
     )
     .catch(() =>
@@ -73,6 +73,7 @@ class Search extends Component {
       content: article.content,
       type: article.label,
       score: article.score,
+      hml: article.hml
     }).then(() => console.log("handleSaveArticle complete"));
   };
   
@@ -119,7 +120,7 @@ class Search extends Component {
                       keywords={article.keywords}
                       type={article.label}
                       score={article.score}
-                      ratio={article.ratio}
+                      hml={article.hml}
                       Button={() => (
                         <button
                           onClick={() => this.handleArticleSave(article.id)}
