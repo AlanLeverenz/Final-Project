@@ -25,7 +25,7 @@ var runWatson = (article) =>  {
   return new Promise((resolve, reject) => {
   // console.log("Watson Query:", article.content);
 const analyzeParams = {
-  'url': article.url,
+  'text': article.content,
   'features': {'sentiment': 
   {}},
 };
