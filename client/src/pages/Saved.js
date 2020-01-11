@@ -12,7 +12,8 @@ class Saved extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      articles: []
+      articles: [],
+      listCount: ""
     };
   }
 
@@ -25,7 +26,8 @@ class Saved extends Component {
       .then(res => {
         console.log(res.data);
         this.setState({
-          articles: res.data
+          articles: res.data,
+          listCount: res.data.length
         }, () => {console.log(this.state.articles)})
       }
     )
@@ -48,7 +50,7 @@ class Saved extends Component {
             <h1 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif"}}>
              News Polarizer
               </h1>
-              <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>Your Saved News Polarizer Articles.
+              <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>You have saved {this.state.listCount} News Polarizer articles.
               </h5>
             </row>
             </Jumbotron>
