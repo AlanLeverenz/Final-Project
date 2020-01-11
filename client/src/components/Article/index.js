@@ -31,7 +31,7 @@ function Article({ title, source, description, url, query, id, hml, urlToImage, 
   
       <Row>
         <Col size="col-12" className="tinyLine">
-          <p style={{fontSize:"1.25rem"}} className={type}>{type.toUpperCase()}: {score}</p>
+          <p style={{fontSize:"1.25rem"}} className={hml}>{type.toUpperCase()}: {score}</p>
         </Col>
       </Row>
 

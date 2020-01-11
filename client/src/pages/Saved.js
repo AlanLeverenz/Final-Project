@@ -77,7 +77,7 @@ class Saved extends Component {
                       content={article.content}
                       type={article.type}
                       score={article.score}
-                      hml={article.score}
+                      hml={article.hml}
                       Button={() => (
                         <button
                           onClick={() => this.handleArticleDelete(article.id)}
