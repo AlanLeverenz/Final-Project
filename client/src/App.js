@@ -7,6 +7,7 @@ import NoMatch from "./pages/NoMatch";
 import Search from "./pages/Search";
 import Nav from "./components/Nav";
 import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
+import "./style.css"
 
 
 class App extends React.Component {

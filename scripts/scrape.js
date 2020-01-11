@@ -53,7 +53,9 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 3);
+            let limit = response.articles.length;
+            limit > 10 ? limit = 10 : limit;
+            articles = response.articles.slice(0, limit);
             let promises = [];
             articles.forEach(article => {
                 promises.push(runWatson(article))
@@ -67,7 +69,7 @@ function scrape(input) {
                       article[key] = responses[i].result.sentiment.document[key]
                     })
                     article.id = uuidv4();
-                    
+
                     // store id in an array
                     // check if the article id exists in the array
                     // if it exists, change to another uuid

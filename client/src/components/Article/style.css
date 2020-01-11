@@ -8,7 +8,6 @@
   }
 }
 
-
 .hi {
   background-image: linear-gradient(to right, rgb(139, 235, 139), white);
   font-style: italic;
@@ -28,5 +27,18 @@
   font-style: italic;
   font-size: 0.9rem;
   margin: .5rem 0;
+}
+
+.tinyLine {
+  border-top: 3px;
+  border-bottom: 3px;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+img {
+  max-width: 400px;
 }
 

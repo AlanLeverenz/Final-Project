@@ -7,35 +7,39 @@ function ArticleCard({ title, source, description, url, urlToImage, id, hml, que
   return (
     <CardItem>
       <Row>
-         <Col size="col-4">
-          <img className="img-thumbnail img-fluid" src={urlToImage} alt={title}/>
+         <Col size="col-4 col-md-12 col-sm-12">
+          <img className="img-fluid" src={urlToImage} alt={title}/>
         </Col>
       </Row>
+
       <Row className="flex-wrap-reverse">
         <Col size="col-12">
-         
-          <h3 className="font-italic"><a target="_blank" rel="noopener noreferrer" href={url}>{title}</a></h3>
+
+          <h3 className=""><a target="_blank" rel="noopener noreferrer" style={{color:"#0c1429"}} href={url}>{title}</a></h3>
             
-          {source && <h5 className="font-italic">{source}</h5>}
+          {source && <h5 className="">{source}</h5>}
 
         </Col>
       </Row>
+
       <Row>
-        <Col size="col-12">
-          <p className={hml}>{type}: {score}</p>
-          {/* <p>ID: {id}</p> */}
+        <Col size="col-12" className="tinyLine">
+          <p style={{fontSize:"1.25rem"}} className={hml}>{type.toUpperCase()}: {score}</p>
         </Col>
       </Row>
+
       <Row>
         <Col size="col-12">
           <p>{description}</p>
         </Col>
       </Row>
+
       <Row>
         <Col size="col-12">
         <Button />
       </Col>
-    </Row>
+      </Row>
+
     </CardItem>
   );
 }

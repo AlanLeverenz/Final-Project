@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ icon, title, children }) {
   return (
-    <div className="card mt-1">
+    <div className="card mt-1" style={{border:"none", padding:"0"}}>
  {/*}     <div className="card-header">
         <h3>
           <strong>
@@ -11,7 +11,7 @@ function Card({ icon, title, children }) {
         </h3>
       </div>
   */}
-      <div className="card-body">{children}</div>
+      <div className="card-body" style={{padding:"0"}}>{children}</div>
     </div>
   );
 }
@@ -19,6 +19,6 @@ function Card({ icon, title, children }) {
 export default Card;
 
 export function CardItem({ children }) {
-  return <div className="col-4 md-4 sm-4">{children}</div>;
+  return <div className="col-lg-4 col-md-12 col-sm-12" style={{paddingLeft:"25px", paddingRight:"25px", border:"none"}}>{children}</div>;
 }
 
