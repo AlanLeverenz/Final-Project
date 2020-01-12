@@ -6,7 +6,6 @@ import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { List } from "../components/List";
 
 // const uuidv4 = require('uuid/v4');
 

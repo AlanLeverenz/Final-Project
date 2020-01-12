@@ -4,7 +4,7 @@ import "./style.css";
 
 export function ArticlePanel({ children }) {
     return (
-      <div className="container justify-content-between">
+      <div className="container">
         <ul className="list-group list-row">{children}</ul>
       </div>
     );
