@@ -36,8 +36,8 @@ function ArticleCard({ title, source, description, url, urlToImage, id, hml, que
 
       <Row>
         <Col size="col-12">
-        <Button />
-      </Col>
+          <Button />
+        </Col>
       </Row>
 
     </CardItem>

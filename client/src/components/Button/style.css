@@ -1,8 +1,9 @@
 .btn-primary {
-  /* float: right !important; */
+  float: right !important;
   background-color: #263880 !important;
   border-color: #263880 !important;
   color: white
 }
 
-div {cursor: pointer;}
+div {cursor: pointer
+}
