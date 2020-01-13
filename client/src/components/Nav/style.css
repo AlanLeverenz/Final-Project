@@ -3,3 +3,8 @@
     background-color: #0c1429 !important;
     color: blue !important;
 }
+
+.newsit {
+    background: url(../../assets/images/newsit.png) no-repeat;
+    width: 60px
+}

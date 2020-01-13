@@ -9,7 +9,7 @@ function Navbar(props) {
   return ( 
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
       <Link className="navbar-brand" to="/">
-        <span>NewsIt</span>
+        <span className="newsit"></span>
       </Link>
       <div>
         <ul className="navbar-nav">

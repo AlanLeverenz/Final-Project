@@ -50,8 +50,8 @@ class Saved extends Component {
             <h1 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif"}}>
              News Polarizer
               </h1>
-              <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>You have saved {this.state.listCount} News Polarizer articles.
-              </h5>
+              <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>You saved {this.state.listCount} News Polarizer articles
+              </h5>            
             </row>
             </Jumbotron>
           </Col>

@@ -64,7 +64,7 @@ const articleSchema = new Schema({
   },
     // score
   score: {
-    type: String,
+    type: Number,
     required: false
   },
   // hml

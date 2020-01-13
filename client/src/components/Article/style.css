@@ -21,7 +21,7 @@ img {
   max-width: 400px;
 }
 
-.no-padding{
-  padding: 0 !important;
-  margin: 0 !important;
+.col-12 {
+  padding-left: 0 !important;
+  margin-bottom: .5rem;
 }
