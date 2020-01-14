@@ -34,7 +34,7 @@ const articleSchema = new Schema({
       required: false
     },
   },
-  // headline, a string
+  // author, a string
   author: {
     type: String,
     required: false

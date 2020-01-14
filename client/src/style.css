@@ -10,6 +10,7 @@ font-family: century-old-style-std,serif;
 font-weight: 400;
 font-style: normal
 }
+
 h3 {
     font-family: century-old-style-std,serif !important;
     font-weight: 400;
@@ -29,21 +30,18 @@ h1{
 .hi {
     background-image: linear-gradient(to right, rgb(139, 235, 139), white);
     font-style: italic;
-    font-size: 0.9rem;
     margin: .5rem 0;
   }
   
   .md {
     background-image: linear-gradient(to right, rgb(153, 188, 230), white);
     font-style: italic;
-    font-size: 0.9rem;
     margin: .5rem 0;
   }
   
   .lo {
     background-image: linear-gradient(to right, rgb(254, 95, 95), white);
     font-style: italic;
-    font-size: 0.9rem;
     margin: .5rem 0;
   }
 
