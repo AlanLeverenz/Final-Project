@@ -4,7 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 
-class Detail extends Component {
+class Visuals extends Component {
   state = {
     article: {}
   };
@@ -48,4 +48,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default Visuals;

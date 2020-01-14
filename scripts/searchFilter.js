@@ -1,21 +1,15 @@
 const searchFilter = function(articles) {
 
-    console.log("ARTICLES LENGTH = " + articles.length);
-
     // sort using ES6 sort
     articles.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
 
     console.log("ARTICLES SORTED === ");
-
     console.log(articles);
 
     // assign hi, med, lo indexes
     let medIndex = Math.floor(articles.length / 2);
     hiIndex = articles.length - 1;
     loIndex = 0;
-    console.log ("hiIndex = " + hiIndex);
-    console.log ("medIndex = " + medIndex);
-    console.log ("loIndex = " + loIndex);
   
     // create a new array that will be returned with only high, middle, and low values
     let hmlArr = [];
@@ -30,7 +24,7 @@ const searchFilter = function(articles) {
     // push each array into the returned array
     hmlArr.push(hiArr);
     mdArr.id !== hiArr.id ? hmlArr.push(mdArr) : '' ;
-    loArr.id !== mdArr.id ? hmlArr.push(loArr) : '';
+    loArr.id !== mdArr.id ? hmlArr.push(loArr) : '' ;
 
     // console.log the hml array
     console.log("RETURNED HML ARRAY");

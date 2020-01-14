@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Article({ title, source, description, url, query, id, hml, urlToImage, publishedAt, content, label, score, Button}) {
+function Article({ title, source, author, description, url, query, id, hml, urlToImage, publishedAt, content, label, score, Button}) {
   return (
 
   <ListItem>

@@ -3,7 +3,7 @@ import { CardItem } from "../Card";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function ArticleCard({ title, source, description, url, urlToImage, id, hml, query, author, publishedAt, content, label, score, Button}) {
+function ArticleCard({ title, source, description, url, urlToImage, hml, query, author, publishedAt, content, label, score, Button}) {
   return (
     <CardItem>
       <Row>

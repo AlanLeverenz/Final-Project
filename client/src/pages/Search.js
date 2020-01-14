@@ -53,10 +53,20 @@ class Search extends Component {
     this.searchNews();
   };
 
+  // sample put function
+  // updateSaveArticle = (id, item) => {
+  //   return dispatch => {
+  //     console.log(item)
+  //     return axios.put(`/locks/${id}`, item).then(response => {
+  //         console.log(response)
+  //     })
+  //   }
+  // }
+
   // eventually need to insert into a Users collection Article array
   // using uuid to set the id since there is no id returned from the search
   handleArticleSave = id => {
-    const article = this.state.articles.find(article => article.id === id);
+    const article = this.state.articles.find(article => article. id === id);
     console.log(id)
     API.saveArticle({
       id: article.id,

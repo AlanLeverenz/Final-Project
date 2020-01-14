@@ -11,11 +11,10 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     
     return getNews(newsQuery)
-    // insert start
-      .then(function(news) {
-      // then insert news data into the db
-        console.log("NEWS === " + news);
-        return db.Article.create(news)
+    // save scraped articles to db - OR SAVE AFTER BEING FILTERED?
+      // .then(function(news) {
+      //   console.log("NEWS === " + news.data);
+      //   return db.Article.create(news)
       // insert end
       .then(function(articles) {
         return searchFilter(articles)
@@ -29,6 +28,6 @@ module.exports = {
           error: err
         });
       });
-    }); //insert paren
-  } // insert curly brace
+    // }); 
+  } 
 };
