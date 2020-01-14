@@ -70,7 +70,7 @@ class Search extends Component {
       urlToImage: article.urlToImage,
       publishedAt: article.publishedAt,
       content: article.content,
-      type: article.label,
+      label: article.label,
       score: article.score,
       hml: article.hml
     }).then(() => console.log("handleSaveArticle complete"));
@@ -117,7 +117,7 @@ class Search extends Component {
                       publishedAt={article.publishedAt}
                       content={article.content}
                       keywords={article.keywords}
-                      type={article.label}
+                      label={article.label}
                       score={article.score}
                       hml={article.hml}
                       Button={() => (

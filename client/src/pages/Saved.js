@@ -67,7 +67,7 @@ class Saved extends Component {
                       id={article.id}
                       key={article.key}
                       query={article.query}
-                      source={article.source}
+                      source={article.source.name}
                       author={article.author}
                       title={article.title}
                       description={article.description}
@@ -75,7 +75,7 @@ class Saved extends Component {
                       urlToImage={article.urlToImage}
                       publishedAt={article.publishedAt}
                       content={article.content}
-                      type={article.type}
+                      label={article.label}
                       score={article.score}
                       hml={article.hml}
                       Button={() => (

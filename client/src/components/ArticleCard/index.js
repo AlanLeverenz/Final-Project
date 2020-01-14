@@ -3,7 +3,7 @@ import { CardItem } from "../Card";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function ArticleCard({ title, source, description, url, urlToImage, id, hml, query, author, publishedAt, content, type, score, Button}) {
+function ArticleCard({ title, source, description, url, urlToImage, id, hml, query, author, publishedAt, content, label, score, Button}) {
   return (
     <CardItem>
       <Row>
@@ -24,7 +24,7 @@ function ArticleCard({ title, source, description, url, urlToImage, id, hml, que
 
       <Row>
         <Col size="col-12" className="tinyLine">
-          <p style={{fontSize:"1.25rem"}} className={hml}>{type.toUpperCase()}: {score}</p>
+          <p style={{fontSize:"1.25rem"}} className={hml}>{label.toUpperCase()}: {score}</p>
         </Col>
       </Row>
 

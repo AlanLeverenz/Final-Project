@@ -13,14 +13,26 @@ const articleSchema = new Schema({
     type: String,
     required: false,
   },
+  // userId 
+  userId: {
+    type:String,
+    required: false
+  },
   // query, a string
   query: {
     type: String,
     required: false,
   },
-  // article source
+  // article source id and name
   source: { 
-    type: String
+    id: { 
+      type: String,
+      required: false
+    },
+    name: {
+      type: String,
+      required: false
+    },
   },
   // headline, a string
   author: {
@@ -58,7 +70,7 @@ const articleSchema = new Schema({
     required: false
   },
   // type
-  type: {
+  label: {
     type: String,
     required: false
   },
@@ -84,7 +96,7 @@ const articleSchema = new Schema({
   },
   saved: {
     type: Boolean,
-    default: true
+    default: false
   }
 });
 

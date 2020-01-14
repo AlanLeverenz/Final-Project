@@ -54,7 +54,7 @@ function scrape(input) {
             language: 'en',
         }).then(response => {
             let limit = response.articles.length;
-            limit > 10 ? limit = 10 : limit;
+            limit > 12 ? limit = 12 : limit;
             articles = response.articles.slice(0, limit);
             let promises = [];
             articles.forEach(article => {
@@ -69,11 +69,6 @@ function scrape(input) {
                       article[key] = responses[i].result.sentiment.document[key]
                     })
                     article.id = uuidv4();
-
-                    // store id in an array
-                    // check if the article id exists in the array
-                    // if it exists, change to another uuid
-
                     console.log(article)
                     return article
                 })

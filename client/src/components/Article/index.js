@@ -3,7 +3,7 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function Article({ title, source, description, url, query, id, hml, urlToImage, publishedAt, content, type, score, Button}) {
+function Article({ title, source, description, url, query, id, hml, urlToImage, publishedAt, content, label, score, Button}) {
   return (
 
   <ListItem>
@@ -26,7 +26,7 @@ function Article({ title, source, description, url, query, id, hml, urlToImage, 
 
     <Row>
       <Col size="col-12" className="tinyLine">
-        <p style={{fontSize:"1.25rem"}} className={hml}>{type.toUpperCase()}: {score}</p>
+        <p style={{fontSize:"1.25rem"}} className={hml}>{label.toUpperCase()}: {score}</p>
       </Col>
     </Row>
 

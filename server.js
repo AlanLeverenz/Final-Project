@@ -34,7 +34,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/mongoSentiment", 
+  process.env.MONGODB_URI_ME || "mongodb://localhost/mongoSentiment", 
   { useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
