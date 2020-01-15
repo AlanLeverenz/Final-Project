@@ -83,7 +83,7 @@ const querySchema = new Schema({
 ]    
 });
 
-const Query = mongoose.model("Query", articleSchema);
+const Query = mongoose.model("Query", querySchema);
 
 module.exports = Query;
 

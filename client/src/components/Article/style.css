@@ -17,10 +17,6 @@ p {
   font-size: 1.25rem;
 }
 
-img {
-  max-width: 400px;
-}
-
 .col-12 {
   padding-left: 0 !important;
   margin-bottom: .5rem;

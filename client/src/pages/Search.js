@@ -7,7 +7,6 @@ import ArticlePanel from "../components/ArticlePanel"
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
-// const uuidv4 = require('uuid/v4');
 
 // Home page
 class Search extends Component {
@@ -18,7 +17,9 @@ class Search extends Component {
     this.state = {
       search: "",
       articles: [],
-      message: ""
+      message: "",
+      isLoaded: true,
+      isLoggedIn: false
     };
   }
 
@@ -32,13 +33,13 @@ class Search extends Component {
 
   searchNews = () => {
     API.searchNews(this.state.search)
-    .then(res =>{
-      console.log(res.data)
+    .then(res => {
       this.setState({
+        isLoaded: true,
         articles: res.data,
         message: res.data.message
-      })}
-    )
+      })
+    })
     .catch(() =>
       this.setState({
         articles: [],
@@ -50,24 +51,14 @@ class Search extends Component {
   // When the form is submitted, search the NewsAPI for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
+    this.setState({isLoaded:false});
     this.searchNews();
   };
-
-  // sample put function
-  // updateSaveArticle = (id, item) => {
-  //   return dispatch => {
-  //     console.log(item)
-  //     return axios.put(`/locks/${id}`, item).then(response => {
-  //         console.log(response)
-  //     })
-  //   }
-  // }
 
   // eventually need to insert into a Users collection Article array
   // using uuid to set the id since there is no id returned from the search
   handleArticleSave = id => {
-    const article = this.state.articles.find(article => article. id === id);
-    console.log(id)
+    const article = this.state.articles.find(article => article.id === id);
     API.saveArticle({
       id: article.id,
       key: article.id,
@@ -82,7 +73,8 @@ class Search extends Component {
       content: article.content,
       label: article.label,
       score: article.score,
-      hml: article.hml
+      hml: article.hml,
+      saved: true
     }).then(() => console.log("handleSaveArticle complete"));
   };
   
@@ -99,21 +91,19 @@ class Search extends Component {
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
               </row>
-  
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 search={this.state.search}
               />
-              
             </Jumbotron>
-          </Col>         
+          </Col>
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Results">
+            <Card isLoaded={this.state.isLoaded}>
               {this.state.articles.length ? (
-                <ArticlePanel>
+                <ArticlePanel >
                   {this.state.articles.map((article) => (
                     <ArticleCard
                       key={article.id}

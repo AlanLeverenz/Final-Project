@@ -13,7 +13,7 @@ module.exports = {
     return getNews(newsQuery)
     // save scraped articles to db - OR SAVE AFTER BEING FILTERED?
       // .then(function(news) {
-      //   console.log("NEWS === " + news.data);
+        // console.log("NEWS === " + news.data);
       //   return db.Article.create(news)
       // insert end
       .then(function(articles) {
