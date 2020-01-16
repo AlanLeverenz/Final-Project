@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   authenticate = () => authenticateUser()
-    .then(auth => this.setState({authenticated: auth.data, loading:false}))
+    .then(auth => this.setState({authenticated: auth.data, isLoggedin: true, loading:false}))
     .catch(err => console.log(err))
   
   logout = () => logOut()
@@ -49,13 +49,14 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav user={this.userName} logout={this.logout}/>
+        <Nav user={this.userName} loggedIn={this.isLoggedin} logout={this.logout}/>
         <Switch>
           <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <Route path="/saved" component={Saved} />
-         {/*   <this.PrivateRoute exact path="/saved" component={Saved} /> */}
+          <Route path="/saved" render={(props) => <Saved {...props} state={this.state} />} />
+ {/*           <Route path="/saved" component={Saved} />
+          <this.PrivateRoute exact path="/saved" component={Saved} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>

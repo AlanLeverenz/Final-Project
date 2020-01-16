@@ -19,7 +19,7 @@ class Search extends Component {
       articles: [],
       message: "",
       isLoaded: true,
-      isLoggedIn: false
+      isLoggedin: false
     };
   }
 
