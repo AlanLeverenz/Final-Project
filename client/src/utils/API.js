@@ -40,6 +40,13 @@ export default {
     return axios.post("/api/articles", articleData);
   },
 
+// queries
+
+  // Gets queries matching a query string
+  getSavedQueries: function(query) {
+    return axios.get("/api/queries/" + query);
+  },
+
 // user functions
 
   loginUser: function (user) {

@@ -11,10 +11,10 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     
     return getNews(newsQuery)
-    // save scraped articles to db - OR SAVE AFTER BEING FILTERED?
-      // .then(function(news) {
-        // console.log("NEWS === " + news.data);
-      //   return db.Article.create(news)
+    // save scraped articles to db
+      .then(function(news) {
+        console.log("NEWS === " + news.data);
+        return db.Query.create(news)
       // insert end
       .then(function(articles) {
         return searchFilter(articles)

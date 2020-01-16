@@ -6,13 +6,13 @@ import API from "../utils/API";
 
 class Visuals extends Component {
   state = {
-    article: {}
+    queries: []
   };
   // When this component mounts, grab the article with the _id of this.props.match.params.id
   // e.g. localhost:3000/saved/599dcb67f0f16317844583fc
   componentDidMount() {
-    API.getArticle(this.props.match.params.id)
-      .then(res => this.setState({ article: res.data }))
+    API.getQuery(this.props.match.params.query)
+      .then(res => this.setState({ queries: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -23,7 +23,7 @@ class Visuals extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.article.query}
+                {this.state.query}
               </h1>
             </Jumbotron>
           </Col>
