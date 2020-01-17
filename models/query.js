@@ -20,67 +20,25 @@ const querySchema = new Schema({
         required: false,
     },
     date: {
-    type: Date,
-    default: Date.now
+        type: Date,
+        default: Date.now
     },
-
-  // array of articles
-  article: [ 
-    { 
-        id: { 
-            type: String,
-            required: false
-        }
+    label: {
+        type: String,
+        required: false
     },
-    {
-        label: {
-            type: String,
-            required: false
-        }
+    score: {
+        type: Number,
+        required: false
     },
-    {
-        score: {
-            type: Number,
-            required: false
-        }
+    hml: {
+        type: String,
+        required: false
     },
-    {
-        hml: {
-            type: String,
-            required: false
-        }
-    },
-    {
-        title: {
-            type: String,
-            required: false
-        }
-    },
-    {
-        url: {
-            type: String,
-            required: true
-        }
-    },
-    {
-        urlToImage: {
-            type: String,
-            required: false
-        }
-    },
-    {
-        publishedAt: {
-            type: Date,
-            required: false
-        }
-    },
-    {
-        description: {
-            type: String,
-            required: false
-        }
-    } 
-]    
+    url: {
+        type: String,
+        required: true
+    }, 
 });
 
 const Query = mongoose.model("Query", querySchema);

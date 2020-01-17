@@ -18,8 +18,7 @@ class Search extends Component {
       search: "",
       articles: [],
       message: "",
-      isLoaded: true,
-      isLoggedin: false
+      isLoaded: true
     };
   }
 

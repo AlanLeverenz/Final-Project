@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const articleRoutes = require("./articles");
-const queryRoutes = require("./queries");
+// const queryRoutes = require("./queries");
 const searchRoutes = require("./search");
 const userRoutes = require("./user");
 
@@ -8,7 +8,7 @@ const userRoutes = require("./user");
 router.use("/articles", articleRoutes);
 
 // /api/queries routes
-router.use("/queries", queryRoutes);
+// router.use("/queries", queryRoutes);
 
 // /api/news routes
 router.use("/news", searchRoutes);

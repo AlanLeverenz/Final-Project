@@ -23,7 +23,7 @@ class Visuals extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {this.state.query}
+                {this.query}
               </h1>
             </Jumbotron>
           </Col>
@@ -31,7 +31,7 @@ class Visuals extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Score Graph</h1>
+              <h1>{this.date}</h1>
               <p>
                 Graph Goes Here
               </p>

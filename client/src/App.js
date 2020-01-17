@@ -9,7 +9,6 @@ import Nav from "./components/Nav";
 import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
 import "./style.css"
 
-
 class App extends React.Component {
 //  check cookie
 //  getCookie();
@@ -17,11 +16,11 @@ class App extends React.Component {
   state = {
     authenticated: false,
     loading: false,
-    isLoggedin: false
+    logout: false
   }
 
   authenticate = () => authenticateUser()
-    .then(auth => this.setState({authenticated: auth.data, isLoggedin: true, loading:false}))
+    .then(auth => this.setState({authenticated: auth.data, loading:false}))
     .catch(err => console.log(err))
   
   logout = () => logOut()
@@ -49,7 +48,7 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav user={this.userName} loggedIn={this.isLoggedin} logout={this.logout}/>
+        <Nav user={this.userName} authenticated={this.state.authenticated} logout={this.logout}/>
         <Switch>
           <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
           <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />

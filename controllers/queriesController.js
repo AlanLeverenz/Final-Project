@@ -29,7 +29,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Article
+    db.Query
       .findAll({ query : req.params.query })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

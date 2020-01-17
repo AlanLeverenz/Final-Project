@@ -62,6 +62,7 @@ module.exports = {
       return res.status(401).json('Not authorized! Go back!');
     }
   },
+
   logOut: function( req, res, next){
     console.log("Logging out");
     console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
@@ -72,7 +73,7 @@ module.exports = {
       console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
 
       return res.json('logged out')
+      
     });
-
   }
 };

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Navbar(props) {
+function Navbar({authenticated, user, logout}) {
 
   return ( 
 
@@ -38,7 +38,7 @@ function Navbar(props) {
           </li>
 
           { 
-            !props.isLoggedin ? 
+            !authenticated ? 
             <li className="nav-item">
               <Link
                 to="/login"
@@ -50,7 +50,7 @@ function Navbar(props) {
             : null }
 
           {
-            !props.isLoggedin ? 
+            !authenticated ? 
             <li className="nav-item">
               <Link
                 to="/signup"
@@ -62,14 +62,14 @@ function Navbar(props) {
           : null }
 
           {
-            props.isLoggedin ? 
-          <li>{props.user}</li>
+            authenticated ? 
+          <li>{user}</li>
           : null }
 
           {
-            props.isLoggedin ?
+            authenticated ?
           <li className="nav-item">
-            <Button className="nav-link" onClick={props.logout}>
+            <Button className="nav-link" onClick={logout}>
               Logout
             </Button>
           </li>
