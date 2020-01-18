@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
+import PreviewPanel from "../components/PreviewPanel"
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -109,6 +110,7 @@ class Search extends Component {
             </Jumbotron>
           </Col>         
         </Row>
+        <PreviewPanel />
         <Row>
           <Col size="md-12">
             <Card title="Results">
