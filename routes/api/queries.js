@@ -6,10 +6,10 @@ router.route("/")
   .get(queriesController.findAll)
   .post(queriesController.create);
 
-// Matches with "/api/queries/:query"
+// Matches with "/api/queries/:queryId"
 router
-  .route("/:query")
-  .get(queriesController.findOne)
+  .route("/:id")
+  .get(queriesController.findById)
   .put(queriesController.update)
   .delete(queriesController.remove);
 

@@ -1,9 +1,9 @@
 const searchFilter = function(articles) {
 
     // sort using ES6 sort
-    articles.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
+    // articles.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
 
-    console.log("ARTICLES SORTED === ");
+    console.log("SEARCHFILTER ARTICLES === ");
     console.log(articles);
 
     // assign hi, med, lo indexes

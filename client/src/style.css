@@ -27,6 +27,7 @@ h1{
     font-style: normal
 }
 
+/* hi md lo css */
 
 .hi {
     background-image: linear-gradient(to right, rgb(139, 235, 139), white);
@@ -49,4 +50,6 @@ h1{
   li {
     border: '1px, solid, blue'
   }
+
+  
 

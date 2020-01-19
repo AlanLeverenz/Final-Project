@@ -11,15 +11,17 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     
     return getNews(newsQuery)
-    // save scraped articles to db
-      .then(function(news) {
-        console.log("NEWS === " + news.data);
-        return db.Query.create(news)
+      // save articles to query db
+      .then(function(query) {
+        console.log("SAVE TO QUERY COLLECTION === ");
+        return db.Query.create(query)
       // insert end
       .then(function(articles) {
+        console.log("RUN SEARCH FILTER === ");
         return searchFilter(articles)
       })
       .then(function(filtered) {
+        console.log("RETURN FILTERED RESPONSE === ");
         res.json(filtered)
       })
       .catch(function(err) {

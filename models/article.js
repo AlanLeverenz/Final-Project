@@ -23,6 +23,11 @@ const articleSchema = new Schema({
     type: String,
     required: false,
   },
+  // queryId, a string
+  queryId: {
+    type: String,
+    required: false,
+  },
   // article source id and name
   source: { 
     id: { 
@@ -74,8 +79,18 @@ const articleSchema = new Schema({
     type: String,
     required: false
   },
-    // score
+  // score
   score: {
+    type: Number,
+    required: false
+  },
+  // score for color selection
+  colorScore: {
+    type: String,
+    required: false
+  },
+  // score for padding position
+  padScore: {
     type: Number,
     required: false
   },

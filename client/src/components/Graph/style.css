@@ -1,0 +1,78 @@
+/* negative score colors */
+.c1 {
+    color: rgb(85, 1, 1)
+  }
+  .c2 {
+    color: rgb(104, 1, 1)
+  }
+  .c3 {
+    color: rgb(148, 6, 6)
+  }
+  .c4 {
+    color: rgb(176, 25, 25)
+  }
+  .c5 {
+    color: rgb(206, 52, 52)
+  }
+  .c6 {
+    color: rgb(235, 77, 77)
+  }
+  .c7 {
+    color: rgb(240, 110, 110)
+  }
+  .c8 {
+    color: rgb(255, 152, 152)
+  }
+
+  /* neutral score colors */
+  .c9 {
+    color: rgb(144, 175, 254)
+  }
+  .c10 {
+    color: rgb(116, 152, 245)
+  }
+  .c11 {
+    color: rgb(75, 120, 233)
+  }
+  .c12 {
+    color: rgb(46, 91, 189)
+  }
+  .c13 {
+    color: rgb(46, 91, 189)
+  }
+  .c14 {
+    color: rgb(75, 120, 233)
+  }
+  .c15 {
+    color: rgb(106, 145, 244)
+  }
+  .c16 {
+    color: rgb(144, 175, 254)
+  }
+
+
+  /* positive score colors */
+  .c17 {
+    color: rgb(114, 244, 133)
+  }
+  .c18 {
+    color: rgb(88, 228, 109)
+  }
+  .c19 {
+    color: rgb(57, 207, 80)
+  }
+  .c20 {
+    color: rgb(38, 167, 57)
+  }
+  .c21 {
+    color: rgb(23, 135, 40)
+  }
+  .c22 {
+    color: rgb(6, 106, 21)
+  }
+  .c23 {
+    color: rgb(1, 67, 11)
+  }
+  .c24 {
+    color: rgb(0, 36, 6)
+  }

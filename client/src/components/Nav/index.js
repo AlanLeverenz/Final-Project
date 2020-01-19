@@ -28,6 +28,8 @@ function Navbar({authenticated, user, logout}) {
             </Link>
           </li>
 
+          {
+            authenticated ?
           <li className="nav-item">
             <Link
               to="/saved"
@@ -36,6 +38,19 @@ function Navbar({authenticated, user, logout}) {
               Saved
             </Link>
           </li>
+          : null  }
+
+          {
+            authenticated ?
+          <li className="nav-item">
+            <Link
+              to="/visuals"
+              className={window.location.pathname === "/visuals" ? "nav-link active" : "nav-link"}
+            >
+              Visuals
+            </Link>
+          </li>
+          : null  }
 
           { 
             !authenticated ? 

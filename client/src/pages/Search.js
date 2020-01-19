@@ -64,7 +64,6 @@ class Search extends Component {
       query: this.state.search,
       author: article.author,
       source: article.source,
-      // source: article.source.name,
       title: article.title,
       description: article.description,
       url: article.url,
@@ -73,6 +72,7 @@ class Search extends Component {
       content: article.content,
       label: article.label,
       score: article.score,
+      padScore: article.padScore,
       hml: article.hml,
       saved: true
     }).then(() => console.log("handleSaveArticle complete"));
@@ -84,13 +84,13 @@ class Search extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <row className="jumbo-text">
+              <div className="jumbo-text">
               <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
                News Polarizer
                 </h1>
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
-              </row>
+              </div>
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -103,7 +103,7 @@ class Search extends Component {
           <Col size="md-12">
             <Card isLoaded={this.state.isLoaded}>
               {this.state.articles.length ? (
-                <ArticlePanel >
+                <ArticlePanel>
                   {this.state.articles.map((article) => (
                     <ArticleCard
                       key={article.id}
@@ -119,6 +119,7 @@ class Search extends Component {
                       keywords={article.keywords}
                       label={article.label}
                       score={article.score}
+                      padScore={article.padScore}
                       hml={article.hml}
                       Button={() => (
                         <button

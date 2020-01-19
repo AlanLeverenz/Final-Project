@@ -5,7 +5,7 @@ import "./style.css";
 function Card({ isLoaded, children }) {
 
   if (isLoaded === false) {
-    console.log("CARD isLoaded = " + isLoaded);
+
     return (
       <div className="loader-wrapper">
         <Loader loaded={isLoaded} />

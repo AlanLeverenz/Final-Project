@@ -6,7 +6,8 @@ module.exports = {
     console.log(req.query);
     db.Query
       .find(req.query)
-      .sort({ score: -1 })
+      .sort({ queryId: -1 })
+      .sort({ padScore: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -16,6 +17,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  // findAll: function(req, res) {
+  //   db.Query
+  //     .find(req.params.queryId)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   create: function(req, res) {
     db.Query
       .create(req.body)
@@ -30,10 +37,18 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Query
-      .findAll({ query : req.params.query })
+      .findAll({ queryId : req.params.queryId })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+
+  // remove: function(req, res) {
+  //   db.Article
+  //     .findOne({ key: req.params.id })
+  //     .then(dbModel => dbModel.remove())
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // }
 
 };

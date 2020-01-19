@@ -7,7 +7,7 @@ function ArticleCard({ title, source, description, url, urlToImage, hml, query, 
   return (
     <CardItem>
       <Row>
-         <Col size="col-4 col-md-12 col-sm-12">
+         <Col size="col-4 col-md-8 col-sm-12">
           <img className="img-fluid" src={urlToImage} alt={title}/>
         </Col>
       </Row>
