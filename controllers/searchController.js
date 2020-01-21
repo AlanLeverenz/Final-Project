@@ -11,11 +11,9 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     
     return getNews(newsQuery)
-      // save articles to query db
       .then(function(query) {
         console.log("SAVE TO QUERY COLLECTION === ");
         return db.Query.create(query)
-      // insert end
       .then(function(articles) {
         console.log("RUN SEARCH FILTER === ");
         return searchFilter(articles)

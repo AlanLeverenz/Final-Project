@@ -37,6 +37,7 @@ class Login extends Component {
         })
         .catch(err => console.log(err));
     }
+
   };
 
   render() {
@@ -44,29 +45,30 @@ class Login extends Component {
       <Container fluid>
         <Row>
           <Col size="12">
- 
-            <form>
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="email (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="(required)"
-                type="password"
-              />
-              
-              <FormBtn
-                disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
-              >
-                Login
-              </FormBtn>
-            </form>
+            <div style={{margin:30,maxWidth:500}}> 
+              <form>
+                <Input
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="email (required)"
+                />
+                <Input
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  placeholder="(required)"
+                  type="password"
+                />
+                
+                <FormBtn
+                  disabled={!(this.state.email && this.state.password)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Login
+                </FormBtn>
+              </form>
+            </div>  
           </Col>
           
         </Row>

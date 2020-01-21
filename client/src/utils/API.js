@@ -47,8 +47,13 @@ export default {
     return axios.get("/api/queries");
   },
 
-  // Deletes the article with the given id
-  deleteQuery: function (id) {
+  // Deletes articles with the given id
+  deleteQuery: function () {
+    return axios.delete("/api/queries");
+  },
+
+  // Deletes documents matching a queryId
+  deleteSavedQueries: function (id) {
     return axios.delete("/api/queries/" + id);
   },
 

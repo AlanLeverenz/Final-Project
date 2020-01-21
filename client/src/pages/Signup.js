@@ -46,44 +46,45 @@ class Signup extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
+        <Row className="mt-3">
           <Col size="12">
- 
-            <form>
-              <Input
-                value={this.state.username}
-                onChange={this.handleInputChange}
-                name="username"
-                placeholder="username (required)"
-              />
-              <Input
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                placeholder="email (required)"
-              />
-              <Input
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                placeholder="password (required)"
-                type="password"
-              />
-              <Input
-                value={this.state.passwordConf}
-                onChange={this.handleInputChange}
-                name="passwordConf"
-                placeholder="confirm password (required)"
-                type="password"
-              />
-              
-              <FormBtn
-                // disabled={!(this.state.email && this.state.password)}
-                onClick={this.handleFormSubmit}
-              >
-                signup
-              </FormBtn>
-            </form>
+            <div style={{margin:30,maxWidth:500}}> 
+              <form>
+                <Input
+                  value={this.state.username}
+                  onChange={this.handleInputChange}
+                  name="username"
+                  placeholder="username (required)"
+                />
+                <Input
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  name="email"
+                  placeholder="email (required)"
+                />
+                <Input
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  placeholder="password (required)"
+                  type="password"
+                />
+                <Input
+                  value={this.state.passwordConf}
+                  onChange={this.handleInputChange}
+                  name="passwordConf"
+                  placeholder="confirm password (required)"
+                  type="password"
+                />
+                
+                <FormBtn
+                  // disabled={!(this.state.email && this.state.password)}
+                  onClick={this.handleFormSubmit}
+                >
+                  signup
+                </FormBtn>
+              </form>
+            </div>  
           </Col>
           
         </Row>

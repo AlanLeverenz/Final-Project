@@ -95,6 +95,13 @@ class Visuals extends Component {
 
 export default Visuals;
 
+// <button
+// onClick={() => this.handleQueryDelete(queryId)}
+// className="btn btn-danger ml-2"
+// >
+// Delete
+// </button>
+
 
 /* Button={() => (
   <button

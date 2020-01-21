@@ -8,6 +8,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
 
+
 // Home page
 class Search extends Component {
 
@@ -18,9 +19,20 @@ class Search extends Component {
       search: "",
       articles: [],
       message: "",
-      isLoaded: true
+      isLoaded: true,
+      queryId: ""
     };
   }
+
+  // componentWillMount() {
+  //   this.deleteSavedQueries();
+  // }
+
+  // deleteSavedQueries = () => {
+  //   API.deleteSavedQueries(this.state.queryId)
+  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
+  //   );
+  // }
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -36,7 +48,8 @@ class Search extends Component {
       this.setState({
         isLoaded: true,
         articles: res.data,
-        message: res.data.message
+        message: res.data.message,
+        queryId: res.data.queryId
       })
     })
     .catch(() =>
@@ -62,6 +75,7 @@ class Search extends Component {
       id: article.id,
       key: article.id,
       query: this.state.search,
+      queryId: article.queryId,
       author: article.author,
       source: article.source,
       title: article.title,
@@ -85,9 +99,10 @@ class Search extends Component {
           <Col size="md-12">
             <Jumbotron>
               <div className="jumbo-text">
-              <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
-               News Polarizer
+                <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
+                News Polarizer
                 </h1>
+
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
               </div>
@@ -108,6 +123,7 @@ class Search extends Component {
                     <ArticleCard
                       key={article.id}
                       id={article.id}
+                      queryId={article.id}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
