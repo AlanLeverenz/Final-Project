@@ -4,7 +4,8 @@ import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
-import PreviewPanel from "../components/PreviewPanel"
+import PreviewPanel from "../components/PreviewPanel";
+import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -19,7 +20,9 @@ class Search extends Component {
     this.state = {
       search: "",
       articles: [],
-      message: ""
+      previewArticles: [],
+      message: "",
+      previewHide: "visible"
     };
   }
 
@@ -31,13 +34,25 @@ class Search extends Component {
     });
   };
 
+  previewNews = () => {
+    API.previewNews(this.state.preview)
+    .then(res =>{
+      console.log(res.data)
+      this.setState({
+        previewArticles: res.data,
+        message: res.data.message,
+      })
+    })
+  }
+
   searchNews = () => {
     API.searchNews(this.state.search)
     .then(res =>{
       console.log(res.data)
       this.setState({
         articles: res.data,
-        message: res.data.message
+        message: res.data.message,
+        previewHide: "hidden"
       })}
     )
     .catch(() =>
@@ -100,7 +115,7 @@ class Search extends Component {
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
               </row>
-  
+      
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -110,7 +125,28 @@ class Search extends Component {
             </Jumbotron>
           </Col>         
         </Row>
-        <PreviewPanel />
+        <Row>
+          <Col size="md-12">
+            <Card title="Preview">
+              <PreviewPanel>
+                {this.state.PreviewArticles.map((preArticle) => (
+                  <PreviewCard
+                  key={preArticle.id}
+                  id={preArticle.id}
+                  source={preArticle.source.name}
+                  author={preArticle.author}
+                  title={preArticle.title}
+                  description={preArticle.description}
+                  url={preArticle.url}
+                  urlToImage={preArticle.urlToImage}
+                  publishedAt={preArticle.publishedAt}
+                  content={preArticle.content}
+                  ></PreviewCard>
+                ))};
+              </PreviewPanel>
+            </Card>
+          </Col>
+        </Row>
         <Row>
           <Col size="md-12">
             <Card title="Results">
