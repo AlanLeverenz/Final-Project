@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Query, Graph } from "../components/Query";
+// import { Graph } from "../components/Graph"
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
