@@ -7,7 +7,7 @@ export function Query ({ title, children }) {
       <div className="graph-header"
         style={{ height: 45, clear: "both", paddingTop: 15, paddingBottom: 25, textAlign: "center" }}
       >
-        <h3 style={{fontStyle:"italic"}}>{title}</h3>
+        <h3 style={{fontStyle:"italic"}}>{title}</h3> 
         {children}
       </div>
     );
@@ -22,3 +22,12 @@ export function Query ({ title, children }) {
         </div>
     );
   }
+
+//   <button
+//   onClick={() => deleteQuery(queryId)}
+//   className="btn btn-danger ml-2"
+// >
+//   Delete
+// </button>
+
+// <a target="_blank" rel="noopener noreferrer" href={url}>{title}</a>

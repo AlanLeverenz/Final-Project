@@ -32,6 +32,12 @@ class Visuals extends Component {
     .catch(err => console.log(err));
     };
 
+  deleteQuery = id => {
+    API.deleteQuery(id)
+      .then(res => this.getSavedQueries())
+      .catch(err => console.log(err));
+  };
+
   // componentDidMount() {
   //   API.getQuery(this.props.match.params.query)
   //     .then(res => this.setState({ queries: res.data }))
@@ -66,7 +72,7 @@ class Visuals extends Component {
 
          {this.state.queries.length ? (
           <div>
-            <Query 
+            <Query data={this.state.queries}
               title={this.state.queries[6].title}
             />
           <Row>
@@ -75,6 +81,7 @@ class Visuals extends Component {
                 <Graph 
                   key={query.key}
                   id={query.id}
+                  qid={query.queryId}
                   url={query.url}
                   score={query.score}
                   padScore={query.padScore}
@@ -96,16 +103,17 @@ class Visuals extends Component {
 export default Visuals;
 
 // <button
-// onClick={() => this.handleQueryDelete(queryId)}
+// onClick={() => this.deleteQuery(queryId)}
 // className="btn btn-danger ml-2"
 // >
 // Delete
 // </button>
 
 
-/* Button={() => (
+/* 
+Button={() => (
   <button
-    onClick={() => this.handleQueryDelete(query.id)}
+    onClick={() => this.deleteQuery(query.id)}
     className="btn btn-danger ml-2"
   >
     Delete
