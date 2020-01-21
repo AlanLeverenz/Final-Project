@@ -6,17 +6,17 @@ module.exports = {
       console.log("Running GetPreview")
       
       return getPreview()
-        .then(function(res) {
+        .then(function(articles) {
           console.log("Returning articles from getPreview");
-          console.log(res);
-          res.json(res)
+          console.log(articles);
+          res.json(articles);
         })
         .catch(function(err) {
+          console.log("Error",err);
           res.json({
             message: "Preview API error!!",
             error: err
           })
-          console.log(error);
         });
       // }); 
     } 
