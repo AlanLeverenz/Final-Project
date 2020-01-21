@@ -4,7 +4,7 @@ const previewController = require("../../controllers/previewController");
 
 // Matches with "/api/preview"
 router
-  .route("/:query")
+  .route("/")
   .get(previewController.getPreview);
   
  

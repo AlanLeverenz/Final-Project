@@ -3,21 +3,20 @@ const getPreview = require("../scripts/preview");
 module.exports = {
 
     getPreview: function(req, res) {
-  
+      console.log("Running GetPreview")
       
       return getPreview()
-      
-        .then(function(articles) {
-          return searchFilter(articles)
-        })
-        .then(function(filtered) {
-          res.json(filtered)
+        .then(function(res) {
+          console.log("Returning articles from getPreview");
+          console.log(res);
+          res.json(res)
         })
         .catch(function(err) {
           res.json({
-            message: "Search error!!",
+            message: "Preview API error!!",
             error: err
-          });
+          })
+          console.log(error);
         });
       // }); 
     } 

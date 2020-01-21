@@ -8,15 +8,28 @@ const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI("bfc8e374d6df45af85688db28a5bf373");
 let previewArticles = [];
 
-
 function preview(){
-    console.log("Calling preview");
+  const previewPromise = new Promise((resolve, reject) => {
+
+    console.log("Calling preview API");
 newsapi.v2.topHeadlines({
     language: 'en',
     country: 'us'
   }).then(response => {
-    console.log("Preview Articles from API:",response);
-    previewArticles.push(response.articles);
-  })};
+    let limit = response.articles.length;
+    limit > 12 ? limit = 12 : limit;
+    articles = response.articles.slice(0, limit);
+    let promises = [];
+    articles.forEach(article => {
+        promises.push(article)
+    })
+    resolve(promises);
+  }).catch((error) => {
+    reject(error);;
+
+  });
+  });
+  return previewPromise
+};
 
   module.exports = preview

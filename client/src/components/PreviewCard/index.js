@@ -32,7 +32,6 @@ function PreviewCard({ title, source, description, url, urlToImage , author, pub
 
       <Row>
         <Col size="col-12">
-          <Button />
         </Col>
       </Row>
 

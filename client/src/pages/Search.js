@@ -35,7 +35,7 @@ class Search extends Component {
   };
 
   previewNews = () => {
-    API.previewNews(this.state.preview)
+    API.runPreview(this.state.preview)
     .then(res =>{
       console.log(res.data)
       this.setState({
@@ -43,6 +43,9 @@ class Search extends Component {
         message: res.data.message,
       })
     })
+  }
+  componentDidMount = () => {
+    this.previewNews();
   }
 
   searchNews = () => {
@@ -125,11 +128,13 @@ class Search extends Component {
             </Jumbotron>
           </Col>         
         </Row>
-        <Row>
+        <Row style={{visible:this.state.previewHide}}>
           <Col size="md-12">
             <Card title="Preview">
+            {this.state.previewArticles.length ? (
+
               <PreviewPanel>
-                {this.state.PreviewArticles.map((preArticle) => (
+                {this.state.previewArticles.map((preArticle) => (
                   <PreviewCard
                   key={preArticle.id}
                   id={preArticle.id}
@@ -141,9 +146,13 @@ class Search extends Component {
                   urlToImage={preArticle.urlToImage}
                   publishedAt={preArticle.publishedAt}
                   content={preArticle.content}
+                  
                   ></PreviewCard>
                 ))};
               </PreviewPanel>
+             ) : (
+              <h2 className="text-center">{this.state.message}</h2>
+            )}
             </Card>
           </Col>
         </Row>
