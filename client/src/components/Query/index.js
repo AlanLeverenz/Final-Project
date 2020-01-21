@@ -1,6 +1,9 @@
 import React from "react";
 import "./style.css";
 
+// convert to a class component
+// get prop for onClick function 
+
 export function Query ({ title, children }) {
 
     return (
@@ -8,10 +11,15 @@ export function Query ({ title, children }) {
         style={{ height: 45, clear: "both", paddingTop: 15, paddingBottom: 25, textAlign: "center" }}
       >
         <h3 style={{fontStyle:"italic"}}>{title}</h3> 
+        
+{/* insert onClick delete query function */}
+
         {children}
       </div>
     );
   }
+
+// convert to a class component
 
   export function Graph ({ url, padScore, colorScore }) {
     return (

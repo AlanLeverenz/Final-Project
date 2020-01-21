@@ -13,6 +13,9 @@ class Visuals extends Component {
       queries: [],
       queryCount: 0
     };
+
+    // insert onClick handler
+
   }
 
   componentDidMount() {
@@ -74,6 +77,7 @@ class Visuals extends Component {
           <div>
             <Query data={this.state.queries}
               title={this.state.queries[6].title}
+              // pass the onClick function to the Query component
             />
           <Row>
             {this.state.queries.map((query,i) => (
