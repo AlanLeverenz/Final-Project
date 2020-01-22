@@ -4,6 +4,8 @@ import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
+import PreviewPanel from "../components/PreviewPanel";
+import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -18,7 +20,9 @@ class Search extends Component {
     this.state = {
       search: "",
       articles: [],
-      message: ""
+      previewArticles: [],
+      message: "",
+      previewHide: "visible"
     };
   }
 
@@ -30,13 +34,31 @@ class Search extends Component {
     });
   };
 
+  previewNews = () => {
+    API.runPreview(this.state.preview)
+    .then(res =>{
+      console.log(res.data)
+      this.setState({
+        previewArticles: res.data,
+        message: res.data.message,
+      })
+    })
+  }
+  componentDidMount = () => {
+    this.previewNews();
+  }
+
   searchNews = () => {
+    this.setState({
+      previewArticles: []
+    })
     API.searchNews(this.state.search)
     .then(res =>{
       console.log(res.data)
       this.setState({
         articles: res.data,
-        message: res.data.message
+        message: res.data.message,
+        
       })}
     )
     .catch(() =>
@@ -99,7 +121,7 @@ class Search extends Component {
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
               </row>
-  
+      
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -108,6 +130,34 @@ class Search extends Component {
               
             </Jumbotron>
           </Col>         
+        </Row>
+        <Row style={{visible:this.state.previewHide}}>
+          <Col size="md-12">
+            <Card title="Preview">
+            {this.state.previewArticles.length ? (
+
+              <PreviewPanel>
+                {this.state.previewArticles.map((preArticle) => (
+                  <PreviewCard
+                  key={preArticle.id}
+                  id={preArticle.id}
+                  source={preArticle.source.name}
+                  author={preArticle.author}
+                  title={preArticle.title}
+                  description={preArticle.description}
+                  url={preArticle.url}
+                  urlToImage={preArticle.urlToImage}
+                  publishedAt={preArticle.publishedAt}
+                  content={preArticle.content}
+                  
+                  ></PreviewCard>
+                ))};
+              </PreviewPanel>
+             ) : (
+              <h2 className="text-center">{this.state.message}</h2>
+            )}
+            </Card>
+          </Col>
         </Row>
         <Row>
           <Col size="md-12">
