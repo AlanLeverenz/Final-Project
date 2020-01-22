@@ -47,9 +47,14 @@ export default {
 
 // queries
 
-  // Gets queries matching a query string FIX LATER
+  // Gets all saved queries
   getSavedQueries: function() {
     return axios.get("/api/queries");
+  },
+
+  // Gets queries matching a queryId
+  getSavedQuery: function(id) {
+    return axios.get("/api/queries/" + id);
   },
 
   // Deletes articles with the given id

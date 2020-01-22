@@ -6,10 +6,10 @@ import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
 import PreviewPanel from "../components/PreviewPanel";
 import PreviewCard from "../components/PreviewCard";
+// import Graph from "../components/Graph";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-
-
+import { get } from "mongoose";
 
 // Home page
 class Search extends Component {
@@ -21,34 +21,31 @@ class Search extends Component {
       search: "",
       articles: [],
       queries: [],
+      queryCount: 0,
       message: "",
       isLoaded: true,
       queryId: "",
-      previewArticles: []
+      previewArticles: [],
+      loadGraph: false
     };
   }
-
-  // componentWillMount() {
-  //   this.deleteSavedQueries();
-  // }
-
-  // deleteSavedQueries = () => {
-  //   API.deleteSavedQueries(this.state.queryId)
-  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
-  //   );
-  // }
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]: value
-    });
-  };
+  
+  // function to get articles with a common queryId
+  // getSavedQuery = (id) => {
+  //   API.getSavedQuery(id)
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.setState({
+  //         queries: res.data,
+  //         queryCount: res.data.length
+  //     })
+  //   })
+  //   .catch(err => console.log(err));
+  // };
 
   previewNews = () => {
     API.runPreview(this.state.preview)
-    .then(res =>{
+    .then(res => {
       console.log(res.data)
       this.setState({
         previewArticles: res.data,
@@ -69,16 +66,25 @@ class Search extends Component {
       this.setState({
         isLoaded: true,
         articles: res.data,
-        message: res.data.message,
-        
-      })}
-    )
+        queryId: res.data.queryId,
+        loadGraph: true,
+        message: res.data.message
+      })
+    })
     .catch(() =>
       this.setState({
         articles: [],
         message: "No Articles Found. Try a Different Search"
       })
     );
+  };
+
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
   };
 
   // When the form is submitted, search the NewsAPI for `this.state.search`
@@ -107,13 +113,16 @@ class Search extends Component {
       content: article.content,
       label: article.label,
       score: article.score,
+      colorScore: article.colorScore,
       padScore: article.padScore,
       hml: article.hml,
       saved: true
     }).then(() => console.log("handleSaveArticle complete"));
   };
   
+
   render() {
+
     return (
       <Container>
         <Row>
@@ -136,6 +145,7 @@ class Search extends Component {
             </Jumbotron>
           </Col>
         </Row>
+
         <Row style={{visible:this.state.previewHide}}>
           <Col size="md-12">
             <Card title="Preview">
@@ -154,7 +164,6 @@ class Search extends Component {
                   urlToImage={preArticle.urlToImage}
                   publishedAt={preArticle.publishedAt}
                   content={preArticle.content}
-                  
                   ></PreviewCard>
                 ))};
               </PreviewPanel>
@@ -164,6 +173,7 @@ class Search extends Component {
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Col size="md-12">
             <Card isLoaded={this.state.isLoaded}>
@@ -185,6 +195,7 @@ class Search extends Component {
                       keywords={article.keywords}
                       label={article.label}
                       score={article.score}
+                      colorScore={article.colorScore}
                       padScore={article.padScore}
                       hml={article.hml}
                       Button={() => (
@@ -199,32 +210,47 @@ class Search extends Component {
                   ))}
                 </ArticlePanel>
               )
-
-            //   <Row>
-            //   {this.state.queries.map((query,i) => (
-            //     <Col size="1" key={i}>
-            //       <Graph 
-            //         key={query.key}
-            //         id={query.id}
-            //         qid={query.queryId}
-            //         url={query.url}
-            //         score={query.score}
-            //         padScore={query.padScore}
-            //         colorScore={query.colorScore}
-            //       />
-            //     </Col>
-            //   ))}
-            // </Row>
-
             : (
                 <h2 className="text-center">{this.state.message}</h2>
               )}
+
             </Card>
           </Col>
         </Row>
+
       </Container>
     );
   }
 }
 
 export default Search;
+
+
+// <button
+// onClick={() => this.getSavedQuery(this.state.articles.queryId)}
+// className="btn btn-primary ml-2"
+// >
+// Graph
+// </button>
+
+// { this.state.loadGraph ? 
+//   (
+//    <Row>
+//      {this.state.queries.map((query,i) => (
+//        <Col size="1" key={i}>
+//          <Graph 
+//            key={query.key}
+//            id={query.id}
+//            qid={query.queryId}
+//            url={query.url}
+//            score={query.score}
+//            padScore={query.padScore}
+//            colorScore={query.colorScore}
+//          />
+//        </Col>
+//      ))}
+//    </Row>
+//  ) : (
+//  <h2 className="text-center">No Saved Queries</h2>
+//  )
+// }

@@ -14,9 +14,6 @@ class Visuals extends Component {
       queries: [],
       queryCount: 0
     };
-
-    // insert onClick handler
-
   }
 
   componentDidMount() {
@@ -25,7 +22,6 @@ class Visuals extends Component {
 
   getSavedQueries = () => {
     API.getSavedQueries()
-    // create an array of an array of queries grouped by a common query string
       .then(res => {
         console.log(res.data);
         this.setState({
@@ -106,22 +102,3 @@ class Visuals extends Component {
 }
 
 export default Visuals;
-
-// <button
-// onClick={() => this.deleteQuery(queryId)}
-// className="btn btn-danger ml-2"
-// >
-// Delete
-// </button>
-
-
-/* 
-Button={() => (
-  <button
-    onClick={() => this.deleteQuery(query.id)}
-    className="btn btn-danger ml-2"
-  >
-    Delete
-  </button>
-)} 
-*/
