@@ -11,4 +11,6 @@ router.use("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
+// If demo route is hit, send the Demo static files
+
 module.exports = router;
