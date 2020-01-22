@@ -1,0 +1,24 @@
+.btn-container {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .btn-container {
+    margin-bottom: 15px;
+  }
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-padding {
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.tinyLine {
+  border-top: 3px;
+  border-bottom: 3px;
+}
