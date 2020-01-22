@@ -9,7 +9,7 @@ function SearchForm({ search, handleInputChange, handleFormSubmit }) {
           <div className="col-12 col-md-10 col-lg-8">
               <form className="form-inline justify-content-center">
                 <span className="input-group-btn">
-                  <div className="row max-width">
+                  <div className="row max-width search-row">
                     <input onChange={handleInputChange}
                             value={search}
                             name="search"
