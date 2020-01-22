@@ -4,16 +4,16 @@ var axios = require("axios");
 require('dotenv').config();
 // require('dotenv').config( {debug: process.env.DEBUG } );
 
-const NEWS_API_KEY_JOHN = process.env.NEWS_API_KEY_JOHN;
-const IBM_WATSON_KEY_JOHN = process.env.IBM_WATSON_KEY_JOHN;
-const IBM_WATSON_URL_JOHN = process.env.IBM_WATSON_URL_JOHN;
+const newsKey = process.env.NEWS_API_KEY;
+const ibmKey = process.env.IBM_WATSON_KEY;
+const ibmURL = process.env.IBM_WATSON_URL;
 
-console.log("NEWS_API_JOHN = " + NEWS_API_KEY_JOHN );
-console.log("IBM_WATSON_KEY_JOHN = " + IBM_WATSON_KEY_JOHN );
-console.log("IBM_WATSON_URL_JOHN = " + IBM_WATSON_URL_JOHN );
+console.log("NEWS_API_JOHN = " + newsKey );
+console.log("IBM_WATSON_KEY_JOHN = " + ibmKey );
+console.log("IBM_WATSON_URL_JOHN = " + ibmURL );
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('4acc3b9a971c4bf0ab6b2c7117303592');
+const newsapi = new NewsAPI(newsKey);
 var articles = [];
 
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
@@ -22,9 +22,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
   authenticator: new IamAuthenticator({
-    apikey: IBM_WATSON_KEY_JOHN
+    apikey: ibmKey
   }),
-  url: IBM_WATSON_URL_JOHN
+  url: ibmURL
 });
 
 var runWatson = (article) =>  {
