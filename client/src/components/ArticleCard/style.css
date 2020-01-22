@@ -22,3 +22,7 @@
   border-top: 3px;
   border-bottom: 3px;
 }
+
+.title {
+  padding-top: .5rem;
+}

@@ -11,15 +11,15 @@ module.exports = {
     const newsQuery = req.params.query.split(" ").join("-");
     
     return getNews(newsQuery)
-    // save scraped articles to db - OR SAVE AFTER BEING FILTERED?
-      // .then(function(news) {
-      //   console.log("NEWS === " + news.data);
-      //   return db.Article.create(news)
-      // insert end
+      .then(function(query) {
+        console.log("SAVE TO QUERY COLLECTION === ");
+        return db.Query.create(query)
       .then(function(articles) {
+        console.log("RUN SEARCH FILTER === ");
         return searchFilter(articles)
       })
       .then(function(filtered) {
+        console.log("RETURN FILTERED RESPONSE === ");
         res.json(filtered)
       })
       .catch(function(err) {
@@ -28,6 +28,6 @@ module.exports = {
           error: err
         });
       });
-    // }); 
+    }); 
   } 
 };

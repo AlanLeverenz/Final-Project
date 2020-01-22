@@ -24,7 +24,7 @@ function SearchForm({ search, handleInputChange, handleFormSubmit }) {
             </form>
         </div>
     </div>
-</div>
-  )};
+  </div>
+)};
   
 export default SearchForm;

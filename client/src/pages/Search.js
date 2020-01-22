@@ -9,7 +9,7 @@ import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
-// const uuidv4 = require('uuid/v4');
+
 
 // Home page
 class Search extends Component {
@@ -20,11 +20,24 @@ class Search extends Component {
     this.state = {
       search: "",
       articles: [],
+      message: "",
+      isLoaded: true,
+      queryId: ""
       previewArticles: [],
       message: "",
-      previewHide: "visible"
+
     };
   }
+
+  // componentWillMount() {
+  //   this.deleteSavedQueries();
+  // }
+
+  // deleteSavedQueries = () => {
+  //   API.deleteSavedQueries(this.state.queryId)
+  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
+  //   );
+  // }
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -53,9 +66,9 @@ class Search extends Component {
       previewArticles: []
     })
     API.searchNews(this.state.search)
-    .then(res =>{
-      console.log(res.data)
+    .then(res => {
       this.setState({
+        isLoaded: true,
         articles: res.data,
         message: res.data.message,
         
@@ -72,30 +85,21 @@ class Search extends Component {
   // When the form is submitted, search the NewsAPI for `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
+    this.setState({isLoaded:false});
     this.searchNews();
   };
-
-  // sample put function
-  // updateSaveArticle = (id, item) => {
-  //   return dispatch => {
-  //     console.log(item)
-  //     return axios.put(`/locks/${id}`, item).then(response => {
-  //         console.log(response)
-  //     })
-  //   }
-  // }
 
   // eventually need to insert into a Users collection Article array
   // using uuid to set the id since there is no id returned from the search
   handleArticleSave = id => {
-    const article = this.state.articles.find(article => article. id === id);
-    console.log(id)
+    const article = this.state.articles.find(article => article.id === id);
     API.saveArticle({
       id: article.id,
       key: article.id,
       query: this.state.search,
+      queryId: article.queryId,
       author: article.author,
-      source: article.source.name,
+      source: article.source,
       title: article.title,
       description: article.description,
       url: article.url,
@@ -104,7 +108,9 @@ class Search extends Component {
       content: article.content,
       label: article.label,
       score: article.score,
-      hml: article.hml
+      padScore: article.padScore,
+      hml: article.hml,
+      saved: true
     }).then(() => console.log("handleSaveArticle complete"));
   };
   
@@ -114,22 +120,22 @@ class Search extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <row className="jumbo-text">
-              <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
-               News Polarizer
+              <div className="jumbo-text">
+                <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
+                News Polarizer
                 </h1>
+
                 <h5 className="text-center jumbo-text">Search the full spectrum of spin on any news headline.
                 </h5>
-              </row>
-      
+              </div>
+
               <SearchForm
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 search={this.state.search}
               />
-              
             </Jumbotron>
-          </Col>         
+          </Col>
         </Row>
         <Row style={{visible:this.state.previewHide}}>
           <Col size="md-12">
@@ -161,13 +167,14 @@ class Search extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Results">
+            <Card isLoaded={this.state.isLoaded}>
               {this.state.articles.length ? (
                 <ArticlePanel>
                   {this.state.articles.map((article) => (
                     <ArticleCard
                       key={article.id}
                       id={article.id}
+                      queryId={article.id}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
@@ -179,6 +186,7 @@ class Search extends Component {
                       keywords={article.keywords}
                       label={article.label}
                       score={article.score}
+                      padScore={article.padScore}
                       hml={article.hml}
                       Button={() => (
                         <button

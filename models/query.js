@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const articleSchema = new Schema({
+const querySchema = new Schema({
   // id
   id: {
     type: String,
@@ -18,13 +18,13 @@ const articleSchema = new Schema({
     type:String,
     required: false
   },
-  // query, a string
-  query: {
+  // queryId, a string
+  queryId: {
     type: String,
     required: false,
   },
-  // queryId, a string
-  queryId: {
+  // query, a string
+  query: {
     type: String,
     required: false,
   },
@@ -115,8 +115,8 @@ const articleSchema = new Schema({
   }
 });
 
-const Article = mongoose.model("Article", articleSchema);
+const Query = mongoose.model("Query", querySchema);
 
-module.exports = Article;
+module.exports = Query;
 
 

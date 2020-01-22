@@ -1,16 +1,20 @@
 import React from "react";
+import Loader from 'react-loader';
+import "./style.css";
 
-function Card({ icon, title, children }) {
+function Card({ isLoaded, children }) {
+
+  if (isLoaded === false) {
+
+    return (
+      <div className="loader-wrapper">
+        <Loader loaded={isLoaded} />
+      </div> 
+    )
+  }
+
   return (
     <div className="card mt-1" style={{border:"none", padding:"0"}}>
- {/*}     <div className="card-header">
-        <h3>
-          <strong>
-            <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
-          </strong>
-        </h3>
-      </div>
-  */}
       <div className="card-body" style={{padding:"0"}}>{children}</div>
     </div>
   );

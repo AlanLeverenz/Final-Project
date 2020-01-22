@@ -1,0 +1,139 @@
+.graph-div {
+    border-left: 1px dotted #64a5fa;
+}
+
+.graph-header {
+    color: blue;
+    margin-bottom: 50px
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+/* negative score colors */
+.c1 {
+    color: rgb(85, 1, 1);
+    position: absolute;
+    bottom: 0px;
+}
+.c2 {
+  color: rgb(104, 1, 1);
+  position: absolute;
+  bottom: 10px;
+}
+.c3 {
+  color: rgb(148, 6, 6);
+  position: absolute;
+  bottom: 20px;
+}
+.c4 {
+  color: rgb(176, 25, 25);
+  position: absolute;
+  bottom: 30px;
+}
+.c5 {
+  color: rgb(206, 52, 52);
+  position: absolute;
+  bottom: 40px;
+}
+.c6 {
+  color: rgb(235, 77, 77);
+  position: absolute;
+  bottom: 50px;
+}
+.c7 {
+  color: rgb(240, 110, 110);
+  position: absolute;
+  bottom: 60px;
+}
+.c8 {
+  color: rgb(255, 152, 152);
+  position: absolute;
+  bottom: 70px;
+}
+
+/* neutral score colors */
+.c9 {
+  color: rgb(144, 175, 254);
+  position: absolute;
+  bottom: 80px;
+}
+.c10 {
+  color: rgb(116, 152, 245);
+  position: absolute;
+  bottom: 90px;
+}
+.c11 {
+  color: rgb(75, 120, 233);
+  position: absolute;
+  bottom: 100px;
+}
+.c12 {
+  color: rgb(46, 91, 189);
+  position: absolute;
+  bottom: 110px;
+}
+.c13 {
+  color: rgb(46, 91, 189);
+  position: absolute;
+  bottom: 120px;
+}
+.c14 {
+  color: rgb(75, 120, 233);
+  position: absolute;
+  bottom: 130px;
+}
+.c15 {
+  color: rgb(106, 145, 244);
+  position: absolute;
+  bottom: 140px;
+}
+.c16 {
+  color: rgb(144, 175, 254);
+  position: absolute;
+  bottom: 150px;
+}
+
+
+/* positive score colors */
+.c17 {
+  color: rgb(114, 244, 133);
+  position: absolute;
+  bottom: 160px;
+}
+.c18 {
+  color: rgb(88, 228, 109);
+  position: absolute;
+  bottom: 170px;
+}
+.c19 {
+  color: rgb(57, 207, 80);
+  position: absolute;
+  bottom: 180px;
+}
+.c20 {
+  color: rgb(38, 167, 57);
+  position: absolute;
+  bottom: 190px;
+}
+.c21 {
+  color: rgb(23, 135, 40);
+  position: absolute;
+  bottom: 200px;
+}
+.c22 {
+  color: rgb(6, 106, 21);
+  position: absolute;
+  bottom: 210px;
+}
+.c23 {
+  color: rgb(1, 67, 11);
+  position: absolute;
+  bottom: 220px;
+}
+.c24 {
+  color: rgb(0, 36, 6);
+  position: absolute;
+  bottom: 230px;
+}

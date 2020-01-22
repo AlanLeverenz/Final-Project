@@ -34,11 +34,29 @@ export default {
   deleteArticle: function (id) {
     return axios.delete("/api/articles/" + id);
   },
+
+  // updates the article with the given id
+  updateArticle: function (id, articleData) {
+    return axios.put("/api/articles/" + id, articleData);
+  },
   
   // Saves an article to the database
   saveArticle: function (articleData) {
     return axios.post("/api/articles", articleData);
   },
+
+// queries
+
+  // Gets queries matching a query string FIX LATER
+  getSavedQueries: function() {
+    return axios.get("/api/queries");
+  },
+
+  // Deletes articles with the given id
+  deleteQuery: function (id) {
+    return axios.delete("/api/queries/" + id);
+  },
+
 
 // user functions
 

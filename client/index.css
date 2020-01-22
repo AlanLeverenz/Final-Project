@@ -5,3 +5,14 @@ font-weight: 400;
 font-style: normal;
 
 }
+
+/* for React-Loader */
+
+.loader-wrapper {
+    text-align: center;
+    margin: 25px;
+  }
+  
+  .loaded-contents {
+    margin: 25px;
+  }

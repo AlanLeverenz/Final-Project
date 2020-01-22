@@ -32,7 +32,7 @@
   border-bottom: none;
 }
 
-@media only screen and (min-width:581px) {
+@media only screen and (min-width: 581px) {
 .list-row {
   flex-direction: row;
 }}

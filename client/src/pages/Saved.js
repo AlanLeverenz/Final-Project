@@ -46,13 +46,13 @@ class Saved extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-            <row className="jumbo-text">
+            <div className="jumbo-text">
             <h1 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif"}}>
              News Polarizer
               </h1>
               <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>You saved {this.state.listCount} News Polarizer articles
               </h5>            
-            </row>
+            </div>
             </Jumbotron>
           </Col>
         </Row>
@@ -77,6 +77,7 @@ class Saved extends Component {
                       content={article.content}
                       label={article.label}
                       score={article.score}
+                      padScore={article.padScore}
                       hml={article.hml}
                       Button={() => (
                         <button

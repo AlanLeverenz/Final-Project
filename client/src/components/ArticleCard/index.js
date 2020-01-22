@@ -3,11 +3,11 @@ import { CardItem } from "../Card";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
-function ArticleCard({ title, source, description, url, urlToImage, hml, query, author, publishedAt, content, label, score, Button}) {
+function ArticleCard({ title, source, description, url, urlToImage, hml, queryId, author, publishedAt, content, label, score, Button}) {
   return (
     <CardItem>
       <Row>
-         <Col size="col-4 col-md-12 col-sm-12">
+         <Col size="col-4 col-md-8 col-sm-12">
           <img className="img-fluid" src={urlToImage} alt={title}/>
         </Col>
       </Row>
@@ -15,7 +15,7 @@ function ArticleCard({ title, source, description, url, urlToImage, hml, query, 
       <Row className="flex-wrap-reverse">
         <Col size="col-12">
 
-          <h3 className=""><a target="_blank" rel="noopener noreferrer" style={{color:"#0c1429"}} href={url}>{title}</a></h3>
+          <h3 style={{paddingTop:".5rem"}}><a target="_blank" rel="noopener noreferrer" style={{color:"#0c1429"}} href={url}>{title}</a></h3>
             
           {source && <h5 className="">{source}</h5>}
 

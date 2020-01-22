@@ -5,10 +5,10 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import Search from "./pages/Search";
+import Visuals from "./pages/Visuals";
 import Nav from "./components/Nav";
 import {/* getCookie, */ authenticateUser, logOut} from "./utils/handleSessions";
 import "./style.css"
-
 
 class App extends React.Component {
 //  check cookie
@@ -17,7 +17,7 @@ class App extends React.Component {
   state = {
     authenticated: false,
     loading: false,
-    isLoggedin: false
+    logout: false
   }
 
   authenticate = () => authenticateUser()
@@ -49,13 +49,15 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Nav user={this.userName} logout={this.logout}/>
+        <Nav user={this.userName} authenticated={this.state.authenticated} logout={this.logout}/>
         <Switch>
           <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
-          <Route exact path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <Route exact path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <Route path="/saved" component={Saved} />
-         {/*   <this.PrivateRoute exact path="/saved" component={Saved} /> */}
+          <Route path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          <Route path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          <Route path="/saved" render={(props) => <Saved {...props} state={this.state} />} /> 
+          <Route path="/visuals" render={(props) => <Visuals {...props} state={this.state} />} /> 
+ {/*           <Route path="/saved" component={Saved} /> */}
+  {/*           <this.PrivateRoute exact path="/saved" component={Saved} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>
