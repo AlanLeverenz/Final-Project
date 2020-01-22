@@ -28,6 +28,16 @@ function Navbar({authenticated, user, logout}) {
             </Link>
           </li>
 
+          <li className="nav-item">
+            <Link
+              to="/demo"
+              className={
+                window.location.pathname === "/demo" ? "nav-link active" : "nav-link"}
+            >
+              About Us
+            </Link>
+          </li>
+
           {
             authenticated ?
           <li className="nav-item">
