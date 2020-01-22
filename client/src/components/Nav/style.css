@@ -1,8 +1,12 @@
 .navbar {
     /* background-color: rgb(72, 75, 249) !important */
-    background-color: #0c1429 !important;
     color: blue !important;
+    background-color: black !important;
+    
+    
 }
+
+
 
 .newsit {
     background: url(../../assets/images/newsit.png) no-repeat;
