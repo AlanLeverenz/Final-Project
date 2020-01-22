@@ -10,3 +10,13 @@
   box-shadow: none;
   
 }
+
+@media only screen and (max-width: 500px) {
+  .search-row {
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+  input {
+    max-width: 75%
+  }
+}

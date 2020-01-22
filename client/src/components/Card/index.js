@@ -16,6 +16,7 @@ function Card({ isLoaded, children }) {
   return (
     <div className="card mt-1" style={{border:"none", padding:"0"}}>
       <div className="card-body" style={{padding:"0"}}>{children}</div>
+
     </div>
   );
 }
