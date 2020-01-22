@@ -49,13 +49,16 @@ class Search extends Component {
   }
 
   searchNews = () => {
+    this.setState({
+      previewArticles: []
+    })
     API.searchNews(this.state.search)
     .then(res =>{
       console.log(res.data)
       this.setState({
         articles: res.data,
         message: res.data.message,
-        previewHide: "hidden"
+        
       })}
     )
     .catch(() =>
