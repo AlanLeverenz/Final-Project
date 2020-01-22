@@ -15,6 +15,11 @@ export default {
     return axios.get("/api/news/" + search)
   },
 
+  runPreview: function() {
+    console.log("Searching Preview Articles");
+    return axios.get("api/preview/")
+  },
+
   // Gets the article with the given id (for details page)
   getSavedArticle: function (id) {
     return axios.get("/api/article/" + id);
