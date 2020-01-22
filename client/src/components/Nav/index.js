@@ -10,7 +10,7 @@ function Navbar({authenticated, user, logout}) {
   return ( 
 
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
-      
+      <div className="container">
       <Link className="navbar-brand" style={{fontFamily:"Montserrat, sans-serif", letterSpacing:"0.2em", fontSize:"2rem", marginBottom:"0.5rem"}} to="/">
         <span>NewsIt</span>
       </Link>
@@ -91,6 +91,7 @@ function Navbar({authenticated, user, logout}) {
           : null }
 
         </ul>
+      </div>
       </div>
     </nav>
   );

@@ -6,6 +6,15 @@
   .btn-container {
     margin-bottom: 15px;
   }
+  p{
+    font-size: 0.8rem !important;
+  }
+  h5 {
+    font-weight: 1000 !important;
+  }
+  h3{
+    font-size: 1.3rem !important
+  }
 }
 
 .card-image {
@@ -21,8 +30,4 @@
 .tinyLine {
   border-top: 3px;
   border-bottom: 3px;
-}
-
-.title {
-  padding-top: .5rem;
 }
