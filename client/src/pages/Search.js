@@ -20,12 +20,11 @@ class Search extends Component {
     this.state = {
       search: "",
       articles: [],
+      queries: [],
       message: "",
       isLoaded: true,
-      queryId: ""
-      previewArticles: [],
-      message: "",
-
+      queryId: "",
+      previewArticles: []
     };
   }
 
@@ -143,9 +142,9 @@ class Search extends Component {
             {this.state.previewArticles.length ? (
 
               <PreviewPanel>
-                {this.state.previewArticles.map((preArticle) => (
+                {this.state.previewArticles.map((preArticle, i) => (
                   <PreviewCard
-                  key={preArticle.id}
+                  key={i}
                   id={preArticle.id}
                   source={preArticle.source.name}
                   author={preArticle.author}
@@ -199,7 +198,25 @@ class Search extends Component {
                     />
                   ))}
                 </ArticlePanel>
-              ) : (
+              )
+
+            //   <Row>
+            //   {this.state.queries.map((query,i) => (
+            //     <Col size="1" key={i}>
+            //       <Graph 
+            //         key={query.key}
+            //         id={query.id}
+            //         qid={query.queryId}
+            //         url={query.url}
+            //         score={query.score}
+            //         padScore={query.padScore}
+            //         colorScore={query.colorScore}
+            //       />
+            //     </Col>
+            //   ))}
+            // </Row>
+
+            : (
                 <h2 className="text-center">{this.state.message}</h2>
               )}
             </Card>
