@@ -23,7 +23,7 @@ const articleseed = [
   "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/191229150359-iran-militia-us-strikes-super-tease.jpg",
   "publishedAt": "2019-12-30T11:21:42Z",
   "content": "(CNN)Iran has warned the US of \"consequences\" after Washington carried out airstrikes against an Iran-backed militia group in Iraq.\r\nThe US has \"openly shown its support to terrorism and shown its negligence to the independence and national sovereignty of cou… [+552 chars]",
-  "type": "neutral",
+  "label": "neutral",
   "score": -0.0237951488125,
   "ratio": -0.01650735276106,
   "keywords": [
@@ -87,7 +87,7 @@ const articleseed = [
   "urlToImage": "https://static01.nyt.com/images/2019/12/03/podcasts/03daily/merlin_165109089_6edbb6a4-6a1d-48db-a1a3-8aeddae09226-facebookJumbo.jpg",
   "publishedAt": "2019-12-03T11:47:11Z",
   "content": "Farnaz Fassihi contributed reporting.\r\nThe Daily is made by Theo Balcomb, Andy Mills, Lisa Tobin, Rachel Quester, Lynsea Garrison, Annie Brown, Clare Toeniskoetter, Paige Cowett, Michael Simon Johnson, Brad Fisher, Larissa Anderson, Wendy Dorr, Chris Wood, Je… [+446 chars]",
-  "type": "neutral",
+  "label": "neutral",
   "score": -0.0019391356666667,
   "ratio": -0.01490868337348,
   "keywords": [
@@ -123,7 +123,7 @@ const articleseed = [
   "urlToImage": "https://static01.nyt.com/images/2019/12/17/opinion/00burn-09/00burn-09-facebookJumbo.jpg",
   "publishedAt": "2019-12-24T16:00:16Z",
   "content": "I spent the better part of two months, from Christmas 1978 until late February 1979, covering the Islamic revolution in Iran. There was no internet, no mobile phones, no Twitter. No one wore masks to hide their faces. The anger was immediate and raw. It led t… [+4047 chars]",
-  "type": "negative",
+  "label": "negative",
   "score": -0.091385346041667,
   "ratio": -0.32253434672563,
   "keywords": [
@@ -195,7 +195,7 @@ const articleseed = [
   "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/191231141609-01-trump-1219-super-tease.jpg",
   "publishedAt": "2019-12-31T22:28:30Z",
   "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds.",
-  "type": "neutral",
+  "label": "neutral",
   "score": -0.021721194,
   "ratio": -0.13429750259822,
   "keywords": [
@@ -227,7 +227,7 @@ const articleseed = [
   "urlToImage": "https://static01.nyt.com/images/2019/12/03/opinion/03friedman1/03friedman1-facebookJumbo.jpg",
   "publishedAt": "2019-12-04T00:04:54Z",
   "content": "These movements are authentic and inspiring, but their chances of taking power remain remote, largely because their biggest opponent the Islamic republic of Iran is ready to arrest and kill as many democracy demonstrators as needed to retain its grip on Iraq,… [+2659 chars]",
-  "type": "positive",
+  "label": "positive",
   "score": 0.079926842846154,
   "ratio": 0.2097037617507,
   "keywords": [

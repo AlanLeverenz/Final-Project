@@ -23,7 +23,8 @@ function Card({ isLoaded, children }) {
 
 export default Card;
 
+
+
 export function CardItem({ children }) {
   return <div className="col-lg-4 col-md-12 col-sm-12" style={{paddingLeft:"25px", paddingRight:"25px", border:"none"}}>{children}</div>;
 }
-

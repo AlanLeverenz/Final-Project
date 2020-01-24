@@ -4,16 +4,12 @@ var axios = require("axios");
 require('dotenv').config();
 // require('dotenv').config( {debug: process.env.DEBUG } );
 
-const newsKey = process.env.NEWS_API_KEY;
+const newsKey = process.env.NEWS_API_KEY_JOHN;
 const ibmKey = process.env.IBM_WATSON_KEY;
 const ibmURL = process.env.IBM_WATSON_URL;
 
-console.log("NEWS_API_JOHN = " + newsKey );
-console.log("IBM_WATSON_KEY_JOHN = " + ibmKey );
-console.log("IBM_WATSON_URL_JOHN = " + ibmURL );
-
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
+const newsapi = new NewsAPI(newsKey);
 var articles = [];
 
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
@@ -22,21 +18,19 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
   authenticator: new IamAuthenticator({
-    apikey: 'G7bdElL9Xc75ibbM483N2x3rTNd0pR_Rd_nNHNQv_doV'
+    apikey: ibmKey
   }),
-  url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558'
+  url: ibmURL
 });
 
 var runWatson = (article) =>  {
   return new Promise((resolve, reject) => {
-  // console.log("Watson Query:", article.content);
 const analyzeParams = {
   'url': article.url,
   'features': {'sentiment': 
   {}},
 };
 
-// console.log("AnalyzeParams:", analyzeParams);
 naturalLanguageUnderstanding.analyze(analyzeParams)
   .then(analysisResults => {
     resolve (analysisResults);
@@ -97,7 +91,6 @@ function scrape(input) {
                     // insert queryId common to all articles
                     article.queryId = queryId;
 
-                  //  console.log(article)
                     return article
                 })
 

@@ -12,7 +12,7 @@ let previewArticles = [];
 function preview(){
   const previewPromise = new Promise((resolve, reject) => {
 
-    console.log("Calling preview API");
+  console.log("Calling preview API");
 
 newsapi.v2.topHeadlines({
     language: 'en',

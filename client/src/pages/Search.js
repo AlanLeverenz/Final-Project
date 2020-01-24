@@ -6,10 +6,9 @@ import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
 import PreviewPanel from "../components/PreviewPanel";
 import PreviewCard from "../components/PreviewCard";
-// import Graph from "../components/Graph";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { get } from "mongoose";
+// import { get } from "mongoose";
 
 // Home page
 class Search extends Component {
@@ -25,23 +24,9 @@ class Search extends Component {
       message: "",
       isLoaded: true,
       queryId: "",
-      previewArticles: [],
-      loadGraph: false
+      previewArticles: []
     };
   }
-  
-  // function to get articles with a common queryId
-  // getSavedQuery = (id) => {
-  //   API.getSavedQuery(id)
-  //     .then(res => {
-  //       console.log(res.data);
-  //       this.setState({
-  //         queries: res.data,
-  //         queryCount: res.data.length
-  //     })
-  //   })
-  //   .catch(err => console.log(err));
-  // };
 
   previewNews = () => {
     API.runPreview(this.state.preview)
@@ -66,8 +51,6 @@ class Search extends Component {
       this.setState({
         isLoaded: true,
         articles: res.data,
-        queryId: res.data.queryId,
-        loadGraph: true,
         message: res.data.message
       })
     })
