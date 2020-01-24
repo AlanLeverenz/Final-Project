@@ -12,8 +12,6 @@ const queryFilter = function(queries) {
         qArr = [];
         for (let j = 0; j < groupSize; j++) {
             qArr.push(queries[j])
-            console.log("j="+ j);
-            console.log(qArr)
         }
         queryArr.push(qArr)
         console.log("i=" + i);

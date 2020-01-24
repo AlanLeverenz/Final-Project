@@ -2,12 +2,11 @@
 var axios = require("axios");
 
 require('dotenv').config();
-const RAPID_API_KEY = process.env.RAPID_API_KEY;
-const NEWS_API_KEY = process.env.NEWS_API_KEY;
-    
+const newsKey = process.env.NEWS_API_KEY;
+const rapidKey = process.env.RAPID_API_KEY
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
+const newsapi = new NewsAPI(newsKey);
 var articles = [];
 
 // random id generator
@@ -21,8 +20,7 @@ function scrape(input) {
             q: input,
             language: 'en',
         }).then(response => {
-            articles = response.articles.slice(0, 3);
-            // console.log("Article Response:", articles);
+            articles = response.articles.slice(0, 12);
             let promises = [];
             articles.forEach(article => {
                 promises.push(axios({
@@ -31,7 +29,7 @@ function scrape(input) {
                     "headers": {
                         "content-type": "application/x-www-form-urlencoded",
                         "x-rapidapi-host": "twinword-sentiment-analysis.p.rapidapi.com",
-                        "x-rapidapi-key": "bcbc7d6dd8msh5e1eb73a59e842fp1df3fcjsnd9394db0f416"
+                        "x-rapidapi-key": rapidKey
                     }, "params":
                     {
                         "text": article.content
@@ -45,10 +43,8 @@ function scrape(input) {
                         article[key] = responses[i].data[key]
                     })
                     article.id = uuidv4();
-                    console.log(article)
                     return article
                 })
-                // console.log(articles);
                 resolve(articles)
             })
             .catch((error) => {
@@ -56,10 +52,9 @@ function scrape(input) {
             });
         });
     });
-    console.log("SCRAPE PROMISE =====");
+
     console.log(scrapePromise);
     return scrapePromise;
-
 }
 
 module.exports = scrape;

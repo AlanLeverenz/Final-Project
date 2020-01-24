@@ -4,16 +4,12 @@ var axios = require("axios");
 require('dotenv').config();
 // require('dotenv').config( {debug: process.env.DEBUG } );
 
-const NEWS_API_KEY_JOHN = process.env.NEWS_API_KEY_JOHN;
-const IBM_WATSON_KEY_JOHN = process.env.IBM_WATSON_KEY_JOHN;
-const IBM_WATSON_URL_JOHN = process.env.IBM_WATSON_URL_JOHN;
-
-console.log("NEWS_API_JOHN = " + NEWS_API_KEY_JOHN );
-console.log("IBM_WATSON_KEY_JOHN = " + IBM_WATSON_KEY_JOHN );
-console.log("IBM_WATSON_URL_JOHN = " + IBM_WATSON_URL_JOHN );
+const newsKey = process.env.NEWS_API_KEY_JOHN;
+const ibmKey = process.env.IBM_WATSON_KEY;
+const ibmURL = process.env.IBM_WATSON_URL;
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('4acc3b9a971c4bf0ab6b2c7117303592');
+const newsapi = new NewsAPI(newsKey);
 var articles = [];
 
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
@@ -22,23 +18,19 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
   authenticator: new IamAuthenticator({
-    apikey: 'L9i2JSiO0PkNJm-1uVN-HL1vtUEX57ETOKnIW7Lbpcwu'
-    // apikey: IBM_WATSON_KEY_JOHN
+    apikey: ibmKey
   }),
-  url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558'
-  // url: IBM_WATSON_URL_JOHN
+  url: ibmURL
 });
 
 var runWatson = (article) =>  {
   return new Promise((resolve, reject) => {
-  // console.log("Watson Query:", article.content);
 const analyzeParams = {
   'url': article.url,
   'features': {'sentiment': 
   {}},
 };
 
-// console.log("AnalyzeParams:", analyzeParams);
 naturalLanguageUnderstanding.analyze(analyzeParams)
   .then(analysisResults => {
     resolve (analysisResults);
@@ -99,7 +91,6 @@ function scrape(input) {
                     // insert queryId common to all articles
                     article.queryId = queryId;
 
-                  //  console.log(article)
                     return article
                 })
 

@@ -10,13 +10,13 @@ function Navbar({authenticated, user, logout}) {
   return ( 
 
     <nav className="navbar navbar-expand-md navbar-dark bg-primary">
-
-      <Link className="navbar-brand" to="/">
+      <div className="container">
+      <Link className="navbar-brand" style={{fontFamily:"Montserrat, sans-serif", letterSpacing:"0.2em", fontSize:"2rem", marginBottom:"0.5rem"}} to="/">
         <span>NewsIt</span>
       </Link>
 
       <div>
-        <ul className="navbar-nav">
+        <ul className="navbar-nav" style={{fontFamily:"century-old-style-std, serif", fontSize:"0.75rem"}}>
 
           <li className="nav-item">
             <Link
@@ -25,6 +25,16 @@ function Navbar({authenticated, user, logout}) {
                 window.location.pathname === "/" ? "nav-link active" : "nav-link"}
             >
               Search
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link
+              to="/demo"
+              className={
+                window.location.pathname === "/demo" ? "nav-link active" : "nav-link"}
+            >
+              About Us
             </Link>
           </li>
 
@@ -91,6 +101,7 @@ function Navbar({authenticated, user, logout}) {
           : null }
 
         </ul>
+      </div>
       </div>
     </nav>
   );

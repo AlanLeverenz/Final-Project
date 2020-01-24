@@ -8,7 +8,7 @@ module.exports = {
       .find(req.query)
       .sort({ queryId: -1 })
       .sort({ padScore: 1 })
-      .then(dbModel => queryFilter(res.json(dbModel))) // inserted
+      .then(dbModel => queryFilter(res.json(dbModel))) // inserted filter to create arrays of query objects
       .catch(err => res.status(422).json(err));
   },
 
@@ -27,7 +27,6 @@ module.exports = {
   // },
 
   create: function(req, res) {
-    console.log("CREATE ==============");
     db.Query
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -42,7 +41,6 @@ module.exports = {
   },
 
   remove: function(req, res) {
-    console.log("DELETE MANY ================")
     db.Query
       .deleteMany({ queryId : req.params.id })
       .then(dbModel => res.json(dbModel))
