@@ -13,7 +13,7 @@ console.log("IBM_WATSON_KEY_JOHN = " + ibmKey );
 console.log("IBM_WATSON_URL_JOHN = " + ibmURL );
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI(newsKey);
+const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
 var articles = [];
 
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');
@@ -22,9 +22,9 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
   authenticator: new IamAuthenticator({
-    apikey: ibmKey
+    apikey: 'G7bdElL9Xc75ibbM483N2x3rTNd0pR_Rd_nNHNQv_doV'
   }),
-  url: ibmURL
+  url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558'
 });
 
 var runWatson = (article) =>  {
