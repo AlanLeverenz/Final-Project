@@ -3,6 +3,7 @@ const articleRoutes = require("./articles");
 const queryRoutes = require("./queries");
 const searchRoutes = require("./search");
 const userRoutes = require("./user");
+const previewRoutes = require("./preview");
 
 // /api/article routes
 router.use("/articles", articleRoutes);
@@ -12,6 +13,9 @@ router.use("/queries", queryRoutes);
 
 // /api/news routes
 router.use("/news", searchRoutes);
+
+// /api/preview routes
+router.use("/preview", previewRoutes);
 
 // /api/user routes
 router.use("/user", userRoutes);

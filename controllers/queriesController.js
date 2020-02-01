@@ -1,4 +1,5 @@
 const db = require("../models");
+const queryFilter = require("../scripts/queryFilter");
 
 // Defining methods for the articlesController
 module.exports = {
@@ -7,7 +8,8 @@ module.exports = {
       .find(req.query)
       .sort({ queryId: -1 })
       .sort({ padScore: 1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => queryFilter(res.json(dbModel))) // inserted filter to create arrays of query objects
+      // .then(dbModel => res.json(dbModel)
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {

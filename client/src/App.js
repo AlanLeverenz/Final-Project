@@ -55,6 +55,10 @@ class App extends React.Component {
           <Route path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route path="/saved" render={(props) => <Saved {...props} state={this.state} />} /> 
+          <Route path='/demo' component={() => { 
+     window.location.href = 'https://harpster11.github.io/newsit-news-polarizer-deck/'; 
+     return null;
+}}/>
           <Route path="/visuals" render={(props) => <Visuals {...props} state={this.state} />} /> 
  {/*           <Route path="/saved" component={Saved} /> */}
   {/*           <this.PrivateRoute exact path="/saved" component={Saved} /> */}
