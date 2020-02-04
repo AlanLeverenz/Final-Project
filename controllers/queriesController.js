@@ -48,12 +48,11 @@ module.exports = {
   // },
 
   remove: function(req, res) {
-    console.log("DELETE MANY ================")
+    console.log("DELETE MANY ======= ID =========" + req.params.id)
     db.Query
       .deleteMany({ queryId : req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
-
 
 };

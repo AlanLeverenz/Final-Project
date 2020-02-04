@@ -15,7 +15,7 @@ function PreviewCard({ title, source, description, url, urlToImage , author, pub
       <Row className="flex-wrap-reverse">
         <Col size="col-12">
 
-          <h3 className=""><a target="_blank" rel="noopener noreferrer" style={{color:"#0c1429"}} href={url}>{title}</a></h3>
+          <h3 className="previewTitle"><a target="_blank" rel="noopener noreferrer" style={{color:"#0c1429"}} href={url}>{title}</a></h3>
             
           {source && <h5 className="">{source}</h5>}
 

@@ -7,17 +7,33 @@ const queryFilter = function(queries) {
     console.log("docCount = " + docCount);
     let qArr = [];
     let queryArr = [];
+    let k = 0;
 
     for (let i = 0; i < groupCount; i++ ) {
         qArr = [];
         for (let j = 0; j < groupSize; j++) {
-            qArr.push(queries[j])
+            k = (i * groupSize) + j;
+            qArr.push(queries[k])
         }
-        queryArr.push(qArr)
-        console.log("i=" + i);
-        console.log(queryArr)
+        queryArr.push(qArr) // display title and map qArr into a graph
     }
-    return(queryArr);
+        console.log(queryArr)
+        return(queryArr);
 }
 
 module.exports = queryFilter;
+
+// const queries = [ 
+//     { item: "a1"},
+//     { item: "a2"},
+//     { item: "a3"},
+//     { item: "a4"},
+//     { item: "b1"},
+//     { item: "b2"},
+//     { item: "b3"},
+//     { item: "b4"},
+//     { item: "c1"},
+//     { item: "c2"},
+//     { item: "c3"},
+//     { item: "c4"}
+// ]

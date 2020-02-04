@@ -60,69 +60,70 @@ naturalLanguageUnderstanding.analyze(analyzeParams)
 // random id generator
 const uuidv4 = require('uuid/v4');
 
-// create queryId
-let d = new Date();
-let dateString = d.toLocaleDateString();
-let newDate = dateString.replace(/\//g, "-");
-let queryId = newDate + "-" + Math.ceil(Math.random() * 1000);
-
 function scrape(input) {
 
-    const scrapePromise = new Promise((resolve, reject) => {
+    // create queryId
+  let d = new Date();
+  let dateString = d.toLocaleDateString();
+  let newDate = dateString.replace(/\//g, "-");
+  let randomNum = Math.ceil(Math.random() * 10000);
+  let queryId = newDate + "-" + randomNum;
 
-        newsapi.v2.everything({
-            q: input,
-            language: 'en',
-        }).then(response => {
-            let limit = response.articles.length;
-            limit > 12 ? limit = 12 : limit;
-            articles = response.articles.slice(0, limit);
-            let promises = [];
-            articles.forEach(article => {
-                promises.push(runWatson(article))
-            });
+  const scrapePromise = new Promise((resolve, reject) => {
 
-            Promise.all(promises)
-              .then(responses => {
-                articles.map((article, i) => {
-                    let keys = Object.keys(responses[i].result.sentiment.document)
-                    keys.forEach(key => {
-                      article[key] = responses[i].result.sentiment.document[key]
-                    })
-                    // create article.id
-                    article.id = uuidv4();
-                    article.key = article.id;
+      newsapi.v2.everything({
+          q: input,
+          language: 'en',
+      }).then(response => {
+          let limit = response.articles.length;
+          limit > 12 ? limit = 12 : limit;
+          articles = response.articles.slice(0, limit);
+          let promises = [];
+          articles.forEach(article => {
+              promises.push(runWatson(article))
+          });
 
-                    // create padScore
-                    let myNum = 50 * (1 + article.score)
-                    article.padScore = Math.ceil(myNum);
+          Promise.all(promises)
+            .then(responses => {
+              articles.map((article, i) => {
+                  let keys = Object.keys(responses[i].result.sentiment.document)
+                  keys.forEach(key => {
+                    article[key] = responses[i].result.sentiment.document[key]
+                  })
+                  // create article.id
+                  article.id = uuidv4();
+                  article.key = article.id;
 
-                    // create colorScore
-                    let myColor = 12 * (1 + article.score);
-                    let myCeil = Math.ceil(myColor);
-                    myColor = "c" + myCeil.toString();
-                    article.colorScore = myColor;
+                  // create padScore
+                  let myNum = 50 * (1 + article.score)
+                  article.padScore = Math.ceil(myNum);
 
-                    // insert queryId common to all articles
-                    article.queryId = queryId;
+                  // create colorScore
+                  let myColor = 12 * (1 + article.score);
+                  let myCeil = Math.ceil(myColor);
+                  myColor = "c" + myCeil.toString();
+                  article.colorScore = myColor;
 
-                  //  console.log(article)
-                    return article
-                })
+                  // insert queryId common to all articles
+                  article.queryId = queryId;
 
-                // sort articles
-                articles.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
-                console.log("SCRAPE SORTED ====");
-                console.log(articles)
-                 
-                resolve(articles)
-            })
-            .catch((error) => {
-                reject(error);
-            });
-        });
-    });
-    return scrapePromise
+                //  console.log(article)
+                  return article
+              })
+
+              // sort articles
+              articles.sort((a, b) => parseFloat(a.score) - parseFloat(b.score));
+              console.log("SCRAPE SORTED ====");
+              console.log(articles)
+                
+              resolve(articles)
+          })
+          .catch((error) => {
+              reject(error);
+          });
+      });
+  });
+  return scrapePromise
 }
 
 module.exports = scrape;

@@ -13,8 +13,12 @@
     font-weight: 1000 !important;
   }
   h3{
-    font-size: 1.3rem !important
+    font-size: 1.3rem !important;
   }
+}
+
+.articleTitle {
+  margin-top: .5rem
 }
 
 .card-image {

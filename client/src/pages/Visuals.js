@@ -27,6 +27,7 @@ class Visuals extends Component {
     API.getSavedQueries()
     // create an array of an array of queries grouped by a common query string
       .then(res => {
+        console.log("getSavedQueries ==== ");
         console.log(res.data);
         this.setState({
           queries: res.data,
@@ -37,6 +38,7 @@ class Visuals extends Component {
     };
 
   deleteQuery = id => {
+    console.log("id = " + id)
     API.deleteQuery(id)
       .then(res => this.getSavedQueries())
       .catch(err => console.log(err));
@@ -51,6 +53,45 @@ class Visuals extends Component {
   // componentDidMount() {
   //   this.getQuery(this.query);
   // }
+
+  // componentDidMount() {
+  //   const { match: { params } } = this.props;
+
+  
+  //   axios.get(`/api/users/${params.userId}`)
+  //     .then(({ data: user }) => {
+  //       console.log('user', user);
+  
+  //       this.setState({ user });
+  //     });
+  // }
+
+//   stackGraphs = () => {
+//     let groupCount = queryCount / groupSize;
+//     for (let i = 0; i < groupCount; i++) {
+//       return queryFilter(this.state.queries,i)
+//   }
+
+// const elements = [] //..some array
+// const items = []
+// for (const [index, value] of elements.entries()) {
+//   items.push(<Element key={index} />)
+// }
+  
+  queryFilter = function(queries,i) {
+// i = each queryId group
+    let groupSize = 12;
+    let qArr = [];
+    let k = 0;
+
+      for (let j = 0; j < groupSize; j++) {
+          k = (i * groupSize) + j;
+          qArr.push(queries[k])
+      }
+    return qArr 
+    // returns 12 articles as an array of objects
+  }
+
 
   render() {
     return (
@@ -74,32 +115,40 @@ class Visuals extends Component {
           </Col>
         </Row>
 
-         {this.state.queries.length ? (
-          <div>
-            <Query data={this.state.queries}
-              title={this.state.queries[6].title}
-              // pass the onClick function to the Query component
-            />
-          <Row>
-            {this.state.queries.map((query,i) => (
-              <Col size="1" key={i}>
-                <Graph 
-                  key={query.key}
-                  id={query.id}
-                  qid={query.queryId}
-                  url={query.url}
-                  score={query.score}
-                  padScore={query.padScore}
-                  colorScore={query.colorScore}
-                />
-              </Col>
-            ))}
-          </Row>
-        </div>
-      ) : (
-      <h2 className="text-center">No Saved Queries</h2>
-      )}
-      
+        {this.state.queries.length ? (
+          // for loop, doing 12 articles at a time
+          <div style={{textAlign:"center"}}>
+            <Query 
+            title={this.state.queries[0].title} 
+            url={this.state.queries[0].url}/>
+            <Row>
+              {this.state.queries.slice(0,12).map((query,i) => (
+                <Col size="1" key={i}>
+                  <Graph 
+                    key={query.key}
+                    id={query.id}
+                    qid={query.queryId}
+                    url={query.url}
+                    score={query.score}
+                    padScore={query.padScore}
+                    colorScore={query.colorScore}
+                  />
+                </Col>
+              ))}
+            </Row>
+            <button
+            onClick={() => this.deleteQuery(this.state.queries[0].queryId)}
+            className="btn btn-danger mt-2"
+            >
+            Delete
+          </button>
+          </div>
+        ) 
+        
+        
+        : (
+        <h2 className="text-center">No Saved Queries</h2>
+        )}
     </Container>
     )
   }
