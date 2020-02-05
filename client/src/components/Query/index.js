@@ -21,7 +21,7 @@ export function Query ({ title, url, children }) {
 
 
 
-export function Graph ({ url, padScore, colorScore }) {
+export function Graph ({ padScore, colorScore }) {
   return (
 
       <div className="graph-div" style={{ height: 280, position:"relative", clear:"both", textAlign:"center" }}

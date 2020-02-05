@@ -12,7 +12,9 @@ class Visuals extends Component {
 
     this.state = {
       queries: [],
-      queryCount: 0
+      queryCount: 0,
+      title: "",
+      url: ""
     };
 
     // insert onClick handler
@@ -31,7 +33,9 @@ class Visuals extends Component {
         console.log(res.data);
         this.setState({
           queries: res.data,
-          queryCount: res.data.length
+          queryCount: res.data.length,
+          title: res.data[0].title,
+          url: res.data[0].url
       })
     })
     .catch(err => console.log(err));
@@ -119,8 +123,8 @@ class Visuals extends Component {
           // for loop, doing 12 articles at a time
           <div style={{textAlign:"center"}}>
             <Query 
-            title={this.state.queries[0].title} 
-            url={this.state.queries[0].url}/>
+            title={this.state.title} 
+            url={this.state.url} />
             <Row>
               {this.state.queries.slice(0,12).map((query,i) => (
                 <Col size="1" key={i}>
