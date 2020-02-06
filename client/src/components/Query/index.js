@@ -1,24 +1,23 @@
 import React from "react";
+import "./style.css";
+
 // import React, { Component } from "react";
 // import Graph from "../Graph"
-import "./style.css";
 
 // convert to a class component
 // get prop for onClick function 
 
-export function Query ({ title, url, children }) {
+export function Query ({ title, url, children, props }) {
 
   return (
     <div className="graph-header"
       style={{ height: 45, clear: "both", paddingTop: 15, paddingBottom: 25, textAlign: "center" }}
     >
       <h3 style={{fontStyle:"italic"}}><a target="_blank" rel="noopener noreferrer" href={url}>{title}</a></h3>
-
-      {children}
+      {children, props}
     </div>
   );
 }
-
 
 
 export function Graph ({ padScore, colorScore }) {
