@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Query } from "../components/Query";
-// import { Graph } from "../components/Query";
-// import { Graph } from "../components/Graph";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
@@ -18,9 +16,6 @@ class Visuals extends Component {
       url: "",
       id: ""
     };
-
-    // insert onClick handler
-
   }
 
   componentDidMount() {
@@ -29,7 +24,6 @@ class Visuals extends Component {
 
   getSavedQueries = () => {
     API.getSavedQueries()
-    // create an array of an array of queries grouped by a common query string
       .then(res => {
         console.log("getSavedQueries ==== ");
         console.log(res.data);
@@ -49,40 +43,7 @@ class Visuals extends Component {
       .then(res => this.getSavedQueries())
       .catch(err => console.log(err));
   };
-
-  // componentDidMount() {
-  //   API.getQuery(this.props.match.params.query)
-  //     .then(res => this.setState({ queries: res.data }))
-  //     .catch(err => console.log(err));
-  // }
-
-  // componentDidMount() {
-  //   this.getQuery(this.query);
-  // }
-
-  // componentDidMount() {
-  //   const { match: { params } } = this.props;
-  //   axios.get(`/api/users/${params.userId}`)
-  //     .then(({ data: user }) => {
-  //       console.log('user', user);
-  //       this.setState({ user });
-  //     });
-  // }
   
-  queryFilter = function(queries,i) {
-  // i = each queryId group
-    let groupSize = 12;
-    let qArr = [];
-    let k = 0;
-
-      for (let j = 0; j < groupSize; j++) {
-          k = (i * groupSize) + j;
-          qArr.push(queries[k])
-      }
-    return qArr 
-    // returns 12 articles as an array of objects
-  }
-
   setTitle = (index) => {
     console.log("VISUALS SET TITLE");
     console.log(index);
@@ -117,7 +78,7 @@ class Visuals extends Component {
         </Row>
 
         {this.state.queries.length ? (
-
+        // query graphs
           <div style={{textAlign:"center"}}>
             <Query queries={this.state.queries}
             title={this.state.title} 
@@ -126,14 +87,6 @@ class Visuals extends Component {
             setTitle={this.setTitle}
             deleteQuery={this.deleteQuery}
             />
-{/*}
-            <button
-              onClick={() => this.deleteQuery(this.state.queries[0].queryId)}
-              className="btn btn-danger mt-2"
-              >
-              Delete
-            </button>
-        */}
           </div>
         ) 
         : (
@@ -146,14 +99,21 @@ class Visuals extends Component {
 
 export default Visuals;
 
-// <button
-// onClick={() => this.deleteQuery(queryId)}
-// className="btn btn-danger ml-2"
-// >
-// Delete
-// </button>
+/*
+queryFilter = function(queries,i) {
+  // i = each queryId group
+    let groupSize = 12;
+    let qArr = [];
+    let k = 0;
 
-
+      for (let j = 0; j < groupSize; j++) {
+          k = (i * groupSize) + j;
+          qArr.push(queries[k])
+      }
+    return qArr 
+    // returns 12 articles as an array of objects
+  }
+*/
 /* 
 Button={() => (
   <button
@@ -164,3 +124,23 @@ Button={() => (
   </button>
 )} 
 */
+/*
+  componentDidMount() {
+    API.getQuery(this.props.match.params.query)
+      .then(res => this.setState({ queries: res.data }))
+      .catch(err => console.log(err));
+  }
+
+  componentDidMount() {
+    this.getQuery(this.query);
+  }
+
+  componentDidMount() {
+    const { match: { params } } = this.props;
+    axios.get(`/api/users/${params.userId}`)
+      .then(({ data: user }) => {
+        console.log('user', user);
+        this.setState({ user });
+      });
+  }
+  */
