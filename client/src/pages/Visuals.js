@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Query } from "../components/Query";
 // import { Graph } from "../components/Query";
-import { Graph } from "../components/Graph";
+// import { Graph } from "../components/Graph";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
@@ -15,7 +15,8 @@ class Visuals extends Component {
       queries: [],
       queryCount: 0,
       title: "",
-      url: ""
+      url: "",
+      id: ""
     };
 
     // insert onClick handler
@@ -69,7 +70,7 @@ class Visuals extends Component {
   // }
   
   queryFilter = function(queries,i) {
-// i = each queryId group
+  // i = each queryId group
     let groupSize = 12;
     let qArr = [];
     let k = 0;
@@ -82,11 +83,16 @@ class Visuals extends Component {
     // returns 12 articles as an array of objects
   }
 
-  setTitle = () => {
+  setTitle = (index) => {
     console.log("VISUALS SET TITLE");
-    console.log(this.props.title);
+    console.log(index);
+    this.setState({
+      title: this.state.queries[index].title,
+      url: this.state.queries[index].url
+    })
+    console.log("title = " + this.state.title);
+    console.log("url = " + this.state.url)
   }
-
 
   render() {
     return (
@@ -111,35 +117,23 @@ class Visuals extends Component {
         </Row>
 
         {this.state.queries.length ? (
-          // for loop, doing 12 articles at a time
+
           <div style={{textAlign:"center"}}>
-            <Query {...this.state.props}
+            <Query queries={this.state.queries}
             title={this.state.title} 
-            url={this.state.url} 
+            url={this.state.url}
+            id={this.state.id} 
+            setTitle={this.setTitle}
+            deleteQuery={this.deleteQuery}
             />
-            <Row>
-              {this.state.queries.slice(0,12).map((query,i) => (
-                <Col size="1" key={i}>
-                  <Graph {...this.state.props}
-                    key={query.key}
-                    id={query.id}
-                    qid={query.queryId}
-                    url={query.url}
-                    title={query.title}
-                    score={query.score}
-                    padScore={query.padScore}
-                    colorScore={query.colorScore}
-                    setTitle={this.setTitle}
-                  />
-                </Col>
-              ))}
-            </Row>
+{/*}
             <button
               onClick={() => this.deleteQuery(this.state.queries[0].queryId)}
               className="btn btn-danger mt-2"
               >
               Delete
             </button>
+        */}
           </div>
         ) 
         : (
