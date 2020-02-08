@@ -13,8 +13,7 @@ class Visuals extends Component {
       queries: [],
       queryCount: 0,
       title: "",
-      url: "",
-      id: ""
+      url: ""
     };
   }
 
@@ -30,16 +29,16 @@ class Visuals extends Component {
         this.setState({
           queries: res.data,
           queryCount: res.data.length,
-          title: res.data[0].title,
-          url: res.data[0].url
+          title: "",
+          url: ""
       })
     })
     .catch(err => console.log(err));
     };
 
-  deleteQuery = id => {
-    console.log("id = " + id)
-    API.deleteQuery(id)
+  deleteQuery = (queryId) => {
+    console.log("queryId = " + queryId)
+    API.deleteQuery(queryId)
       .then(res => this.getSavedQueries())
       .catch(err => console.log(err));
   };
@@ -51,8 +50,6 @@ class Visuals extends Component {
       title: this.state.queries[index].title,
       url: this.state.queries[index].url
     })
-    // console.log("title = " + this.state.title);
-    // console.log("url = " + this.state.url)
   }
 
   render() {
@@ -77,13 +74,12 @@ class Visuals extends Component {
           </Col>
         </Row>
 
-        {this.state.queries.length ? (
+        {this.state.queryCount ? (
         // query graphs
           <div style={{textAlign:"center"}}>
             <Query queries={this.state.queries}
             title={this.state.title} 
-            url={this.state.url}
-            id={this.state.id} 
+            url={this.state.url} 
             setTitle={this.setTitle}
             deleteQuery={this.deleteQuery}
             />
@@ -99,48 +95,3 @@ class Visuals extends Component {
 
 export default Visuals;
 
-/*
-queryFilter = function(queries,i) {
-  // i = each queryId group
-    let groupSize = 12;
-    let qArr = [];
-    let k = 0;
-
-      for (let j = 0; j < groupSize; j++) {
-          k = (i * groupSize) + j;
-          qArr.push(queries[k])
-      }
-    return qArr 
-    // returns 12 articles as an array of objects
-  }
-*/
-/* 
-Button={() => (
-  <button
-    onClick={() => this.deleteQuery(query.id)}
-    className="btn btn-danger ml-2"
-  >
-    Delete
-  </button>
-)} 
-*/
-/*
-  componentDidMount() {
-    API.getQuery(this.props.match.params.query)
-      .then(res => this.setState({ queries: res.data }))
-      .catch(err => console.log(err));
-  }
-
-  componentDidMount() {
-    this.getQuery(this.query);
-  }
-
-  componentDidMount() {
-    const { match: { params } } = this.props;
-    axios.get(`/api/users/${params.userId}`)
-      .then(({ data: user }) => {
-        console.log('user', user);
-        this.setState({ user });
-      });
-  }
-  */

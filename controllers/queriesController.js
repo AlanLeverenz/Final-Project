@@ -48,7 +48,7 @@ module.exports = {
   // },
 
   remove: function(req, res) {
-    console.log("DELETE MANY ======= ID =========" + req.params.id)
+    console.log("DELETE QUERY = " + req.params.id)
     db.Query
       .deleteMany({ queryId : req.params.id})
       .then(dbModel => res.json(dbModel))

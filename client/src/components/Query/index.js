@@ -32,7 +32,7 @@ export class Query extends Component {
           </Row>
 
           <button 
-          onClick={this.props.deleteQuery.bind(this, this.props.queryId)}
+          onClick={this.props.deleteQuery.bind(this, this.props.queries[0].queryId)}
           className="btn btn-danger mt-2"
           >
           Delete
