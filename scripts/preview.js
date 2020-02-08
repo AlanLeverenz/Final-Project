@@ -2,7 +2,7 @@
 var axios = require("axios");
 
 require('dotenv').config();
-const newsKey = process.env.NEWS_API_KEY_JOHN;
+const newsKey = process.env.NEWS_API_KEY;
 
 
 const NewsAPI = require('newsapi');

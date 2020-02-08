@@ -1,26 +1,18 @@
 // require axios 
 var axios = require("axios");
 
-// require config()
-// const config = require('../config');
-// const NEWS_API_KEY_JOHN = config.NEWS_API_KEY_JOHN;
-// const NEWS_API_KEY = config.NEWS_API_KEY;
-// const IBM_WATSON_KEY = config.IBM_WATSON_KEY
-// const IBM_WATSON_URL = config.IBM_WATSON_URL
-
 require('dotenv').config();
-const NEWS_API_KEY_JOHN = process.env.NEWS_API_KEY_JOHN;
-// const NEWS_API_KEY = process.env.NEWS_API_KEY;
+const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const IBM_WATSON_KEY = process.env.IBM_WATSON_KEY
 const IBM_WATSON_URL = process.env.IBM_WATSON_URL
 
-console.log("NEWS_API_JOHN = " + NEWS_API_KEY_JOHN );
+console.log("NEWS_API_KEY = " + NEWS_API_KEY );
 console.log("IBM_WATSON_KEY = " + IBM_WATSON_KEY );
 console.log("IBM_WATSON_URL = " + IBM_WATSON_URL );
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
-// const newsapi = new NewsAPI(NEWS_API_KEY_JOHN);
+// const newsapi = new NewsAPI('bfc8e374d6df45af85688db28a5bf373');
+const newsapi = new NewsAPI(NEWS_API_KEY);
 var articles = [];
 
 const NaturalLanguageUnderstandingV1 = require('ibm-watson/natural-language-understanding/v1');

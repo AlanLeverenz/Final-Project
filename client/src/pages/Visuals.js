@@ -51,8 +51,8 @@ class Visuals extends Component {
       title: this.state.queries[index].title,
       url: this.state.queries[index].url
     })
-    console.log("title = " + this.state.title);
-    console.log("url = " + this.state.url)
+    // console.log("title = " + this.state.title);
+    // console.log("url = " + this.state.url)
   }
 
   render() {
