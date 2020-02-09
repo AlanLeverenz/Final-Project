@@ -21,11 +21,11 @@ const { IamAuthenticator } = require('ibm-watson/auth');
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
   version: '2019-07-12',
   authenticator: new IamAuthenticator({
-    // apikey: IBM_WATSON_KEY
-    apikey: 'L9i2JSiO0PkNJm-1uVN-HL1vtUEX57ETOKnIW7Lbpcwu'
+    apikey: IBM_WATSON_KEY
+    // apikey: 'L9i2JSiO0PkNJm-1uVN-HL1vtUEX57ETOKnIW7Lbpcwu'
   }),
-  // url: IBM_WATSON_URL
-  url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558',
+  url: IBM_WATSON_URL
+  // url: 'https://api.us-south.natural-language-understanding.watson.cloud.ibm.com/instances/5d28562f-bf78-494a-861b-76271abe2558',
 });
 
 var runWatson = (article) =>  {
