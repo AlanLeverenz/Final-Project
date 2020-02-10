@@ -22,8 +22,6 @@ function PreviewCard({ title, source, description, url, urlToImage , author, pub
         </Col>
       </Row>
 
-      
-
       <Row>
         <Col size="col-12">
           <p>{description}</p>

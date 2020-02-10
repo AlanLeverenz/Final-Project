@@ -9,8 +9,6 @@ import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
-
-
 // Home page
 class Search extends Component {
 
@@ -27,16 +25,6 @@ class Search extends Component {
       previewArticles: []
     };
   }
-
-  // componentWillMount() {
-  //   this.deleteSavedQueries();
-  // }
-
-  // deleteSavedQueries = () => {
-  //   API.deleteSavedQueries(this.state.queryId)
-  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
-  //   );
-  // }
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -76,6 +64,7 @@ class Search extends Component {
     .catch(() =>
       this.setState({
         articles: [],
+        isLoaded: true,
         message: "No Articles Found. Try a Different Search"
       })
     );
@@ -199,23 +188,6 @@ class Search extends Component {
                   ))}
                 </ArticlePanel>
               )
-
-            //   <Row>
-            //   {this.state.queries.map((query,i) => (
-            //     <Col size="1" key={i}>
-            //       <Graph 
-            //         key={query.key}
-            //         id={query.id}
-            //         qid={query.queryId}
-            //         url={query.url}
-            //         score={query.score}
-            //         padScore={query.padScore}
-            //         colorScore={query.colorScore}
-            //       />
-            //     </Col>
-            //   ))}
-            // </Row>
-
             : (
                 <h2 className="text-center">{this.state.message}</h2>
               )}
@@ -228,3 +200,13 @@ class Search extends Component {
 }
 
 export default Search;
+
+  // componentWillMount() {
+  //   this.deleteSavedQueries();
+  // }
+
+  // deleteSavedQueries = () => {
+  //   API.deleteSavedQueries(this.state.queryId)
+  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
+  //   );
+  // }
