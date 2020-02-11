@@ -29,7 +29,7 @@ class Visuals extends Component {
         this.setState({
           queries: res.data,
           queryCount: res.data.length,
-          title: "",
+          title: "Click on a dot to view the headline",
           url: ""
       })
     })
