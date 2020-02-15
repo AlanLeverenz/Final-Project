@@ -24,7 +24,7 @@ function Navbar({authenticated, user, logout}) {
               className={
                 window.location.pathname === "/" ? "nav-link active" : "nav-link"}
             >
-              Search
+              Today's News
             </Link>
           </li>
 
@@ -37,6 +37,18 @@ function Navbar({authenticated, user, logout}) {
               About Us
             </Link>
           </li>
+
+          {
+            authenticated ?
+          <li className="nav-item">
+            <Link
+              to="/search"
+              className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
+            >
+              Search
+            </Link>
+          </li>
+          : null  }
 
           {
             authenticated ?

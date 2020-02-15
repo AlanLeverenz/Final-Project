@@ -45,8 +45,7 @@ class Preview extends Component {
                 News Polarizer
                 </h1>
 
-                <h5 className="text-center jumbo-text">Here are today's headlines. Login or Signup to Search.
-                </h5>
+                <h5 className="text-center jumbo-text">Today's headlines.</h5>
               </div>
 
             </Jumbotron>

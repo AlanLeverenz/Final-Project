@@ -4,6 +4,7 @@ import Saved from "./pages/Saved";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
+import Preview from "./pages/Preview";
 import Search from "./pages/Search";
 import Visuals from "./pages/Visuals";
 import Nav from "./components/Nav";
@@ -51,7 +52,8 @@ class App extends React.Component {
       <div>
         <Nav user={this.userName} authenticated={this.state.authenticated} logout={this.logout}/>
         <Switch>
-          <Route exact path="/" render={(props) => <Search {...props} state={this.state} />} />
+          <Route exact path="/" render={(props) => <Preview {...props} state={this.state} />} />
+          <Route path="/search" render={(props) => <Search {...props} state={this.state} />} />
           <Route path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route path="/saved" render={(props) => <Saved {...props} state={this.state} />} /> 

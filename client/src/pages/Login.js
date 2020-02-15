@@ -32,7 +32,7 @@ class Login extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/" />
+            return <Redirect to="/search" />
           } 
         })
         .catch(err => console.log(err));
@@ -74,7 +74,7 @@ class Login extends Component {
         </Row>
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to='/'/>: <div></div>}
+        {this.props.authenticated ? <Redirect to='/search'/>: <div></div>}
       </Container>
     );
   }

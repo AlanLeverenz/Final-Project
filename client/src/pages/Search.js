@@ -4,12 +4,12 @@ import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
-import PreviewPanel from "../components/PreviewPanel";
-import PreviewCard from "../components/PreviewCard";
+// import PreviewPanel from "../components/PreviewPanel";
+// import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
-// Home page
+// Search page
 class Search extends Component {
 
   constructor(props) {
@@ -22,7 +22,7 @@ class Search extends Component {
       message: "",
       isLoaded: true,
       queryId: "",
-      previewArticles: []
+      // previewArticles: []
     };
   }
 
@@ -34,19 +34,19 @@ class Search extends Component {
     });
   };
 
-  previewNews = () => {
-    API.runPreview(this.state.preview)
-    .then(res =>{
-      console.log(res.data)
-      this.setState({
-        previewArticles: res.data,
-        message: res.data.message,
-      })
-    })
-  }
-  componentDidMount = () => {
-    this.previewNews();
-  }
+  // previewNews = () => {
+  //   API.runPreview(this.state.preview)
+  //   .then(res =>{
+  //     console.log(res.data)
+  //     this.setState({
+  //       previewArticles: res.data,
+  //       message: res.data.message,
+  //     })
+  //   })
+  // }
+  // componentDidMount = () => {
+  //   this.previewNews();
+  // }
 
   searchNews = () => {
     this.setState({
@@ -125,7 +125,8 @@ class Search extends Component {
             </Jumbotron>
           </Col>
         </Row>
-        <Row style={{visible:this.state.previewHide}}>
+
+{/*}        <Row style={{visible:this.state.previewHide}}>
           <Col size="md-12">
             <Card title="Preview">
             {this.state.previewArticles.length ? (
@@ -153,6 +154,8 @@ class Search extends Component {
             </Card>
           </Col>
         </Row>
+             */}
+
         <Row>
           <Col size="md-12">
             <Card isLoaded={this.state.isLoaded}>
