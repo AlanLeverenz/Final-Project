@@ -22,18 +22,3 @@ const queryFilter = function(queries) {
 }
 
 module.exports = queryFilter;
-
-// const queries = [ 
-//     { item: "a1"},
-//     { item: "a2"},
-//     { item: "a3"},
-//     { item: "a4"},
-//     { item: "b1"},
-//     { item: "b2"},
-//     { item: "b3"},
-//     { item: "b4"},
-//     { item: "c1"},
-//     { item: "c2"},
-//     { item: "c3"},
-//     { item: "c4"}
-// ]

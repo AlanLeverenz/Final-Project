@@ -60,8 +60,6 @@ class App extends React.Component {
      return null;
 }}/>
           <Route path="/visuals" render={(props) => <Visuals {...props} state={this.state} />} /> 
- {/*           <Route path="/saved" component={Saved} /> */}
-  {/*           <this.PrivateRoute exact path="/saved" component={Saved} /> */}
           <Route component={NoMatch} />
         </Switch>
       </div>

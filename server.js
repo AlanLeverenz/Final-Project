@@ -19,7 +19,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

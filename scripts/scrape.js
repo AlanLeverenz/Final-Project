@@ -119,5 +119,3 @@ function scrape(input) {
 }
 
 module.exports = scrape;
-
-
