@@ -8,7 +8,8 @@ import { Input, FormBtn } from "../components/Form";
 class Login extends Component {
   state = {
       email: "",
-      password: ""
+      password: "",
+      message: ""
     };
     
   // componentWillMount() {
@@ -35,9 +36,12 @@ class Login extends Component {
             return <Redirect to="/search" />
           } 
         })
-        .catch(err => console.log(err));
+        .catch(() =>
+        this.setState({
+          message: "Login not recognized. Try again or sign up."
+        })
+      );
     }
-
   };
 
   render() {
@@ -74,7 +78,10 @@ class Login extends Component {
         </Row>
 
         {/* Redirect on authentication */}
-        {this.props.authenticated ? <Redirect to='/search'/>: <div></div>}
+        {this.props.authenticated ? <Redirect to='/search'/> : 
+        <div>
+          <h3 style={{marginLeft:20}}>{this.state.message}</h3>
+        </div>}
       </Container>
     );
   }
