@@ -18,7 +18,7 @@ function Navbar({authenticated, user, logout}) {
       </Link>
 
       <div>
-        <ul className="navbar-nav" style={{fontFamily:"century-old-style-std, serif", fontSize:"0.75rem"}}>
+        <ul className="navbar-nav">
 
           <li className="nav-item">
             <Link
@@ -26,7 +26,7 @@ function Navbar({authenticated, user, logout}) {
               className={
                 window.location.pathname === "/" ? "nav-link active" : "nav-link"}
             >
-              Today's News
+              Today
             </Link>
           </li>
 
