@@ -13,9 +13,9 @@ const articleSchema = new Schema({
     type: String,
     required: false,
   },
-  // userId 
-  userId: {
-    type:String,
+  // user email
+  email: {
+    type: String,
     required: false
   },
   // query, a string
@@ -34,10 +34,10 @@ const articleSchema = new Schema({
       type: String,
       required: false
     },
-    name: {
-      type: String,
-      required: false
-    },
+  name: {
+    type: String,
+    required: false
+  },
   },
   // author, a string
   author: {
@@ -89,7 +89,7 @@ const articleSchema = new Schema({
     type: String,
     required: false
   },
-  // score for padding position
+  // score for vertical graph position
   padScore: {
     type: Number,
     required: false
@@ -118,5 +118,3 @@ const articleSchema = new Schema({
 const Article = mongoose.model("Article", articleSchema);
 
 module.exports = Article;
-
-

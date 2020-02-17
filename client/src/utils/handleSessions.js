@@ -9,7 +9,7 @@ export const getCookie = () => {
 export const authenticateUser = () => {
     const cookie = Cookies.get('userId');
     console.log(cookie);
-    return  API.authenticateUser();
+    return API.authenticateUser();
   }
   
 export const logOut = () => {

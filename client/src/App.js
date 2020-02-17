@@ -17,12 +17,18 @@ class App extends React.Component {
 
   state = {
     authenticated: false,
+    email: "",
     loading: false,
-    logout: false
+    logout: false,
+    message: ""
   }
 
   authenticate = () => authenticateUser()
-    .then(auth => this.setState({authenticated: auth.data, loading:false}))
+    .then(auth => this.setState({
+      authenticated: auth.data, 
+      loading: false,
+      email: auth.data.email
+    }))
     .catch(err => console.log(err))
   
   logout = () => logOut()
@@ -47,6 +53,7 @@ class App extends React.Component {
   )
 
   render(){
+
     return (
     <Router>
       <div>
@@ -55,12 +62,12 @@ class App extends React.Component {
           <Route exact path="/" render={(props) => <Preview {...props} state={this.state} />} />
           <Route path="/search" render={(props) => <Search {...props} state={this.state} />} />
           <Route path="/login" render={(props) => <Login {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
-          <Route path="/signup"  render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
+          <Route path="/signup" render={(props) => <Signup {...props} authenticate={this.authenticate} authenticated={this.state.authenticated} />} />
           <Route path="/saved" render={(props) => <Saved {...props} state={this.state} />} /> 
           <Route path='/demo' component={() => { 
      window.location.href = 'https://harpster11.github.io/newsit-news-polarizer-deck/'; 
      return null;
-}}/>
+          }}/>
           <Route path="/visuals" render={(props) => <Visuals {...props} state={this.state} />} /> 
           <Route component={NoMatch} />
         </Switch>

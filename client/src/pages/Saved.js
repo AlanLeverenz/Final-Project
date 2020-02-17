@@ -64,6 +64,7 @@ class Saved extends Component {
                       _id = {article._id}
                       id={article.id}
                       key={article.key}
+                      email={article.email}
                       query={article.query}
                       source={article.source.name}
                       author={article.author}

@@ -42,6 +42,8 @@ export default {
   
   // Saves an article to the database
   saveArticle: function (articleData) {
+    console.log("SAVE ARTICLE DATA ====")
+    console.log(articleData);
     return axios.post("/api/articles", articleData);
   },
 
@@ -61,7 +63,7 @@ export default {
 // user functions
 
   loginUser: function (user) {
-    return axios.post("/api/user/", user, xhrHeader)
+    return axios.post("/api/user/login", user, xhrHeader)
   },
 
   signup: function (user) {

@@ -13,8 +13,8 @@ const querySchema = new Schema({
     type: String,
     required: false,
   },
-  // userId 
-  userId: {
+  // user email
+  email: {
     type:String,
     required: false
   },

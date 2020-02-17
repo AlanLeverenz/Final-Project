@@ -13,8 +13,8 @@ router.route("/authenticate")
 router.route("/logout")
   .get(userController.logOut);
   
-// Matches with "/api/user"
-router.route("/")
+// Matches with "/api/user/login"
+router.route("/login")
   .post(userController.login);
 
 // TO-DO: logout route (delete cookie and session - req.session.destroy)

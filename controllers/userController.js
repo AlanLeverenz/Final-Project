@@ -57,6 +57,7 @@ module.exports = {
     console.log(`req.session ${JSON.stringify(req.session, null, 4)}`);
 
     if(req.session.user) {
+      console.log(res.json(req.session.user))
       return res.json(req.session.user);
     } else {
       return res.status(401).json('Not authorized! Go back!');

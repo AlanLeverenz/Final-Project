@@ -22,6 +22,7 @@ class Search extends Component {
       message: "",
       isLoaded: true,
       queryId: "",
+      email: "",
       // previewArticles: []
     };
   }
@@ -86,6 +87,7 @@ class Search extends Component {
       key: article.id,
       query: this.state.search,
       queryId: article.queryId,
+      email: this.props.state.email,
       author: article.author,
       source: article.source,
       title: article.title,
@@ -103,6 +105,7 @@ class Search extends Component {
   };
   
   render() {
+    console.log("PROPS EMAIL: " + this.props.state.email)
     return (
       <Container>
         <Row>
@@ -166,6 +169,7 @@ class Search extends Component {
                       key={article.id}
                       id={article.id}
                       queryId={article.id}
+                      email={this.props.state.email}
                       source={article.source.name}
                       author={article.author}
                       title={article.title}
