@@ -2,6 +2,7 @@ const router = require("express").Router();
 const articleRoutes = require("./articles");
 const queryRoutes = require("./queries");
 const searchRoutes = require("./search");
+const previewRoutes = require("./preview")
 const userRoutes = require("./user");
 const previewRoutes = require("./preview");
 

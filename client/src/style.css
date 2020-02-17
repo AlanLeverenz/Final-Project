@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* body {
 font-family: century-old-style-std,serif;
 font-weight: 400;
@@ -53,3 +54,60 @@ h1{
 
   
 
+=======
+/* body {
+font-family: century-old-style-std,serif;
+font-weight: 400;
+font-style: normal
+} */
+
+p {
+font-size: 1.125rem;
+font-family: century-old-style-std,serif;
+font-weight: 400;
+font-style: normal
+}
+
+h3 {
+    font-family: century-old-style-std,serif !important;
+    font-weight: 400;
+    font-style: normal
+}
+
+h5 {
+    font-family: century-old-style-std,serif !important;
+    font-style: normal
+}
+
+h1 {
+    font-family: century-old-style-std,serif !important;
+    font-style: normal
+}
+
+/* hi md lo css */
+
+.hi {
+  background-image: linear-gradient(to right, rgb(139, 235, 139), white);
+  font-style: italic;
+  margin: .5rem 0;
+}
+  
+.md {
+  background-image: linear-gradient(to right, rgb(153, 188, 230), white);
+  font-style: italic;
+  margin: .5rem 0;
+}
+
+.lo {
+  background-image: linear-gradient(to right, rgb(254, 95, 95), white);
+  font-style: italic;
+  margin: .5rem 0;
+}
+
+li {
+  border: '1px, solid, blue'
+}
+
+  
+
+>>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff

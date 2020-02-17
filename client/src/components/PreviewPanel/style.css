@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 .list-overflow-container {
@@ -48,4 +49,56 @@
       flex-direction: vertical;
     }
   }
+=======
+
+
+.list-overflow-container {
+    max-height: 545px;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .list-overflow-container ul {
+    margin: 0;
+  }
+  
+  .list-overflow-container li {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .list-overflow-container li * {
+    cursor: pointer;
+  }
+  
+  .list-overflow-container li a {
+    color: #2A878C;
+  }
+  
+  .list-overflow-container li:first-child {
+    border-top: none;
+  }
+  
+  .list-overflow-container li:last-child {
+    border-bottom: none;
+  }
+  
+.list-group {
+    flex-wrap: wrap !important;
+}
+
+  @media only screen and (min-width: 581px) {
+  .list-row {
+    flex-direction: row;
+  }}
+  
+  @media only screen and (max-width: 580px) {
+    .list-row {
+      flex-direction: vertical;
+    }
+  }
+>>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff
   

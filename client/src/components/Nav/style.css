@@ -1,5 +1,25 @@
+<<<<<<< HEAD
 .navbar {
     background-color: black !important;
     padding: 0rem;
     margin: 0rem;
 }
+=======
+.navbar {
+    /* background-color: rgb(72, 75, 249) !important */
+    color: blue !important;
+    background-color: black !important;
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.newsit {
+    background: url(../../assets/images/newsit.png) no-repeat;
+    width: 60px
+}
+
+/* .no-auth {
+    display: none;
+} */
+
+>>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff

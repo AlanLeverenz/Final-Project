@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .btn-container {
   float: right;
 }
@@ -35,3 +36,38 @@
   border-top: 3px;
   border-bottom: 3px;
 }
+=======
+.btn-container {
+  float: right;
+}
+
+@media (max-width: 767px) {
+  .btn-container {
+    margin-bottom: 15px;
+  }
+  p{
+    font-size: 0.8rem !important;
+  }
+  h5 {
+    font-weight: 1000 !important;
+  }
+  h3{
+    font-size: 1.3rem !important
+  }
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-padding {
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.tinyLine {
+  border-top: 3px;
+  border-bottom: 3px;
+}
+>>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff
