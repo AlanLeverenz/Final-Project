@@ -4,7 +4,6 @@ const queryRoutes = require("./queries");
 const searchRoutes = require("./search");
 const previewRoutes = require("./preview")
 const userRoutes = require("./user");
-const previewRoutes = require("./preview");
 
 // /api/article routes
 router.use("/articles", articleRoutes);

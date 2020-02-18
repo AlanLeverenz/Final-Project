@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .list-overflow-container {
   max-height: 545px;
   border: none;
@@ -33,39 +32,3 @@
 }
 
 
-=======
-.list-overflow-container {
-  max-height: 676px;
-  border: none;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.list-overflow-container ul {
-  margin: 0;
-}
-
-.list-overflow-container li {
-  border-radius: 0px;
-  border-left: none;
-  border-right: none;
-}
-
-.list-overflow-container li * {
-  cursor: pointer;
-}
-
-.list-overflow-container li a {
-  color: darkgrey;
-}
-
-.list-overflow-container li:first-child {
-  border-top: none;
-}
-
-.list-overflow-container li:last-child {
-  border-bottom: none;
-}
-
-
->>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff

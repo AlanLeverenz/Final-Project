@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 .form-control-borderless {
   border: none;
@@ -21,27 +20,3 @@
     max-width: 75%
   }
 }
-=======
-
-.form-control-borderless {
-  border: none;
-  
-}
-
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  
-}
-
-@media only screen and (max-width: 500px) {
-  .search-row {
-    margin-left: -25px;
-    margin-right: -25px;
-  }
-  input {
-    max-width: 75%
-  }
-}
->>>>>>> 8d3606f5b915be0a1dec1b1b7445921771baf4ff
