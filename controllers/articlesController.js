@@ -5,7 +5,6 @@ module.exports = {
   findAll: function(req, res) {
     console.log(`FINDALL SAVED = ${req.params.id}`)
     db.Article
-      // .find(req.query)
       .find({ email: req.params.id})
       .sort({ score: -1 })
       .then(dbModel => res.json(dbModel))
