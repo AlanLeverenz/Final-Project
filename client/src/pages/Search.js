@@ -4,8 +4,6 @@ import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import ArticleCard from "../components/ArticleCard";
 import ArticlePanel from "../components/ArticlePanel"
-// import PreviewPanel from "../components/PreviewPanel";
-// import PreviewCard from "../components/PreviewCard";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -22,8 +20,7 @@ class Search extends Component {
       message: "",
       isLoaded: true,
       queryId: "",
-      email: "",
-      // previewArticles: []
+      email: ""
     };
   }
 
@@ -34,20 +31,6 @@ class Search extends Component {
       [name]: value
     });
   };
-
-  // previewNews = () => {
-  //   API.runPreview(this.state.preview)
-  //   .then(res =>{
-  //     console.log(res.data)
-  //     this.setState({
-  //       previewArticles: res.data,
-  //       message: res.data.message,
-  //     })
-  //   })
-  // }
-  // componentDidMount = () => {
-  //   this.previewNews();
-  // }
 
   searchNews = () => {
     this.setState({
@@ -129,36 +112,6 @@ class Search extends Component {
           </Col>
         </Row>
 
-{/*}        <Row style={{visible:this.state.previewHide}}>
-          <Col size="md-12">
-            <Card title="Preview">
-            {this.state.previewArticles.length ? (
-
-              <PreviewPanel>
-                {this.state.previewArticles.map((preArticle, i) => (
-                  <PreviewCard
-                  key={i}
-                  id={preArticle.id}
-                  source={preArticle.source.name}
-                  author={preArticle.author}
-                  title={preArticle.title}
-                  description={preArticle.description}
-                  url={preArticle.url}
-                  urlToImage={preArticle.urlToImage}
-                  publishedAt={preArticle.publishedAt}
-                  content={preArticle.content}
-                  
-                  ></PreviewCard>
-                ))};
-              </PreviewPanel>
-             ) : (
-              <h2 className="text-center">{this.state.message}</h2>
-            )}
-            </Card>
-          </Col>
-        </Row>
-             */}
-
         <Row>
           <Col size="md-12">
             <Card isLoaded={this.state.isLoaded}>
@@ -208,12 +161,3 @@ class Search extends Component {
 
 export default Search;
 
-  // componentWillMount() {
-  //   this.deleteSavedQueries();
-  // }
-
-  // deleteSavedQueries = () => {
-  //   API.deleteSavedQueries(this.state.queryId)
-  //   .then(res => console.log("SEARCH PAGE ======= " + this.state.queryId)
-  //   );
-  // }
