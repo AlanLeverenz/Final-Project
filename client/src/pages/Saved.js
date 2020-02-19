@@ -11,22 +11,25 @@ class Saved extends Component {
     super(props)
     this.state = {
       articles: [],
-      listCount: ""
+      listCount: "",
+      email: "awleverenz@aol.com"
     };
   }
 
   componentDidMount() {
-    this.getSavedArticles();
+    // console.log("SAVED DIDMOUNT state.email :" + this.state.email);
+    // console.log("SAVED DIDMOUNT props.email :" + this.props.email);
+    this.getSavedArticles(this.props.email);
   }
 
-  getSavedArticles = () => {
-    API.getSavedArticles()
+  getSavedArticles = (id) => {
+    API.getSavedArticles(id)
       .then(res => {
-        console.log(res.data);
         this.setState({
           articles: res.data,
           listCount: res.data.length
-        }, () => {console.log(this.state.articles)})
+        }, 
+        () => {console.log(this.state.articles, this.props.email)})
       }
     )
     .catch(err => console.log(err));
@@ -101,3 +104,4 @@ class Saved extends Component {
 }
 
 export default Saved;
+
