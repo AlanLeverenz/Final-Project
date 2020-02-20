@@ -37,7 +37,6 @@ module.exports = {
           err.status = 401;
           return next(err);
         } else {
-          console.log(`login: `, user._id);
           req.session.user = user;
           return res.json(user);
           // console.log('redirect');

@@ -24,6 +24,8 @@ class Search extends Component {
     };
   }
 
+// need function that gets the queryId from a hi-med-lo article, gets the query string and user email, and adds them to all the queries that have the same queryId
+
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;

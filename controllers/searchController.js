@@ -20,7 +20,7 @@ module.exports = {
       })
       .then(function(filtered) {
         console.log("RETURN FILTERED RESPONSE === ");
-        res.json(filtered)
+        return res.json(filtered)
       })
       .catch(function(err) {
         res.json({
