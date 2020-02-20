@@ -10,7 +10,7 @@ A news research application built using NLU sentiment analysis to polarize cover
 ### Searching News Headlines
 To intialize a search, enter any news headline into the home screen search field. Results may take up to 15 seconds to populate.
 
-#### Understanding Results
+### Understanding Results
 Upon completing a search, News Polarizer returns three result types. These three articles are parsed from bulk results returned from News API.
 
 ###### Most Negative (leftmost article, or first on mobile)
@@ -28,4 +28,4 @@ News Polarizer includes two protected features for users who create a username a
 Authenticated users can save articles in their account and retrieve them, along with the result score.
 
 ###### Data Visualization
-The ten most-read articles, per NewsAPI data, are displayed in ascending order along with their 
+Sets of twelve articles returned from a search are graphically represented by colored dots in order of their sentiment score. Click on a dot to view its headline. Click on the headline to read the original article. Click the delete button to remove the set of articles. 
