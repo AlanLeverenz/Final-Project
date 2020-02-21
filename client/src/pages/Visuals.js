@@ -79,7 +79,7 @@ class Visuals extends Component {
           <div style={{textAlign:"center"}}>
             <Query queries={this.state.queries}
             title={this.state.title} 
-            url={this.state.url} 
+            url={this.state.url}
             setTitle={this.setTitle}
             deleteQuery={this.deleteQuery}
             />

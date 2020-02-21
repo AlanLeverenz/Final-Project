@@ -59,6 +59,11 @@ export default {
     return axios.delete("/api/queries/" + id);
   },
 
+  // update queries
+  updateQueries: function(queryId, [email, query]){
+    return axios.put("/api/queries/", queryId, [email, query] );
+  },
+
 
 // user functions
 

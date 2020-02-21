@@ -24,7 +24,6 @@ class Search extends Component {
     };
   }
 
-// need function that gets the queryId from a hi-med-lo article, gets the query string and user email, and adds them to all the queries that have the same queryId
 
   handleInputChange = event => {
     const name = event.target.name;
@@ -34,19 +33,30 @@ class Search extends Component {
     });
   };
 
-  searchNews = () => {
+  // When the form is submitted, search the NewsAPI for `this.state.search`
+  handleFormSubmit = event => {
+    event.preventDefault();
     this.setState({
-      previewArticles: []
-    })
+      isLoaded:false,
+      // search: this.state.search /* added */
+    });
+    this.searchNews();
+  };
+
+  searchNews = () => {
     API.searchNews(this.state.search)
     .then(res => {
       this.setState({
         isLoaded: true,
         articles: res.data,
-        message: res.data.message,
-        
+        queryId: res.data[0].queryId,
+        message: res.data.message
       })}
     )
+    .then(this.handleQueryUpdate())
+    // .then(res => {
+    //   console.log(res.data)
+    // })
     .catch(() =>
       this.setState({
         articles: [],
@@ -56,15 +66,19 @@ class Search extends Component {
     );
   };
 
-  // When the form is submitted, search the NewsAPI for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.setState({isLoaded:false});
-    this.searchNews();
+  // need function that uses the queryId from a hi-med-lo article, to get the query string and user email, and adds them to all the queries that have the same queryId
+
+  handleQueryUpdate = () => {
+    const json = `{"email": ${this.props.state.email}, "query": ${this.state.search}}`;
+
+    console.log("req.body = " + json);
+    console.log("queryId = " + this.state.queryId);
+    API.updateQueries("2-20-2020-7843", json)
+    // API.updateQueries(data[0].queryId, json)
+    .then(() => console.log("handleQueryUpdate complete"));
   };
 
-  // eventually need to insert into a Users collection Article array
-  // using uuid to set the id since there is no id returned from the search
+
   handleArticleSave = id => {
     const article = this.state.articles.find(article => article.id === id);
     API.saveArticle({

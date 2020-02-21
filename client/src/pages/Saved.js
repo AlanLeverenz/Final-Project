@@ -17,8 +17,6 @@ class Saved extends Component {
   }
 
   componentDidMount() {
-    // console.log("SAVED DIDMOUNT state.email :" + this.state.email);
-    // console.log("SAVED DIDMOUNT props.email :" + this.props.email);
     this.getSavedArticles(this.props.email);
   }
 
