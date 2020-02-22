@@ -45,7 +45,7 @@ class Visuals extends Component {
   
   setTitle = (index) => {
     console.log("VISUALS SET TITLE");
-    console.log(index);
+    console.log("index = " + index);
     this.setState({
       title: this.state.queries[index].title,
       url: this.state.queries[index].url
