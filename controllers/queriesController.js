@@ -28,11 +28,10 @@ module.exports = {
   },
 
   update: function(req, res) {
+    console.log("QUERY UPDATE")
+    console.log(req.body)
     db.Query
-      console.log("QUERY UPDATE")
-      console.log(req.body)
-      .findByIdAndUpdate({ queryId: req.params.id }, req.body
-        )
+      .findByIdAndUpdate({ queryId: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

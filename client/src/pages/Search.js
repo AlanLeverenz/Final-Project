@@ -46,6 +46,7 @@ class Search extends Component {
   searchNews = () => {
     API.searchNews(this.state.search)
     .then(res => {
+      console.log(res.data)
       this.setState({
         isLoaded: true,
         articles: res.data,
@@ -53,10 +54,10 @@ class Search extends Component {
         message: res.data.message
       })}
     )
-    .then(this.handleQueryUpdate())
-    // .then(res => {
-    //   console.log(res.data)
-    // })
+    // .then(res => this.handleQueryUpdate())
+    .then( res => { console.log("HANDLE QUERY UPDATE")
+      // this.handleQueryUpdate() 
+    })
     .catch(() =>
       this.setState({
         articles: [],
@@ -69,12 +70,11 @@ class Search extends Component {
   // need function that uses the queryId from a hi-med-lo article, to get the query string and user email, and adds them to all the queries that have the same queryId
 
   handleQueryUpdate = () => {
-    const json = `{"email": ${this.props.state.email}, "query": ${this.state.search}}`;
-
-    console.log("req.body = " + json);
+    const data = `{"email": ${this.props.state.email}, "query": ${this.state.search}}`;
+    const json = JSON.parse(data);
+    console.log("queryData = " + json);
     console.log("queryId = " + this.state.queryId);
-    API.updateQueries("2-20-2020-7843", json)
-    // API.updateQueries(data[0].queryId, json)
+    API.updateQueries(this.state.queryId, json)
     .then(() => console.log("handleQueryUpdate complete"));
   };
 
@@ -104,7 +104,7 @@ class Search extends Component {
   };
   
   render() {
-    console.log("PROPS EMAIL: " + this.props.state.email)
+    // console.log("PROPS EMAIL: " + this.props.state.email)
     return (
       <Container>
         <Row>

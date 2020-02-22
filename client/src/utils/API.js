@@ -60,13 +60,11 @@ export default {
   },
 
   // update queries
-  updateQueries: function(queryId, [email, query]){
-    return axios.put("/api/queries/", queryId, [email, query] );
+  updateQueries: function(queryId, queryData){
+    return axios.put("/api/queries/" + queryId, queryData );
   },
 
-
-// user functions
-
+// user function
   loginUser: function (user) {
     return axios.post("/api/user/login", user, xhrHeader)
   },
