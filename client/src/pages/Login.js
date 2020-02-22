@@ -12,7 +12,7 @@ class Login extends Component {
       message: ""
     };
     
-  // componentWillMount() {
+  // UNSAFE_componentWillMount() {
   // this.props.authenticate
   // }
   
