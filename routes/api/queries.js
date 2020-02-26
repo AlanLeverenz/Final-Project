@@ -9,6 +9,7 @@ router.route("/")
 // Matches with "/api/queries/:queryId"
 router.route("/:id")
   .get(queriesController.findById)
+  // .get (queriesController.find)
   .put(queriesController.update)
   .delete(queriesController.remove);
 
