@@ -63,3 +63,5 @@ The app defaults to storing 12 articles for each search, which are saved in the 
 
 ![News Polarizer Visuals Page]
 (https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/visuals_page.png)
+
+To remove all 12 articles from the Query collection, click on the Delete button.
