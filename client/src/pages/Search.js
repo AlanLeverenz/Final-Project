@@ -53,9 +53,11 @@ class Search extends Component {
         message: res.data.message
       })}
     )
-    // .then(res => this.handleQueryUpdate())
-    .then(res => { console.log("HANDLE QUERY UPDATE")
+    .then(res => { 
+      this.handleQueryUpdate()
     })
+    // .then(res => { console.log("HANDLE QUERY UPDATE")
+    // })
     .catch(() =>
       this.setState({
         articles: [],
@@ -67,60 +69,48 @@ class Search extends Component {
 
   // need function that uses the queryId from a hi-med-lo article, to get the query string and user email, and adds them to all the queries that have the same queryId
 
+// mapped update
 
-// let query = {'username': req.user.username};
-// req.newData.username = req.user.username;
-
-// MyModel.findOneAndUpdate(query, req.newData, {upsert: true}, function(err, doc) {
-//     if (err) return res.send(500, {error: err});
-//     return res.send('Succesfully saved.');
-// });
-
-// indirect update
-
-  handleQueryUpdate = () => {
-    const id = this.state.queryId;
-    API.getSavedQuery(id)
-    .then(res => console.log(res.data)
-    )
-    // .then(res => {
-    //   res.data.map((query) => (
-    //   query.email = this.props.state.email,
-    //   query.query = this.state.search
-    //     ))
-    //   API.updateQueries(this.query._id, this.query)
-    // .then(res => console.log("handle query update"))
-    .catch((err) =>
-    this.setState({
-      message: err
-    }))
-  }
-  // )
-  // }
-
-
-// direct update
   // handleQueryUpdate = () => {
   //   const id = this.state.queryId;
-  //   const myEmail = this.props.state.email;
-  //   const myQuery = this.state.search;
-  //   const myData = [{ 
-  //     email: myEmail, 
-  //     query: myQuery
-  //   }];
-
-  //   console.log("myEmail = " + myEmail);
-  //   console.log("myQuery = " + myQuery);
-  //   console.log(myData);
-  //   console.log("queryId = " + this.state.queryId);
-  //   API.updateQueries(id, myData)
-  //   .then(res => console.log("handleQueryUpdate complete"))
+  //   API.getSavedQuery(id)
+  //   .then(res => console.log(res.data)
+  //   )
+  //   // .then(res => {
+  //   //   res.data.map((query) => (
+  //   //   query.email = this.props.state.email,
+  //   //   query.query = this.state.search
+  //   //     ))
+  //   //   API.updateQueries(this.query._id, this.query)
+  //   // .then(res => console.log("handle query update"))
   //   .catch((err) =>
   //   this.setState({
   //     message: err
-  //   })
-  // )};
+  //   }))
+  // }
+  // )
+  // }
 
+// direct update
+  handleQueryUpdate = () => {
+    const id = this.state.queryId;
+    const myEmail = this.props.state.email;
+    const myQuery = this.state.search;
+    const myData = [{ 
+      "email": myEmail, 
+      "query": myQuery
+    }];
+    console.log("myEmail = " + myEmail);
+    console.log("myQuery = " + myQuery);
+    console.log(myData);
+    console.log("queryId = " + this.state.queryId);
+    API.updateQueries(id, myData)
+    .then(res => console.log("handleQueryUpdate complete"))
+    .catch((err) =>
+    this.setState({
+      message: err
+    })
+  )};
 
   handleArticleSave = id => {
     const article = this.state.articles.find(article => article.id === id);
@@ -147,7 +137,6 @@ class Search extends Component {
   };
   
   render() {
-    // console.log("PROPS EMAIL: " + this.props.state.email)
     return (
       <Container>
         <Row>
@@ -195,22 +184,22 @@ class Search extends Component {
                       score={article.score}
                       padScore={article.padScore}
                       hml={article.hml}
-                      // Button={() => (
-                      //   <button
-                      //     onClick={() => this.handleArticleSave(article.id)}
-                      //     className="btn btn-primary ml-2"
-                      //   >
-                      //     Save
-                      //   </button>
-                      // )}
                       Button={() => (
                         <button
-                          onClick={() => this.handleQueryUpdate()}
+                          onClick={() => this.handleArticleSave(article.id)}
                           className="btn btn-primary ml-2"
                         >
-                          Update
+                          Save
                         </button>
                       )}
+                      // Button={() => (
+                      //   <button
+                      //     onClick={() => this.handleQueryUpdate()}
+                      //     className="btn btn-primary ml-2"
+                      //   >
+                      //     Update
+                      //   </button>
+                      // )}
                     />
                   ))}
                 </ArticlePanel>
