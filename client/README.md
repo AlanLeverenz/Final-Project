@@ -1,32 +1,67 @@
 # News Polarizer
 
-A news research application built using NLU sentiment analysis to polarize coverage on a news headline.
-**Built by the NewsIT Team, part of Columbia Engineering's Winter 2020 Full Stack Coding Bootcamp Class**
+![NewsIt]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/newsit.png)
+
+**A news research application built using NLU sentiment analysis to polarize coverage on a news headline.**
+
+Built by the NewsIT Team, part of Columbia Engineering's Winter 2020 Full Stack Coding Bootcamp Class
 
 * John Harper
 * Alan Leverenz
 * Ariel Quinones
-* Ayisha Saydana
 
-### Searching News Headlines
-To intialize a search, enter any news headline into the home screen search field. Results may take up to 15 seconds to populate.
+## What the app does
 
-### Understanding Results
-Upon completing a search, News Polarizer returns three result types. These three articles are parsed from bulk results returned from News API.
+News Polarizer applies sentiment score values to news articles. The purpose of the app is to present the user with a "polarized" view of news articles. A search returns articles with relative high, low, and middle sentiment scores. These articles include a color-shaded score value. The users can save returned articles, associated with their user login, and view all query results in a graph, with links to the article URL's.
 
-###### Most Negative (leftmost article, or first on mobile)
-The _lowest-scoring_ article, based on sentiment analysis scores returned from IBM Watson NLU sentiment of the full text of every returned article.
+## How the app is built
 
-###### Median Result (center article, or second on mobile)
+News Polarizer is built using a MERN stack (MongoDB, Express, React, and Node). User authentication is based on Express-Sessions. The MongoDB has three collections that serve the data: Article, Query, and User.
 
-###### Most Enthusiastic (rightmost article, or last on mobile)
-The _highest-scoring_ article, based on sentiment analysis scores.
+## How it works
 
-### Protected Features
-News Polarizer includes two protected features for users who create a username and password, and log in with their account.
+Here is the deployed URL:
 
-###### Saved articles
-Authenticated users can save articles in their account and retrieve them, along with the result score.
+<http://news-polarizer.herokuapp.com/>
 
-###### Data Visualization
-Twelve articles representing a query search are displayed as dots on a graph with their sentiment score, from lowest to highest. The colors change depending on the score, from red (negative range), to blue (neutral range), to green (positive range). A delete button removes the set of dozen articles from the database. 
+### Today's Headlines
+
+![News Polarizer Todays Headlines]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/today_headlines.png)
+
+The Home route (Today) activates an automatic search for current headlines, returning 12 articles. These articles are intended to give the user ideas on what current envets they may wish to search for.
+
+### Navbar
+
+![News Polarizer Navbar]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/navbar.png)
+
+The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries. 
+
+### Searching
+
+![News Polarizer Search Page]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/search_page.png)
+
+News Polarizer collects news articles based on the search string.
+
+* An API connection to RapidAPI news sources returns basic article metadata, such as title, source, author, description, url, image url, and date published.
+* The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url and adds a sentiment score to the response. The articles that are returned are analyzed and given a sentiment score.
+* The articles with the highest and lowest score, and an article midway between the other two are presented to the user.
+
+## Saving Articles
+
+After a search is returned, by clicking on the Save button below an article the user is able to save the article so it can be viewed at a later date. Articles are saved in a Article collection.
+
+![News Polarizer Saved Page]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/saved_page.png)
+
+## Viewing All Query Results
+
+The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive).
+
+![News Polarizer Visuals Page]
+(https://github.com/AlanLeverenz/Sentiment/blob/master/client/src/assets/images/visuals_page.png)
+
+To remove all 12 articles from the Query collection, click on the Delete button.
