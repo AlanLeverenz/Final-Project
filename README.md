@@ -28,13 +28,13 @@ Here is the deployed URL:
 
 ![](client/src/assets/images/today_headlines.png)
 
-The Home route (Today) activates an automatic search for current headlines, returning 12 articles. These articles are intended to give the user ideas on what current envets they may wish to search for.
+The Home route (Today) activates an automatic search for current headlines, returning 12 articles. These articles are intended to give the user ideas on what current events they may wish to search for.
 
 ### Navbar
 
 ![](client/src/assets/images/navbar.png)
 
-The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries. 
+The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries.
 
 ### Searching
 
@@ -48,11 +48,15 @@ News Polarizer collects news articles based on the search string.
 
 ## Saving Articles
 
+![](client/src/assets/images/Navbar_Saved.png)
+
 After a search is returned, by clicking on the Save button below an article the user is able to save the article so it can be viewed at a later date. Articles are saved in a Article collection.
 
 ![](client/src/assets/images/saved_page.png)
 
 ## Viewing All Query Results
+
+![](client/src/assets/images/Navbar_Visuals.png)
 
 The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive).
 
