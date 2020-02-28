@@ -8,8 +8,7 @@ module.exports = {
       .find(req.query)
       .sort({ queryId: -1 })
       .sort({ padScore: 1 })
-      .then(dbModel => queryFilter(res.json(dbModel))) // inserted filter to create arrays of query objects
-      // .then(dbModel => res.json(dbModel)
+      .then(dbModel => queryFilter(res.json(dbModel)))
       .catch(err => res.status(422).json(err));
   },
 
@@ -20,13 +19,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  // findAll: function(req, res) {
-  //   db.Query
-  //     .find(req.params.queryId)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
-
   create: function(req, res) {
     db.Query
       .create(req.body)
@@ -35,8 +27,10 @@ module.exports = {
   },
 
   update: function(req, res) {
+    console.log("QUERY UPDATE")
+    console.log(req.body)
     db.Query
-      .findOneAndUpdate({ id: req.params.id }, req.body)
+      .findOneAndUpdate({ queryId: req.params.id }, { $set: req.body }, { useFindAndModify: false, upsert: false, new: true })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -45,7 +45,7 @@ class Visuals extends Component {
   
   setTitle = (index) => {
     console.log("VISUALS SET TITLE");
-    console.log(index);
+    console.log("index = " + index);
     this.setState({
       title: this.state.queries[index].title,
       url: this.state.queries[index].url
@@ -79,7 +79,7 @@ class Visuals extends Component {
           <div style={{textAlign:"center"}}>
             <Query queries={this.state.queries}
             title={this.state.title} 
-            url={this.state.url} 
+            url={this.state.url}
             setTitle={this.setTitle}
             deleteQuery={this.deleteQuery}
             />

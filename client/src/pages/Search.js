@@ -24,8 +24,6 @@ class Search extends Component {
     };
   }
 
-// need function that gets the queryId from a hi-med-lo article, gets the query string and user email, and adds them to all the queries that have the same queryId
-
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -34,19 +32,30 @@ class Search extends Component {
     });
   };
 
-  searchNews = () => {
+  // When the form is submitted, search the NewsAPI for `this.state.search`
+  handleFormSubmit = event => {
+    event.preventDefault();
     this.setState({
-      previewArticles: []
-    })
+      isLoaded:false,
+      // search: this.state.search
+    });
+    this.searchNews();
+  };
+
+  searchNews = () => {
     API.searchNews(this.state.search)
     .then(res => {
+      console.log(res.data)
       this.setState({
         isLoaded: true,
         articles: res.data,
-        message: res.data.message,
-        
+        queryId: res.data[0].queryId,
+        message: res.data.message
       })}
     )
+    .then(res => { 
+      this.handleQueryUpdate()
+    })
     .catch(() =>
       this.setState({
         articles: [],
@@ -56,15 +65,25 @@ class Search extends Component {
     );
   };
 
-  // When the form is submitted, search the NewsAPI for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.setState({isLoaded:false});
-    this.searchNews();
-  };
+// direct update
+  handleQueryUpdate = () => {
+    const id = this.state.queryId;
+    const myEmail = this.props.state.email;
+    const myQuery = this.state.search;
+    const myData = [{ 
+      "email": myEmail, 
+      "query": myQuery
+    }];
+    console.log(myData);
+    console.log("queryId = " + this.state.queryId);
+    API.updateQueries(id, myData)
+    .then(res => console.log("handleQueryUpdate complete"))
+    .catch((err) =>
+    this.setState({
+      message: err
+    })
+  )};
 
-  // eventually need to insert into a Users collection Article array
-  // using uuid to set the id since there is no id returned from the search
   handleArticleSave = id => {
     const article = this.state.articles.find(article => article.id === id);
     API.saveArticle({
@@ -90,7 +109,6 @@ class Search extends Component {
   };
   
   render() {
-    console.log("PROPS EMAIL: " + this.props.state.email)
     return (
       <Container>
         <Row>

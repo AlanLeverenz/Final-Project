@@ -34,7 +34,6 @@
     "morgan": "^1.9.1",
     "newsapi": "^2.4.0",
     "prop-type": "0.0.1",
-    "react-scripts": "^3.3.0",
     "session": "^0.1.0",
     "uuid": "^3.3.3"
   }
