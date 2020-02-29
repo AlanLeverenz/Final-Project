@@ -38,9 +38,12 @@ The Navbar enables the user to Signup or Login to begin searching, view saved ar
 
 ### Searching
 
+News Polarizer collects news articles based on the search string.
+
 * An API connection to RapidAPI news sources returns basic article metadata, such as title, source, author, description, url, image url, and date published.
 * The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url, analyzes the content, and adds a sentiment score to the response.
 * The articles with the highest and lowest score, and an article midway between the other two are presented to the user.
+* Click on the Save button to save the article so it can be viewed at a later date. Articles are saved in a Article collection which is accessed by clicking on **Saved** in the Navbar.
   
 ![](client/src/assets/images/search_page.png)
 
@@ -48,7 +51,7 @@ The Navbar enables the user to Signup or Login to begin searching, view saved ar
 
 ![](client/src/assets/images/Navbar_Saved.png)
 
-After a search is returned, by clicking on the Save button below an article the user is able to save the article so it can be viewed at a later date. Articles are saved in a Article collection.
+Only articles that were saved by the current user are displayed. The query string used to find the article is styled in italic blue above the sentiment score. Click on the Delete button to remove the article from the database.
 
 ![](client/src/assets/images/saved_page.png)
 
