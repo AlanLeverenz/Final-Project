@@ -59,10 +59,11 @@ Only articles that were saved by the current user are displayed. The query strin
 
 ![](client/src/assets/images/Navbar_Visuals.png)
 
-The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
+The app stores 12 articles for each search which are saved in the Query collection. The number of queries that are stored is indicated by the number of pages. Left and right arrows surround the page number that is being currently displayed. Each article in a page is visualized as a dot in the graph. The article's score determines its vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
 
 * IBM Watson NLU sentiment decimal scores have been converted to positive intervals ranging from 0 - 100.
 * Click on a dot to view its headline above.
+* Click on a right or left arrow to page through the query collections.
 * Click on the Delete button to remove all 12 articles in the graph from the Query database.
 
 ![](client/src/assets/images/visuals_page.png)
