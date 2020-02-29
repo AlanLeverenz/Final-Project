@@ -55,7 +55,7 @@ Only articles that were saved by the current user are displayed. The query strin
 
 ![](client/src/assets/images/saved_page.png)
 
-## Viewing All Query Results
+## Viewing All Search Results
 
 ![](client/src/assets/images/Navbar_Visuals.png)
 
