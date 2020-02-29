@@ -38,13 +38,11 @@ The Navbar enables the user to Signup or Login to begin searching, view saved ar
 
 ### Searching
 
-![](client/src/assets/images/search_page.png)
-
-News Polarizer collects news articles based on the search string.
-
 * An API connection to RapidAPI news sources returns basic article metadata, such as title, source, author, description, url, image url, and date published.
-* The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url and adds a sentiment score to the response. The articles that are returned are analyzed and given a sentiment score.
+* The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url, analyzes the content, and adds a sentiment score to the response.
 * The articles with the highest and lowest score, and an article midway between the other two are presented to the user.
+  
+![](client/src/assets/images/search_page.png)
 
 ## Saving Articles
 
