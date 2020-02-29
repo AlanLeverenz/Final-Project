@@ -34,7 +34,7 @@ The Home route (Today) activates an automatic search for current headlines, retu
 
 ![](client/src/assets/images/navbar.png)
 
-The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries.
+The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries. After being authenticated, the user is routed to the Search page.
 
 ### Searching
 
@@ -47,7 +47,7 @@ News Polarizer collects news articles based on the search string.
   
 ![](client/src/assets/images/search_page.png)
 
-## Saving Articles
+## Viewing Saved Articles
 
 ![](client/src/assets/images/Navbar_Saved.png)
 
