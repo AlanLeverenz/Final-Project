@@ -1,6 +1,6 @@
 # News Polarizer
 
-![NewsIt](client/src/assets/images/newsit.png)
+<img src='client/src/assets/images/newsit.png' width='200px'>
 
 **A news research application built using NLU sentiment analysis to polarize coverage on a news headline.**
 
