@@ -42,7 +42,7 @@ News Polarizer collects news articles based on the search string.
 
 * An API connection to RapidAPI news sources returns basic article metadata, such as title, source, author, description, url, image url, and date published.
 * The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url, analyzes the content, and adds a sentiment score to the response.
-* The articles with the highest and lowest score, and an article midway between the other two are presented to the user.
+* The articles with the highest and lowest score, and an article midway between the other two are presented to the user. Scores may range from -1 to +1.
 * Click on the Save button to save the article so it can be viewed at a later date. Articles are saved in a Article collection which is accessed by clicking on **Saved** in the Navbar.
   
 ![](client/src/assets/images/search_page.png)
@@ -61,6 +61,7 @@ Only articles that were saved by the current user are displayed. The query strin
 
 The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
 
+* IBM Watson NLU sentiment decimal scores have been converted to positive intervals ranging from 0 - 100.
 * Click on a dot to view its headline above.
 * Click on the Delete button to remove all 12 articles in the graph from the Query database.
 
