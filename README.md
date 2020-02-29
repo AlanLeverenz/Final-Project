@@ -59,8 +59,9 @@ Only articles that were saved by the current user are displayed. The query strin
 
 ![](client/src/assets/images/Navbar_Visuals.png)
 
-The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive).
+The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
+
+* Click on a dot to view its headline above.
+* Click on the Delete button to remove all 12 articles in the graph from the Query database.
 
 ![](client/src/assets/images/visuals_page.png)
-
-To remove all 12 articles from the Query collection, simply click on the Delete button.
