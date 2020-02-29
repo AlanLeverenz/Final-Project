@@ -59,7 +59,7 @@ Only articles that were saved by the current user are displayed. The query strin
 
 ![](client/src/assets/images/Navbar_Visuals.png)
 
-The app stores 12 articles for each search which are saved in the Query collection. The number of queries that are stored is indicated by the number of pages. Left and right arrows surround the page number that is being currently displayed. Each article in a page is visualized as a dot in the graph. The article's score determines its vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
+TThe app stores 12 articles for each search which are saved in the Query collection. The number of queries that are stored is indicated by the number of pages. Left and right arrows surround the page number that is being currently displayed. Each article in a page is visualized as a dot in the graph. The article's score determines its vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
 
 ![](client/src/assets/images/visuals_page.png)
 
