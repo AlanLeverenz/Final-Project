@@ -54,7 +54,9 @@ After a search is returned, by clicking on the Save button below an article the 
 
 ## Viewing All Query Results
 
-The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive).
+The app displays a dot graph of 12 articles--corresponding to their search event--which are loaded from the Query collection. The dots are inserted into 12 columns, one for each article. Each score is visualized by the dot's vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive).
+
+Click on the left or right arrow to page between query sets. For example, clicking on the right arrow will load the next 12 articles from the Query database.
 
 ![](src/assets/images/visuals_page.png)
 

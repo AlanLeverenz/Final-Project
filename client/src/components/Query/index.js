@@ -12,7 +12,7 @@ export class Query extends Component {
       >
         <h3 style={{fontStyle:"italic"}}><a target="_blank" rel="noopener noreferrer" href={this.props.url}>{this.props.title}</a></h3>
         <Row>
-          {this.props.queries.slice(0,12).map((query,i) => (
+          {this.props.queries.slice(this.props.start,this.props.end).map((query,i) => (
             <Col size="1" key={i}>
               <Graph 
                 index={i}
