@@ -1,6 +1,6 @@
 # News Polarizer
 
-![NewsIt](client/src/assets/images/newsit.png)
+<img src='client/src/assets/images/newsit.png' width='200px'>
 
 **A news research application built using NLU sentiment analysis to polarize coverage on a news headline.**
 
@@ -34,32 +34,37 @@ The Home route (Today) activates an automatic search for current headlines, retu
 
 ![](client/src/assets/images/navbar.png)
 
-The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries.
+The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries. After being authenticated, the user is routed to the Search page.
 
 ### Searching
-
-![](client/src/assets/images/search_page.png)
 
 News Polarizer collects news articles based on the search string.
 
 * An API connection to RapidAPI news sources returns basic article metadata, such as title, source, author, description, url, image url, and date published.
-* The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url and adds a sentiment score to the response.
-* The articles with the highest and lowest score, and an article midway between the other two are presented to the user.
+* The articles are run through the IBM Watson NLU (Natural Language Understanding) sentiment analyzer, which accesses the article url, analyzes the content, and adds a sentiment score to the response.
+* The articles with the highest and lowest score, and an article midway between the other two are presented to the user. Scores may range from -1 to +1.
+* Click on the Save button to save the article so it can be viewed at a later date. Articles are saved in a Article collection which is accessed by clicking on **Saved** in the Navbar.
+  
+![](client/src/assets/images/search_page.png)
 
-## Saving Articles
+## Viewing Saved Articles
 
 ![](client/src/assets/images/Navbar_Saved.png)
 
-After a search is returned, by clicking on the Save button below an article the user is able to save the article so it can be viewed at a later date. Articles are saved in a Article collection.
+Only articles that were saved by the current user are displayed. The query string used to find the article is styled in italic blue above the sentiment score. Click on the Delete button to remove the article from the database.
 
 ![](client/src/assets/images/saved_page.png)
 
-## Viewing All Query Results
+## Viewing All Search Results
 
 ![](client/src/assets/images/Navbar_Visuals.png)
 
-The app defaults to storing 12 articles for each search, which are saved in the Query collection. Each set of 12 pertaining to a search are represented in a dot graph. The dots are spaced in 12 columns. Their score is visualized by their vertical position (negative to positive) and color (reds = negative, blues = neutral, green = positive). Click on a dot to view its headline. Click on the headline to read the article.
+TThe app stores 12 articles for each search which are saved in the Query collection. The number of queries that are stored is indicated by the number of pages. Left and right arrows surround the page number that is being currently displayed. Each article in a page is visualized as a dot in the graph. The article's score determines its vertical position (negative to positive) and color (reds = negative, blues = neutral, greens = positive).
 
 ![](client/src/assets/images/visuals_page.png)
 
-To remove all 12 articles from the Query collection, simply click on the Delete button.
+* IBM Watson NLU sentiment decimal scores have been converted to positive intervals ranging from 0 - 100.
+* Click on a dot to view its headline above.
+* Each headline is hyper-linked to its article on the web. 
+* Click on a right or left arrow to page through the query collections.
+* Click on the Delete button to remove all 12 articles in the graph from the Query database.

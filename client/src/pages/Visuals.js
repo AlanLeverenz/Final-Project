@@ -13,7 +13,9 @@ class Visuals extends Component {
       queries: [],
       queryCount: 0,
       title: "",
-      url: ""
+      url: "",
+      start: 0,
+      end: 12
     };
   }
 
@@ -30,26 +32,39 @@ class Visuals extends Component {
           queries: res.data,
           queryCount: res.data.length,
           title: "Click on a dot to view its headline",
-          url: ""
+          url: "",
       })
     })
     .catch(err => console.log(err));
     };
 
   deleteQuery = (queryId) => {
-    console.log("queryId = " + queryId)
     API.deleteQuery(queryId)
       .then(res => this.getSavedQueries())
       .catch(err => console.log(err));
   };
   
   setTitle = (index) => {
-    console.log("VISUALS SET TITLE");
-    console.log("index = " + index);
     this.setState({
       title: this.state.queries[index].title,
       url: this.state.queries[index].url
     })
+  }
+
+  getNextQuerySet = () => {
+    (this.state.end / 12 < this.state.queryCount / 12) && (
+    this.setState({
+      start: this.state.start + 12,
+      end: this.state.start + 24
+    }))
+  }
+
+  getPreviousQuerySet = () => {
+    (this.state.start > 11) && (
+    this.setState({
+      start: this.state.start - 12,
+      end: this.state.start 
+    }))
   }
 
   render() {
@@ -62,13 +77,25 @@ class Visuals extends Component {
                 <h1 className="text-center jumbo-text" style={{fontSize: "4rem"}}>
                   News Polarizer
                 </h1>
-                <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>You Have {this.state.queryCount} Articles
+                <h5 className="text-center jumbo-text" style={{fontFamily: "Libre Baskerville, serif, regular"}}>There are {this.state.queryCount / 12} search pages
                 </h5>
-                  <div style={{padding:30}}>
-                    <span>Positive <i className="fas fa-circle" style={{color:"green"}}></i>
-                    &emsp;&emsp; Neutral <i className="fas fa-circle" style={{color:"blue"}}></i>
-                    &emsp;&emsp; Negative <i className="fas fa-circle" style={{color:"red"}}></i></span>
-                  </div>
+                <div style={{padding:30}}>
+                  <span>Positive <i className="fas fa-circle" style={{color:"green"}}></i>
+                  &emsp;&emsp; Neutral <i className="fas fa-circle" style={{color:"blue"}}></i>
+                  &emsp;&emsp; Negative <i className="fas fa-circle" style={{color:"red"}}></i></span>
+                </div>
+
+                <div>
+                  <span className="button-hover">
+                    <button onClick={this.getPreviousQuerySet.bind(this, this.state.queryCount)} style={{fontSize:36, border:"none"}}><i className="fas fa-angle-left"></i></button>
+                  </span>
+
+                  <span style={{fontSize:36}}>{this.state.end / 12}</span>
+
+                  <span className="button-hover">
+                    <button onClick={this.getNextQuerySet.bind(this, this.state.queryCount)} style={{fontSize:36, border:"none"}}><i className="fas fa-angle-right"></i></button>
+                  </span>
+                </div>
               </div>
             </Jumbotron>
           </Col>
@@ -80,6 +107,8 @@ class Visuals extends Component {
             <Query queries={this.state.queries}
             title={this.state.title} 
             url={this.state.url}
+            start={this.state.start}
+            end={this.state.end}
             setTitle={this.setTitle}
             deleteQuery={this.deleteQuery}
             />
