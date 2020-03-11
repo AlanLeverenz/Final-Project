@@ -64,7 +64,8 @@ export default {
   },
 
   // update queries
-  updateQueries: function(id, queryData){
+  updateQueries: function(id, queryData) {
+    console.log("UPDATE QUERIES ====")
     return axios.put("/api/queries/" + id, queryData );
   },
 

@@ -3,7 +3,6 @@ const db = require("../models");
 // Defining methods for the articlesController
 module.exports = {
   findAll: function(req, res) {
-    console.log(`FINDALL SAVED = ${req.params.id}`)
     db.Article
       .find({ email: req.params.id})
       .sort({ score: -1 })
@@ -11,7 +10,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    console.log(`FINDBYID SAVED = ${req.params.id}`)
     db.Article
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
@@ -30,6 +28,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
+    console.log("REMOVE ARTICLE")
     db.Article
       .findOne({ key: req.params.id })
       .then(dbModel => dbModel.remove())

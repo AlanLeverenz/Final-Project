@@ -35,7 +35,7 @@ class Saved extends Component {
 
   handleArticleDelete = id => {
     API.deleteArticle(id)
-      .then(res => this.getSavedArticles())
+      .then(res => this.getSavedArticles(this.state.email))
       .catch(err => console.log(err));
   };
 
