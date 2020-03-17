@@ -12,7 +12,7 @@ class Saved extends Component {
     this.state = {
       articles: [],
       listCount: "",
-      email: "awleverenz@aol.com"
+      email: ""
     };
   }
 
@@ -33,8 +33,36 @@ class Saved extends Component {
     .catch(err => console.log(err));
   };
 
-  handleArticleDelete = id => {
+
+// original function for handleArticleDelete
+
+// handleArticleDelete = id => {
+//   API.deleteArticle(id)
+//     .then(res => this.getSavedArticles(this.state.email))
+//     .catch(err => console.log(err));
+// };
+
+  // test to check server controller response
+  handleArticleDelete = (id) => {
+
+    const newLabel = "OPTIMAL";
+    // this.state.match
+    const myEmail = this.props.state.email;
+    const myQuery = this.state.search;
+    const myData = [{ 
+      "email": myEmail, 
+      "query": myQuery
+    }];
+    console.log(myData);
+    console.log("queryId = " + this.state.queryId);
+
     API.deleteArticle(id)
+      .then(res => this.getSavedArticles(this.state.email))
+      .catch(err => console.log(err));
+  };
+
+  handleArticleUpdate = (id) => {
+    API.updateArticle(id)
       .then(res => this.getSavedArticles(this.state.email))
       .catch(err => console.log(err));
   };
@@ -80,12 +108,18 @@ class Saved extends Component {
                       padScore={article.padScore}
                       hml={article.hml}
                       Button={() => (
+                        // <button
+                        //   onClick={() => this.handleArticleDelete(article.id)}
+                        //   className="btn btn-danger ml-2"
+                        // >
+                        //   Delete
+                        // </button>
                         <button
-                          onClick={() => this.handleArticleDelete(article.id)}
-                          className="btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
+                        onClick={() => this.handleArticleUpdate(article.id)}
+                        className="btn btn-danger ml-2"
+                      >
+                        Delete
+                      </button>
                       )}
                     />
                   ))}

@@ -34,7 +34,7 @@ The Home route (Today) activates an automatic search for current headlines, retu
 
 ![](src/assets/images/navbar.png)
 
-The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries. 
+The Navbar enables the user to Signup or Login to begin searching, view saved articles or queries.
 
 ### Searching
 
