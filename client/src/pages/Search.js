@@ -15,6 +15,7 @@ class Search extends Component {
   
     this.state = {
       search: "",
+      searchLabel: "",
       articles: [],
       queries: [],
       message: "",
@@ -127,6 +128,7 @@ class Search extends Component {
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 search={this.state.search}
+                label={this.state.searchLabel}
               />
             </Jumbotron>
           </Col>
